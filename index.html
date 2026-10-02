@@ -736,25 +736,23 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   $('grid').addEventListener('click', handleCommon);
   render();
 
-  // ----- website checks (saved in Supabase by the daily GitHub checker) -----
+  // ----- website checks (saved daily into data/checks.json by the GitHub checker) -----
   const CFG = window.SITE_CONFIG || {};
-  const sbHeaders = () => { const h = { apikey: CFG.supabaseAnonKey }; if (/^eyJ/.test(CFG.supabaseAnonKey || '')) h.Authorization = 'Bearer ' + CFG.supabaseAnonKey; return h; };
+  const sbHeaders = () => { const h = {}; if (CFG.supabaseAnonKey) { h.apikey = CFG.supabaseAnonKey; if (/^eyJ/.test(CFG.supabaseAnonKey)) h.Authorization = 'Bearer ' + CFG.supabaseAnonKey; } return h; };
   (async () => {
-    if (!CFG.supabaseUrl || !CFG.supabaseAnonKey) return;
+    if (location.protocol === 'file:') return;
     try {
-      const r = await fetch(CFG.supabaseUrl + '/rest/v1/checks?select=*', { headers: sbHeaders() });
+      const r = await fetch('data/checks.json', { cache: 'no-cache' });
       if (!r.ok) return;
-      const rows = await r.json();
-      if (!Array.isArray(rows) || !rows.length) return;
-      const next = {};
-      rows.forEach(x => { next[x.place_id] = { checkedAt: x.checked_at, url: x.url, siteHours: x.site_hours, sitePrice: x.site_price, hours: x.hours, price: x.price, note: x.note }; });
+      const next = await r.json();
+      if (!next || typeof next !== 'object' || !Object.keys(next).length) return;
       CHECKS = next; render();
       if (cur && openSheet === $('detail')) { const keep = curIdx; openPlace(cur.i); showPhoto(keep); }
     } catch (e) {}
   })();
 
-  // ----- Ask AI (Google Gemini through a Supabase function) -----
-  const AI_URL = CFG.supabaseUrl && CFG.supabaseAnonKey ? CFG.supabaseUrl + '/functions/v1/ask' : null;
+  // ----- Ask AI (Google Gemini through a small Supabase function) -----
+  const AI_URL = CFG.aiUrl || null;
   let busy = null;
   const turns = [];
   if (AI_URL) $('askbtn').hidden = false;

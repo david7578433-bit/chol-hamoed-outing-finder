@@ -6,6 +6,9 @@ on:
     - cron: "0 10 * * 0-5"
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -16,9 +19,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests
-      - name: Check every website and save to Supabase
+      - name: Check every website
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python scripts/check_sites.py
+      - name: Save the results to the website
+        run: |
+          git config user.name "daily-check"
+          git config user.email "daily-check@users.noreply.github.com"
+          git add data/checks.json
+          git diff --cached --quiet || git commit -m "Daily hours and prices check"
+          git push

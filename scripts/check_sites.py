@@ -3,12 +3,10 @@
 Runs on GitHub Actions (see .github/workflows/daily-check.yml). For every place with a website it
 downloads the site plus its hours/visit/tickets pages, keeps the lines about hours and prices,
 asks Google Gemini (free tier) to compare them with the printed guide, and saves the results to
-the Supabase table `checks`, which the website reads.
+data/checks.json, which the website reads. The workflow commits that file back to the repository.
 
-Needs these environment variables (GitHub repository secrets):
-  GEMINI_API_KEY             from https://aistudio.google.com/apikey
-  SUPABASE_URL               e.g. https://abcd1234.supabase.co
-  SUPABASE_SERVICE_ROLE_KEY  Supabase -> Project Settings -> API keys -> service_role (secret)
+Needs one GitHub repository secret:
+  GEMINI_API_KEY   from https://aistudio.google.com/apikey
 Optional: GEMINI_MODEL (default gemini-flash-latest)
 """
 import json, os, re, sys, time, html, datetime, concurrent.futures as cf
@@ -19,8 +17,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PLACES = json.load(open(os.path.join(ROOT, 'data', 'places.json'), encoding='utf-8'))
 GEMINI_KEY = os.environ.get('GEMINI_API_KEY', '')
 MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
-SB_URL = os.environ.get('SUPABASE_URL', '').rstrip('/')
-SB_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY', '')
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36'
 LINK = re.compile(r'hour|visit|plan|ticket|pric|admission|rate|info|faq|attraction|location|open|general', re.I)
 KEEP = re.compile(r'\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\b|\b\d{1,2}(:\d{2})?\s*(am|pm|a\.m\.|p\.m\.)|\bnoon\b|\bopen|\bclosed\b|\bhours\b|\$\s?\d|\bfree\b|admission|ticket', re.I)
@@ -110,8 +106,8 @@ def judge(batch):
     raise RuntimeError('Gemini kept refusing (rate limit)')
 
 def main():
-    if not (GEMINI_KEY and SB_URL and SB_KEY):
-        sys.exit('Missing GEMINI_API_KEY, SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY')
+    if not GEMINI_KEY:
+        sys.exit('Missing GEMINI_API_KEY (add it under Settings -> Secrets and variables -> Actions)')
     by_id = {p['id']: p for p in PLACES if p.get('website')}
     with cf.ThreadPoolExecutor(16) as ex:
         gathered = list(ex.map(gather, by_id.values()))
@@ -137,10 +133,17 @@ def main():
                          'site_price': str(x.get('sitePrice', ''))[:160], 'hours': ok(x.get('hours')), 'price': ok(x.get('price')),
                          'note': str(x.get('note', ''))[:100]})
         time.sleep(7)   # stay inside the free tier's requests-per-minute limit
-    r = requests.post(f'{SB_URL}/rest/v1/checks', json=rows, timeout=60,
-                      headers={'apikey': SB_KEY, 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates,return=minimal',
-                               **({'Authorization': f'Bearer {SB_KEY}'} if SB_KEY.startswith('eyJ') else {})})
-    r.raise_for_status()
+    # Save into the website itself (data/checks.json); the workflow commits it.
+    path = os.path.join(ROOT, 'data', 'checks.json')
+    old = json.load(open(path, encoding='utf-8')) if os.path.exists(path) else {}
+    for x in rows:
+        prev = old.get(str(x['place_id']))
+        # keep yesterday's finding when today's page simply failed to load
+        if prev and x['hours'] == 'not_found' and x['price'] == 'not_found' and 'could not be loaded' in x['note'] and (prev.get('siteHours') or prev.get('sitePrice')):
+            continue
+        old[str(x['place_id'])] = {'checkedAt': x['checked_at'], 'url': x['url'], 'siteHours': x['site_hours'], 'sitePrice': x['site_price'],
+                                   'hours': x['hours'], 'price': x['price'], 'note': x['note']}
+    json.dump(old, open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
     from collections import Counter
     print(f'saved {len(rows)} places. hours:', Counter(x['hours'] for x in rows), 'prices:', Counter(x['price'] for x in rows))
 
