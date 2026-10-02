@@ -801,7 +801,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
       });
       let j = {};
       try { j = await r.json(); } catch (e) {}
-      if (!r.ok || !j.text) throw { code: j.error || 'upstream_error' };
+      if (!r.ok || !j.text) throw { code: j.error || (r.status === 404 ? 'not_configured' : 'upstream_error') };
       bubble.innerHTML = mdLite(j.text);
       turns.push({ role: 'assistant', content: j.text });
     } catch (e) {
