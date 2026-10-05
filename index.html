@@ -8,7 +8,7 @@
 <title>Chol Hamoed Outing Finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
 /* Layout: field-guide index. Filter rail left on desktop, stacked on phones; cards in a grid; a details sheet and an Ask AI drawer open over the page. */
 /* Look: clean and airy. White space, one green accent, big rounded photos; details live in the place sheet. */
@@ -491,8 +491,189 @@ body { background: var(--bg); background-image: var(--page); background-attachme
 #map { height: calc(100vh - var(--navh) - 150px); min-height: 420px; border-radius: 22px; box-shadow: var(--shadow); z-index: 1; }
 @media (max-width: 860px) { .hero-in { padding-block: 22px 80px; } #map { height: calc(100vh - var(--navh) - 210px); } }
 @media (max-width: 720px) { .wxrow { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 10px; } }
+
+/* ---- coastal theme: scenic photo behind a glass nav, serif display type, sandy page ---- */
+:root {
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --navh: 64px;
+  --heroh: clamp(610px, 48vw, 880px);
+  --bg: #f7f9fa; --surface: #ffffff; --surface-2: #f0f4f6; --ink: #0f2f45; --muted: #5b7080; --line: #e1e8ec;
+  --schach: #0b6fae; --schach-ink: #ffffff; --schach-soft: #e3f0f8; --focus: #0b6fae;
+  --page: linear-gradient(180deg, #f4ede1 0px, #f8f4ec 1100px, #f7f9fa 2400px);
+  --hero: linear-gradient(120deg, #0b4f7c 0%, #1185c9 52%, #12a39a 100%);
+  --cta: linear-gradient(135deg, #1789d2 0%, #0ea5a0 100%);
+  --sand: #f4ede1;
+  --c-ink: #0b2f48; --c-ink2: #173f5a; --c-accent: #075a91; --c-yi: #7a4a00;
+  --glass: rgb(255 255 255 / 0.8); --glass-line: rgb(255 255 255 / 0.92); --glass-chip: rgb(255 255 255 / 0.58);
+  --nav-glass: rgb(236 245 251 / 0.3);
+  --coast-img: url(img/coast/day-2400.webp);
+  --coast-tint: linear-gradient(180deg, rgb(238 246 251 / 0.42) 0%, rgb(238 246 251 / 0) 36%);
+}
+@media (max-width: 700px) and (max-resolution: 1.4dppx) { :root { --coast-img: url(img/coast/day-1280.webp); } }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #08131b; --surface: #0f1d27; --surface-2: #162733; --ink: #e9f1f6; --muted: #9bb0bd; --line: #223744;
+    --schach: #5cbff4; --schach-ink: #04121b; --schach-soft: #12324a; --focus: #5cbff4;
+    --page: linear-gradient(180deg, #0b1820 0px, #08131b 1200px);
+    --hero: linear-gradient(120deg, #0b3a5c 0%, #0c5f8f 52%, #0b6f69 100%);
+    --cta: linear-gradient(135deg, #0b78bf 0%, #0b8f8a 100%);
+    --sand: #0b1820;
+    --c-ink: #ffffff; --c-ink2: #e3edf3; --c-accent: #ffd79a; --c-yi: #f6cf7a;
+    --glass: rgb(9 24 35 / 0.6); --glass-line: rgb(255 255 255 / 0.2); --glass-chip: rgb(9 24 35 / 0.45);
+    --nav-glass: rgb(6 16 24 / 0.32);
+    --coast-img: url(img/coast/dusk-2400.webp);
+    --coast-tint: linear-gradient(180deg, rgb(5 14 21 / 0.6) 0%, rgb(5 14 21 / 0.18) 45%);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #08131b; --surface: #0f1d27; --surface-2: #162733; --ink: #e9f1f6; --muted: #9bb0bd; --line: #223744;
+  --schach: #5cbff4; --schach-ink: #04121b; --schach-soft: #12324a; --focus: #5cbff4;
+  --page: linear-gradient(180deg, #0b1820 0px, #08131b 1200px);
+  --hero: linear-gradient(120deg, #0b3a5c 0%, #0c5f8f 52%, #0b6f69 100%);
+  --cta: linear-gradient(135deg, #0b78bf 0%, #0b8f8a 100%);
+  --sand: #0b1820;
+  --c-ink: #ffffff; --c-ink2: #e3edf3; --c-accent: #ffd79a; --c-yi: #f6cf7a;
+  --glass: rgb(9 24 35 / 0.6); --glass-line: rgb(255 255 255 / 0.2); --glass-chip: rgb(9 24 35 / 0.45);
+  --nav-glass: rgb(6 16 24 / 0.32);
+  --coast-img: url(img/coast/dusk-2400.webp);
+  --coast-tint: linear-gradient(180deg, rgb(5 14 21 / 0.6) 0%, rgb(5 14 21 / 0.18) 45%);
+}
+body { background-color: var(--bg); background-image: var(--page); background-attachment: scroll; background-repeat: no-repeat; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* nav: frosted glass over the scenery, a little more solid once you scroll.
+   The glass sits on ::before so the phone tab bar (position: fixed inside the nav) stays pinned to the screen. */
+.topnav { background: transparent; border-bottom: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.topnav::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: color-mix(in srgb, var(--surface) 80%, transparent); border-bottom: 1px solid var(--line); backdrop-filter: saturate(1.5) blur(16px); -webkit-backdrop-filter: saturate(1.5) blur(16px); transition: background-color 0.25s, border-color 0.25s, box-shadow 0.25s; }
+body[data-view="home"] .topnav:not(.solid)::before { background: var(--nav-glass); border-bottom-color: rgb(255 255 255 / 0.4); }
+.topnav.solid::before { box-shadow: 0 6px 24px rgb(15 47 69 / 0.07); }
+.brand { font-family: var(--font-display); font-weight: 500; font-size: 23px; letter-spacing: -0.01em; color: var(--ink); align-items: center; }
+.brand .yi { font-size: 17px; color: var(--c-yi); }
+body[data-view="home"] .topnav:not(.solid) .brand { color: var(--c-ink); }
+.pill.ask { background: var(--glass); border: 1px solid var(--glass-line); color: var(--ink); box-shadow: 0 4px 14px rgb(12 53 80 / 0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 9px 18px; }
+.pill.ask svg { color: #0ea5a0; }
+.topnav.solid .pill.ask { border-color: var(--line); }
+@media (min-width: 721px) {
+  .navlinks { justify-content: center; gap: 4px; }
+  .navlinks a, .navlinks a[aria-current="page"] { background: none; color: var(--ink); opacity: 0.74; border-radius: 0; padding: 10px 14px; position: relative; font-size: 14.5px; }
+  .navlinks a svg { display: none; }
+  .navlinks a:hover { opacity: 1; color: var(--ink); }
+  .navlinks a[aria-current="page"] { opacity: 1; }
+  .navlinks a[aria-current="page"]::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: 3px; height: 2px; border-radius: 2px; background: var(--cta); }
+  body[data-view="home"] .topnav:not(.solid) .navlinks a { color: var(--c-ink); opacity: 0.86; }
+  body[data-view="home"] .topnav:not(.solid) .navlinks a[aria-current="page"] { opacity: 1; }
+}
+
+/* the coast: photo starts behind the nav and fades into sand under the categories */
+.coast { position: relative; isolation: isolate; margin-top: calc(-1 * var(--navh)); padding-top: var(--navh); color: var(--c-ink); }
+.coast-bg { position: absolute; z-index: -1; left: 0; right: 0; top: 0; height: calc(var(--heroh) + 300px);
+  background: var(--coast-tint), linear-gradient(180deg, transparent 0%, transparent 56%, color-mix(in srgb, var(--sand) 70%, transparent) 82%, var(--sand) 100%), var(--coast-img) 50% 36% / cover no-repeat, var(--sand);
+  -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent 100%); mask-image: linear-gradient(180deg, #000 80%, transparent 100%); }
+.coast .wrap { max-width: 1240px; padding-inline: 24px; }
+.coast-hero { min-height: calc(var(--heroh) - var(--navh)); display: flex; align-items: flex-start; padding-block: clamp(44px, 7.2vw, 112px) 40px; }
+.coast-copy { display: flex; flex-direction: column; gap: 0; max-width: 780px; width: 100%; min-width: 0; }
+.coast-eyebrow { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 0 0 18px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--c-ink2); }
+.coast-eyebrow .yi { font-family: var(--font-yi); font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--c-yi); }
+.coast h1 { margin: 0 0 12px; max-width: none; font: 400 clamp(46px, 6.6vw, 90px)/1.02 var(--font-display); letter-spacing: -0.035em; color: var(--c-ink); text-shadow: 0 1px 24px rgb(255 255 255 / 0.35); text-wrap: balance; }
+.coast h1 em { font-style: italic; color: var(--c-accent); }
+.coast-sub { margin: 0 0 30px; font: 400 clamp(19px, 2.2vw, 26px)/1.35 var(--font-display); color: var(--c-ink2); }
+.coast .herosearch { display: flex; flex-wrap: nowrap; align-items: center; gap: 0; max-width: 780px; padding: 8px 8px 8px 22px; background: var(--glass); border: 1px solid var(--glass-line); border-radius: 999px; box-shadow: 0 18px 44px rgb(12 53 80 / 0.16), inset 0 1px 0 rgb(255 255 255 / 0.5); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); }
+.coast .herosearch:focus-within { box-shadow: 0 0 0 3px rgb(11 111 174 / 0.35), 0 18px 44px rgb(12 53 80 / 0.16); }
+.coast .hs-q { flex: 1 1 auto; display: flex; align-items: center; gap: 10px; min-width: 0; padding: 0; border: 0; color: var(--c-ink2); width: auto; }
+.coast .hs-q input { flex: 1 1 auto; min-width: 0; width: 100%; border: 0; background: transparent; padding: 14px 0; font-size: 16px; color: var(--c-ink); }
+.coast .hs-q input::placeholder { color: var(--c-ink2); opacity: 0.72; }
+.coast .hs-q input:focus { outline: none; }
+.coast .hs-from { flex: none; display: flex; align-items: center; gap: 6px; border: 0; border-left: 1px solid color-mix(in srgb, var(--c-ink) 18%, transparent); padding: 0 10px 0 18px; margin-left: 10px; color: var(--c-ink2); width: auto; }
+.coast .hs-from select { border: 0; background: transparent; color: var(--c-ink); font-weight: 600; font-size: 15px; padding: 10px 2px; max-width: 200px; cursor: pointer; }
+.coast .hs-from select option { color: #0f2f45; background: #ffffff; }
+.coast .herosearch .btn { flex: none; padding: 14px 24px; font-size: 15px; font-weight: 700; border-radius: 999px; background: var(--cta); border: 0; color: #ffffff; box-shadow: 0 8px 22px rgb(14 120 190 / 0.32); white-space: nowrap; }
+.coast .quick { margin: 18px 0 0; gap: 8px; }
+.coast .quick .chip { background: var(--glass-chip); border: 1px solid var(--glass-line); color: var(--c-ink); font-weight: 600; font-size: 13.5px; padding: 7px 14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.coast .quick .chip:hover { background: var(--glass); }
+.coast-lede { margin: 16px 0 0; font-size: 14px; font-weight: 500; color: var(--c-ink2); max-width: 62ch; }
+
+/* Find your kind of fun */
+.fun-wrap { padding-block: 4px 60px; }
+.fun-head { position: relative; isolation: isolate; text-align: center; margin: 0 auto 28px; max-width: 640px; }
+.fun-head::before { content: ""; position: absolute; z-index: -1; inset: -34px -90px -26px; background: radial-gradient(closest-side, color-mix(in srgb, var(--sand) 82%, transparent), color-mix(in srgb, var(--sand) 0%, transparent)); pointer-events: none; }
+.fun-head h2 { margin: 0; font: 400 clamp(30px, 3.6vw, 46px)/1.15 var(--font-display); letter-spacing: -0.02em; color: var(--c-ink); }
+.fun-head h2::after { content: ""; display: block; width: 64px; height: 2px; margin: 16px auto 0; border-radius: 2px; background: #3e92bb; }
+.fun-head p { margin: 14px 0 0; color: var(--c-ink2); font-size: 14.5px; }
+.fun-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 1180px; margin: 0 auto; }
+.fun { position: relative; isolation: isolate; display: flex; align-items: flex-end; aspect-ratio: 1.6; border: 1px solid rgb(255 255 255 / 0.6); padding: 0; margin: 0; border-radius: 20px; overflow: hidden; cursor: pointer; text-align: left; font: inherit; color: #ffffff; background: #2a5a70; box-shadow: 0 10px 30px rgb(12 53 80 / 0.16); }
+.fun img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.fun::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(7 30 49 / 0) 36%, rgb(7 30 49 / 0.8) 100%); }
+.fun-t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; padding: 20px 22px; }
+.fun-t b { font: 400 clamp(21px, 2vw, 27px)/1.15 var(--font-display); letter-spacing: -0.01em; }
+.fun-t small { font-size: 13px; opacity: 0.92; }
+.fun-go { flex: none; display: grid; place-items: center; width: 42px; height: 42px; margin: 0 18px 20px 0; border-radius: 999px; font-size: 18px; color: #ffffff; background: rgb(255 255 255 / 0.18); border: 1px solid rgb(255 255 255 / 0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.fun-n { position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px 5px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; color: #0f2f45; background: rgb(255 255 255 / 0.9); }
+.fun-n::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.fun:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  .fun, .fun img, .fun-go { transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, background-color 0.3s; }
+  .fun:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgb(12 53 80 / 0.26); }
+  .fun:hover img { transform: scale(1.05); }
+  .fun:hover .fun-go { transform: translateX(3px); background: #ffffff; color: #0f2f45; }
+}
+.fun-more { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+.morepill { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); font: inherit; font-weight: 600; font-size: 14px; text-decoration: none; cursor: pointer; box-shadow: 0 2px 10px rgb(12 53 80 / 0.06); }
+.morepill:hover { border-color: var(--schach); }
+.morepill i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+.morepill span { color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* the rest of the site picks up the same type */
+.bandhead h2, .pagehead h1, .askpromo h2, .xgroup h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.015em; }
+.bandhead h2 { font-size: clamp(26px, 2.6vw, 32px); }
+.cat-t b { font-family: var(--font-display); font-weight: 400; font-size: 22px; letter-spacing: -0.01em; }
+.bandhead h2::after { width: 48px; height: 2px; margin-top: 10px; background: #3e92bb; }
+.pagehead h1 { font-size: clamp(30px, 4vw, 42px); }
+.askpromo h2 { font-size: 26px; }
+.sheet-head h2 { font-family: var(--font-display); font-weight: 500; font-size: 24px; letter-spacing: -0.01em; }
+.askpromo .btn { color: #0b4f7c; }
+footer .tagline { text-align: center; letter-spacing: 0.3em; text-transform: uppercase; font-size: 11px; font-weight: 600; color: var(--muted); margin: 6px auto 16px; max-width: none; }
+
+@media (max-width: 960px) {
+  .fun-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+}
+@media (max-width: 720px) {
+  :root { --navh: 56px; }
+  .coast .wrap { padding-inline: 16px; }
+  .coast-bg { height: 940px; background-position: 0 0, 0 0, 22% 30%, 0 0; background-size: auto, auto, cover, auto; }
+  .coast-lede { display: none; }
+  .navlinks { background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: saturate(1.5) blur(16px); -webkit-backdrop-filter: saturate(1.5) blur(16px); }
+  .coast-hero { min-height: 0; padding-block: 34px 34px; }
+  .coast-eyebrow { font-size: 10.5px; letter-spacing: 0.2em; margin-bottom: 12px; }
+  .coast h1 { font-size: clamp(42px, 12vw, 56px); }
+  .coast-sub { margin-bottom: 22px; }
+  .coast .herosearch { flex-wrap: wrap; border-radius: 24px; padding: 10px; gap: 8px; }
+  .coast .hs-q { flex: 1 1 100%; padding: 0 8px; }
+  .coast .hs-q input { padding: 10px 0; }
+  .coast .hs-from { flex: 1 1 0; min-width: 0; margin: 0; border-left: 0; padding: 0 4px 0 8px; background: color-mix(in srgb, var(--surface) 55%, transparent); border-radius: 999px; }
+  .coast .hs-from select { max-width: none; width: 100%; }
+  .coast .herosearch .btn { padding: 12px 18px; width: auto; }
+  .coast .quick { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding-inline: 16px; scrollbar-width: none; }
+  .coast .quick::-webkit-scrollbar { display: none; }
+  .coast .quick .chip { flex: none; }
+  .fun-wrap { padding-bottom: 40px; }
+  .fun-head { margin-bottom: 20px; }
+  .fun-head p { font-size: 13.5px; }
+  .fun { aspect-ratio: 1.08; border-radius: 16px; }
+  .fun-t { padding: 12px 13px; }
+  .fun-t b { font-size: 19px; }
+  .fun-t small { font-size: 12px; }
+  .fun-go { display: none; }
+  .fun-n { top: 10px; left: 10px; font-size: 11px; padding: 4px 9px 4px 8px; }
+  .morepill { font-size: 13.5px; padding: 8px 13px; }
+  .brand { font-size: 21px; }
+  .navlinks a[aria-current="page"] { background: none; color: var(--schach); }
+}
+@media (max-width: 380px) { .brand .yi { display: none; } }
 </style>
 
+
+</head>
+<body>
 <nav class="topnav" aria-label="Main">
   <div class="wrap navrow">
     <a class="brand" href="#home"><span class="yi" lang="he" dir="rtl">חול המועד</span>Outing Finder</a>
@@ -503,39 +684,40 @@ body { background: var(--bg); background-image: var(--page); background-attachme
       <a href="#map" data-view="map" id="nav-map" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Map</a>
       <a href="#trips" data-view="trips"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z" stroke-linejoin="round"/></svg>My Trips <span class="count" id="nav-saved"></span></a>
     </div>
-    <button class="pill ask" id="askbtn" type="button" hidden aria-controls="askpanel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span class="lbl">Ask AI</span></button>
+    <button class="pill ask" id="askbtn" type="button" hidden aria-controls="askpanel" aria-label="Ask AI"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><span class="lbl">Ask AI</span></button>
   </div>
 </nav>
 
 <div class="view" id="view-home">
-  
-</head>
-<body>
-<header class="hero">
-    <div class="wrap hero-in">
-      <div class="hero-copy">
-      <div class="eyebrow"><span class="yi" lang="he" dir="rtl">חול המועד סוכות תשפ״ז</span><span>From the Navigation outings guide</span></div>
-      <h1>Where should we go this Chol Hamoed?</h1>
-      <p class="lede" id="herolede">Hundreds of places with photos, family reviews, hours, prices and drive times from your community.</p>
-      <form class="herosearch" id="heroform" role="search">
-        <input id="heroq" type="search" placeholder="Try zoo, bowling, apple picking, boat…" aria-label="Search places" autocomplete="off">
-        <label for="herofrom">From <select id="herofrom"></select></label>
-        <button class="btn" type="submit">Search</button>
-      </form>
-      <div class="quick" id="heroquick" role="group" aria-label="Quick picks">
-        <button class="chip" type="button" data-q="rain">Rainy day (indoors)</button>
-        <button class="chip" type="button" data-q="little">Good for little kids</button>
-        <button class="chip" type="button" data-q="free">Free</button>
-        <button class="chip" type="button" data-q="close">Within 30 min</button>
-        <button class="chip" type="button" data-q="rev">Has family reviews</button>
+  <section class="coast" aria-labelledby="hero-title">
+    <div class="coast-bg" aria-hidden="true"></div>
+    <div class="wrap coast-hero">
+      <div class="coast-copy">
+        <p class="coast-eyebrow"><span>Your Chol Hamoed starts here</span><span class="yi" lang="he" dir="rtl">חול המועד סוכות תשפ״ז</span></p>
+        <h1 id="hero-title">A day to <em>remember.</em></h1>
+        <p class="coast-sub">Find your next family adventure.</p>
+        <form class="herosearch" id="heroform" role="search">
+          <label class="hs-q" for="heroq"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr-only">Search outings</span><input id="heroq" type="search" placeholder="Search outings: zoo, bowling, apple picking…" autocomplete="off"></label>
+          <label class="hs-from" for="herofrom"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="sr-only">Starting from</span><select id="herofrom"></select></label>
+          <button class="btn" type="submit">Find an outing <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="quick" id="heroquick" role="group" aria-label="Quick picks">
+          <button class="chip" type="button" data-q="rain">Rainy day (indoors)</button>
+          <button class="chip" type="button" data-q="little">Good for little kids</button>
+          <button class="chip" type="button" data-q="free">Free</button>
+          <button class="chip" type="button" data-q="close">Within 30 min</button>
+          <button class="chip" type="button" data-q="rev">Has family reviews</button>
+        </div>
+        <p class="coast-lede" id="herolede">Hundreds of places with photos, family reviews, hours, prices and drive times from your community.</p>
       </div>
-      </div>
-      <div class="mosaic" id="mosaic" aria-hidden="true"></div>
     </div>
-    <svg class="wave" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 80 480 0 720 28 S 1200 72 1440 24 L1440 72 L0 72 Z"/></svg>
-  </header>
+    <div class="wrap fun-wrap" id="fun">
+      <div class="fun-head"><h2>Find your kind of fun</h2><p>Pick a category to see every place, with photos, hours, prices and drive times.</p></div>
+      <div class="fun-grid" id="fun-grid"></div>
+      <div class="fun-more" id="fun-more" role="group" aria-label="More categories"></div>
+    </div>
+  </section>
   <div class="wrap view-pad">
-    <section class="band"><div class="bandhead"><div><h2>Browse by category</h2></div><a href="#explore">See all</a></div><div class="catgrid" id="home-cats"></div></section>
     <section class="band"><div class="bandhead"><div><h2>Families' favorites</h2><p>The places with the most family reviews in the guide.</p></div><a href="#search" data-go="reviews">See all</a></div><div class="rail" id="rail-fav"></div></section>
     <section class="band"><div class="bandhead"><div><h2>Free and close by</h2><p id="free-sub">Free places, closest first.</p></div><a href="#search" data-go="free">See all</a></div><div class="rail" id="rail-free"></div></section>
     <section class="band"><div class="bandhead"><div><h2>Trips away</h2><p>Overnight destinations, with shuls, mikvahs and kosher food.</p></div><a href="#explore">See all</a></div><div class="catgrid" id="home-trips"></div></section>
@@ -655,8 +837,9 @@ body { background: var(--bg); background-image: var(--page); background-attachme
 </div>
 
 <footer class="wrap">
+  <p class="tagline">Explore · Discover · Together</p>
   <p>Listings, booklet photos, Yiddish descriptions and family reviews come from the Navigation Sukkos 5787 guide published at yazory.com. Google's own reviews can't be copied in; the "Google reviews" button opens them on Google Maps. Hours and prices were set at print time for Chol Hamoed; where it says "Checked on their website", a helper compared them with the place's own website on that date. Always call before you go.</p>
-  <p>The guide doesn't list websites; they were looked up separately and checked against each place's phone number or address where possible. Extra photos come from each place's own website, and photos showing people were left out.</p>
+  <p>The guide doesn't list websites; they were looked up separately and checked against each place's phone number or address where possible. Extra photos come from each place's own website, and photos showing people were left out. The beach scenery is from Fire Island National Seashore (National Park Service photos, public domain).</p>
 </footer>
 
 <button class="totop" id="totop" type="button" aria-label="Back to top" hidden>↑</button>
@@ -1064,7 +1247,9 @@ body { background: var(--bg); background-image: var(--page); background-attachme
   }
   $('copylist').addEventListener('click', e => copyList(e.currentTarget));
   $('copylist2').addEventListener('click', e => copyList(e.currentTarget));
-  window.addEventListener('scroll', () => { $('totop').hidden = window.scrollY < 900; }, { passive: true });
+  const topnav = document.querySelector('.topnav');
+  function navSolid() { topnav.classList.toggle('solid', curView !== 'home' || window.scrollY > 24); }
+  window.addEventListener('scroll', () => { $('totop').hidden = window.scrollY < 900; navSolid(); }, { passive: true });
   $('totop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
   $('sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
   let t;
@@ -1084,29 +1269,40 @@ body { background: var(--bg); background-image: var(--page); background-attachme
   const mini = p => `<button class="mini" type="button" data-open="${p.i}"><span class="mini-ph" style="${bgStyle(heroPh(p))}"></span><span class="mini-b"><span class="sec" style="--c:${secColor(p.s)}">${esc(p.s)}</span><b>${esc(p.n)}</b><span class="mini-m">${esc(miniMeta(p))}</span></span></button>`;
   const uniqName = list => { const seen = new Set(); return list.filter(p => { const k = p.n.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; }); };
   const median = a => { const s = a.slice().sort((x, y) => x - y); return s.length ? s[Math.floor(s.length / 2)] : null; };
-  const COVER = { 'Parks & Farms': 'West Maple Farm', 'Airports': 'Skydive The Ranch', 'Water Fun': 'Lake Welch', 'Museums': 'Liberty Science Center', 'Outdoor Fun': 'Six Flags' };
+  const COVER = { 'Parks & Farms': 'West Maple Farm', 'Airports': 'Skydive The Ranch', 'Water Fun': 'Lake Welch', 'Museums': 'Liberty Science Center', 'Outdoor Fun': 'Six Flags', 'Catskills': 'Morningside Park' };
   function coverFor(list) {
     const want = list.length && COVER[list[0].s] ? list.find(p => p.n === COVER[list[0].s]) : null;
     if (want) return bgStyle(heroPh(want));
     const best = list.filter(p => p.gal.length).sort((a, b) => b.rv.length - a.rv.length)[0] || list[0];
     return best ? bgStyle(heroPh(best)) : '';
   }
+  function catCover(sec, kind, list) {
+    const f = kind === 'local' && FUN.find(x => x[0] === sec);
+    return f ? `background-image:url(img/cat/${f[1]}.webp);background-size:cover;background-position:center` : coverFor(list);
+  }
   function catCard(sec, kind) {
     const list = P.filter(p => p.s === sec && p.k === kind);
     let sub = `${list.length} ${list.length === 1 ? 'place' : 'places'}`;
     if (kind === 'trip') { const m = median(list.map(p => tm(p)).filter(x => x != null)); if (m) sub += ` · about ${fmt(m)} drive`; }
-    return `<button class="cat" type="button" style="--c:${secColor(sec)}" data-sec="${esc(sec)}" data-kind="${kind}"><span class="cat-ph" style="${coverFor(list)}"></span><span class="cat-t"><b>${esc(sec)}</b><span>${esc(sub)}</span></span></button>`;
+    return `<button class="cat" type="button" style="--c:${secColor(sec)}" data-sec="${esc(sec)}" data-kind="${kind}"><span class="cat-ph" style="${catCover(sec, kind, list)}"></span><span class="cat-t"><b>${esc(sec)}</b><span>${esc(sub)}</span></span></button>`;
   }
   const originOptions = () => ORIG.map(o => `<option value="${esc(o.k)}">${esc(o.n)}</option>`).join('');
+  const FUN = [['Indoor Fun', 'indoor-fun', 'Play, discover, unwind'], ['Outdoor Fun', 'outdoor-fun', 'A little fresh air'], ['Water Fun', 'water-fun', 'Make a splash'],
+    ['Zoos & Aquariums', 'zoos-aquariums', 'Meet the wild ones'], ['Museums', 'museums', 'Feed their curiosity'], ['Parks & Farms', 'parks-farms', 'Room to roam']];
+  const secCount = sec => P.filter(p => p.s === sec && p.k === 'local').length;
+  const funCard = ([sec, slug, tag]) => `<button class="fun" type="button" data-sec="${esc(sec)}" data-kind="local" style="--c:${secColor(sec)}"><img src="img/cat/${slug}.webp" alt="" width="800" height="500" loading="lazy" decoding="async"><span class="fun-n">${secCount(sec)} places</span><span class="fun-t"><b>${esc(sec)}</b><small>${esc(tag)}</small></span><span class="fun-go" aria-hidden="true">→</span></button>`;
+  function funMore() {
+    const secs = LOCAL_ORDER.filter(s => !FUN.some(f => f[0] === s) && secCount(s));
+    return secs.map(s => `<button class="morepill" type="button" data-sec="${esc(s)}" data-kind="local"><i style="--c:${secColor(s)}"></i>${esc(s)} <span>${secCount(s)}</span></button>`).join('')
+      + `<a class="morepill" href="#explore"><i style="--c:#0ea5e9"></i>Trips away <span>${P.filter(p => p.k === 'trip').length}</span></a>`
+      + `<a class="morepill" href="#map" data-needs="map" ${window.renderMap ? '' : 'hidden'}><i style="--c:#14b8a6"></i>See them on a map</a>`;
+  }
   function renderHome() {
-    const picks = ['Six Flags', 'Bronx Zoo', 'Kalahari', 'Dorney Park', 'Liberty Science Center', 'NY Aquarium', 'Maid of the Mist', 'West Maple Farm'];
-    const tiles = picks.map(n => P.find(p => p.n === n)).filter(Boolean);
-    P.filter(p => p.gal.length && p.rv.length).sort((a, b) => b.rv.length - a.rv.length).forEach(p => { if (tiles.length < 8 && !tiles.includes(p)) tiles.push(p); });
-    $('mosaic').innerHTML = tiles.slice(0, 3).map(p => `<span><i style="${bgStyle(heroPh(p))}"></i></span>`).join('');
-    if (!$('herofrom').options.length) $('herofrom').innerHTML = originOptions();
+    if (!$('herofrom').options.length) $('herofrom').innerHTML = ORIG.map(o => `<option value="${esc(o.k)}">From ${esc(o.n)}</option>`).join('');
     $('herofrom').value = state.origin;
-    $('herolede').textContent = `${P.length} places with photos, family reviews, hours, prices and drive times from your community.`;
-    $('home-cats').innerHTML = LOCAL_ORDER.map(s => catCard(s, 'local')).join('');
+    $('herolede').textContent = `${P.length} places from the Navigation guide, with photos, family reviews, hours, prices and drive times from your community.`;
+    $('fun-grid').innerHTML = FUN.map(funCard).join('');
+    $('fun-more').innerHTML = funMore();
     $('home-trips').innerHTML = TRIP_ORDER.slice(0, 8).map(s => catCard(s, 'trip')).join('');
     $('rail-fav').innerHTML = uniqName(P.filter(p => p.k === 'local' && p.rv.length).sort((a, b) => b.rv.length - a.rv.length || a.i - b.i)).slice(0, 14).map(mini).join('');
     const free = uniqName(P.filter(p => p.k === 'local' && (p.fp === 0 || isFree(p)) && tm(p) != null).sort((a, b) => tm(a) - tm(b))).slice(0, 14);
@@ -1144,6 +1340,7 @@ body { background: var(--bg); background-image: var(--page); background-attachme
   function showView(v) {
     if (!VIEWS.includes(v) || (v === 'map' && !window.renderMap)) v = 'home';
     curView = v;
+    document.body.dataset.view = v;
     VIEWS.forEach(x => { $('view-' + x).hidden = x !== v; });
     document.querySelectorAll('.navlinks a').forEach(a => a.setAttribute('aria-current', a.dataset.view === v ? 'page' : 'false'));
     $('nav-saved').textContent = saved.size || '';
@@ -1153,6 +1350,7 @@ body { background: var(--bg); background-image: var(--page); background-attachme
     else if (v === 'map') window.renderMap();
     else render();
     window.scrollTo(0, 0);
+    navSolid();
   }
   function go(v) { if (location.hash.slice(1) === v) showView(v); else location.hash = v; }
   window.addEventListener('hashchange', () => showView(location.hash.slice(1)));
@@ -1163,8 +1361,8 @@ body { background: var(--bg); background-image: var(--page); background-attachme
     state.area = 'local'; state.sections.clear(); state.states.clear();
   }
   function onCat(e) {
-    const c = e.target.closest('.cat'); if (!c) return false;
-    state.area = c.dataset.kind; state.sections.clear(); state.states.clear(); state.sections.add(c.dataset.sec);
+    const c = e.target.closest('.cat, .fun, .morepill[data-sec]'); if (!c) return false;
+    applyQuick(''); state.q = []; $('q').value = ''; state.area = c.dataset.kind; state.sections.add(c.dataset.sec);
     go('search'); return true;
   }
   ['view-home', 'view-explore', 'view-trips'].forEach(id => $(id).addEventListener('click', e => { if (!onCat(e)) handleCommon(e); }));
@@ -1334,6 +1532,7 @@ body { background: var(--bg); background-image: var(--page); background-attachme
   };
   $('map').addEventListener('click', e => { const o = e.target.closest('[data-open]'); if (o) openPlace(+o.dataset.open); });
   $('nav-map').hidden = false;
+  document.querySelectorAll('[data-needs="map"]').forEach(el => { el.hidden = false; });
   $('showmap').hidden = false;
   $('showmap').addEventListener('click', () => go('map'));
   if (location.hash === '#map') showView('map');
