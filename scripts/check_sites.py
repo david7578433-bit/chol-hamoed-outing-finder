@@ -23,11 +23,25 @@ KEEP = re.compile(r'\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\b|\b\d{1,2}(:\d{2})?\s
 S = requests.Session()
 S.headers.update({'User-Agent': UA, 'Accept': 'text/html,application/xhtml+xml'})
 
+T0 = time.time()
+FETCH_BUDGET = 20 * 60     # seconds for downloading all websites
+TOTAL_BUDGET = 65 * 60     # stop asking Gemini after this, so results are always saved in time
+
+def log(*a):
+    print(f'[{int(time.time() - T0) // 60:02d}:{int(time.time() - T0) % 60:02d}]', *a, flush=True)
+
 def get(url):
+    # Hard 20-second limit per page: a server that trickles bytes can't hold the whole check up.
     try:
-        r = S.get(url, timeout=25, allow_redirects=True)
-        return r.status_code, r.url, r.text if 'html' in r.headers.get('content-type', 'text/html') else ''
-    except Exception as e:
+        with S.get(url, timeout=(10, 15), allow_redirects=True, stream=True) as r:
+            if 'html' not in r.headers.get('content-type', 'text/html'):
+                return r.status_code, r.url, ''
+            buf, start = b'', time.time()
+            for chunk in r.iter_content(65536):
+                buf += chunk
+                if len(buf) > 3_000_000 or time.time() - start > 20: break
+            return r.status_code, r.url, buf.decode(r.encoding or 'utf-8', 'replace')
+    except Exception:
         return 0, url, ''
 
 def text_lines(body):
@@ -105,12 +119,38 @@ def judge(batch):
         return json.loads(txt)
     raise RuntimeError('Gemini kept refusing (rate limit)')
 
+PATH = os.path.join(ROOT, 'data', 'checks.json')
+
+def save(rows):
+    """Merge rows into the website's data/checks.json (the workflow commits it). Safe to call often."""
+    old = json.load(open(PATH, encoding='utf-8')) if os.path.exists(PATH) else {}
+    for x in rows:
+        prev = old.get(str(x['place_id']))
+        # keep the last good finding when today's page simply failed to load
+        if prev and x['hours'] == 'not_found' and x['price'] == 'not_found' and ('could not be loaded' in x['note'] or 'too long' in x['note']) and (prev.get('siteHours') or prev.get('sitePrice')):
+            continue
+        old[str(x['place_id'])] = {'checkedAt': x['checked_at'], 'url': x['url'], 'siteHours': x['site_hours'], 'sitePrice': x['site_price'],
+                                   'hours': x['hours'], 'price': x['price'], 'note': x['note']}
+    json.dump(old, open(PATH, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
+
 def main():
     if not GEMINI_KEY:
         sys.exit('Missing GEMINI_API_KEY (add it under Settings -> Secrets and variables -> Actions)')
     by_id = {p['id']: p for p in PLACES if p.get('website')}
-    with cf.ThreadPoolExecutor(16) as ex:
-        gathered = list(ex.map(gather, by_id.values()))
+    log(f'downloading {len(by_id)} websites')
+    ex = cf.ThreadPoolExecutor(24)
+    futs = {ex.submit(gather, p): pid for pid, p in by_id.items()}
+    gathered = []
+    try:
+        for n, f in enumerate(cf.as_completed(futs, timeout=FETCH_BUDGET), 1):
+            gathered.append(f.result())
+            if n % 50 == 0: log(f'{n} websites downloaded')
+    except cf.TimeoutError:
+        done = {g['id'] for g in gathered}
+        for f, pid in futs.items():
+            if pid not in done: gathered.append({'id': pid, 'text': '', 'error': 'website took too long to load'})
+        log('stopped waiting for slow websites')
+    ex.shutdown(wait=False, cancel_futures=True)
     now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds')
     rows, todo = [], []
     for g in gathered:
@@ -119,33 +159,30 @@ def main():
         else:
             rows.append({'place_id': g['id'], 'checked_at': now, 'url': p['website'], 'site_hours': '', 'site_price': '',
                          'hours': 'not_found', 'price': 'not_found', 'note': g['error'][:100]})
+    save(rows)
+    log(f'{len(todo)} websites have hours or prices to compare; {len(rows)} had nothing usable')
+    ok = lambda v: v if v in ('same', 'different', 'not_found') else 'not_found'
     for i in range(0, len(todo), 20):
+        if time.time() - T0 > TOTAL_BUDGET:
+            log(f'time budget used; {len(todo) - i} places wait for the next run'); break
         batch = todo[i:i + 20]
         try:
             res = {int(x['id']): x for x in judge(batch)}
         except Exception as e:
-            print('batch failed:', e); res = {}
+            log('batch failed:', e); res = {}
+        part = []
         for g, p in batch:
             x = res.get(g['id'])
             if not x: continue
-            ok = lambda v: v if v in ('same', 'different', 'not_found') else 'not_found'
-            rows.append({'place_id': g['id'], 'checked_at': now, 'url': p['website'], 'site_hours': str(x.get('siteHours', ''))[:160],
+            part.append({'place_id': g['id'], 'checked_at': now, 'url': p['website'], 'site_hours': str(x.get('siteHours', ''))[:160],
                          'site_price': str(x.get('sitePrice', ''))[:160], 'hours': ok(x.get('hours')), 'price': ok(x.get('price')),
                          'note': str(x.get('note', ''))[:100]})
+        save(part); rows += part
+        log(f'compared {min(i + 20, len(todo))} of {len(todo)}')
         time.sleep(7)   # stay inside the free tier's requests-per-minute limit
-    # Save into the website itself (data/checks.json); the workflow commits it.
-    path = os.path.join(ROOT, 'data', 'checks.json')
-    old = json.load(open(path, encoding='utf-8')) if os.path.exists(path) else {}
-    for x in rows:
-        prev = old.get(str(x['place_id']))
-        # keep yesterday's finding when today's page simply failed to load
-        if prev and x['hours'] == 'not_found' and x['price'] == 'not_found' and 'could not be loaded' in x['note'] and (prev.get('siteHours') or prev.get('sitePrice')):
-            continue
-        old[str(x['place_id'])] = {'checkedAt': x['checked_at'], 'url': x['url'], 'siteHours': x['site_hours'], 'sitePrice': x['site_price'],
-                                   'hours': x['hours'], 'price': x['price'], 'note': x['note']}
-    json.dump(old, open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
     from collections import Counter
-    print(f'saved {len(rows)} places. hours:', Counter(x['hours'] for x in rows), 'prices:', Counter(x['price'] for x in rows))
+    log(f'saved {len(rows)} places. hours:', Counter(x['hours'] for x in rows), 'prices:', Counter(x['price'] for x in rows))
+    os._exit(0)   # don't wait on any website download that is still hanging
 
 if __name__ == '__main__':
     main()
