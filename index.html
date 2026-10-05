@@ -206,7 +206,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
 .locs { margin: 0; padding-left: 18px; font-size: 13.5px; }
 
 /* Ask AI drawer */
-.ask { right: 0; top: 0; bottom: 0; width: min(460px, 100vw); padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.sheet.ask { right: 0; top: 0; bottom: 0; width: min(460px, 100vw); padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 .ask-log { flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; }
 .ask-intro { font-size: 14px; color: var(--muted); margin: 0; }
 .examples { display: flex; flex-direction: column; gap: 6px; }
@@ -223,6 +223,76 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
 .ask-form textarea { flex: 1; min-width: 0; resize: none; border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px; background: var(--bg); font-size: 16px; min-height: 44px; max-height: 140px; }
 .ask-note { font-size: 11.5px; color: var(--muted); padding: 0 14px 8px; margin: 0; }
 
+
+/* ---- app shell: top menu, views, home ---- */
+:root { --navh: 58px; }
+.topnav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 8; background: var(--surface); border-bottom: 1px solid var(--line); }
+.navrow { display: flex; align-items: center; gap: 14px; height: var(--navh); }
+.brand { font-weight: 800; font-size: 17px; color: var(--ink); text-decoration: none; display: inline-flex; gap: 8px; align-items: baseline; white-space: nowrap; }
+.brand .yi { font-family: var(--font-yi); color: var(--etrog); font-size: 20px; font-weight: 700; }
+.navlinks { display: flex; gap: 2px; flex: 1; }
+.navlinks a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 8px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.navlinks a:hover { color: var(--ink); }
+.navlinks a[aria-current="page"] { color: var(--schach); background: var(--schach-soft); }
+.navlinks .count { font-size: 11px; background: var(--etrog-soft); color: var(--ink); border-radius: 999px; padding: 0 6px; font-variant-numeric: tabular-nums; }
+.navlinks .count:empty { display: none; }
+.searchbar { top: calc(env(safe-area-inset-top, 0px) + var(--navh)); }
+.panel { top: calc(env(safe-area-inset-top, 0px) + var(--navh) + 72px); max-height: calc(100vh - var(--navh) - 90px); }
+.hero { position: relative; overflow: hidden; background: #15241a; }
+.mosaic { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 3px; }
+.mosaic span { background-repeat: no-repeat; background-color: #233529; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(8 20 12 / 0.9) 0%, rgb(8 20 12 / 0.68) 48%, rgb(8 20 12 / 0.2) 100%); }
+.hero-in { position: relative; z-index: 1; padding-block: 52px 40px; display: flex; flex-direction: column; gap: 14px; }
+.hero .eyebrow { color: #e3eee5; }
+.hero .eyebrow .yi { color: #f3d36b; }
+.hero h1 { color: #ffffff; font-size: clamp(32px, 5.2vw, 56px); max-width: 15ch; margin: 0; }
+.hero .lede { color: #dde9df; max-width: 54ch; margin: 0; }
+.herosearch { display: flex; gap: 6px; flex-wrap: wrap; max-width: 700px; background: #ffffff; padding: 6px; border-radius: 14px; box-shadow: 0 8px 30px rgb(0 0 0 / 0.25); }
+.herosearch input { flex: 1 1 200px; min-width: 0; border: 0; padding: 10px 12px; font-size: 16px; background: transparent; color: #17231b; }
+.herosearch label { display: flex; align-items: center; gap: 6px; border-left: 1px solid #d6ddd0; padding-left: 10px; color: #586659; font-size: 13px; }
+.herosearch select { border: 0; background: transparent; color: #17231b; padding: 8px 4px; font-size: 15px; font-weight: 600; }
+.herosearch .btn { padding: 10px 20px; font-size: 15px; background: #2c6a3d; border-color: #2c6a3d; color: #ffffff; }
+.hero .quick { margin: 0; }
+.hero .quick .chip { background: rgb(255 255 255 / 0.12); border-color: rgb(255 255 255 / 0.4); color: #ffffff; }
+.hero .quick .chip:hover { background: rgb(255 255 255 / 0.22); }
+.band { padding-block: 28px 4px; }
+.bandhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.bandhead h2 { margin: 0; font-size: 22px; text-wrap: balance; }
+.bandhead p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.bandhead a { color: var(--schach); font-weight: 600; text-decoration: none; font-size: 14px; white-space: nowrap; }
+.catgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 12px; }
+.cat { position: relative; display: block; border: 0; padding: 0; margin: 0; cursor: pointer; border-radius: 12px; overflow: hidden; aspect-ratio: 10 / 7; background-color: var(--surface-2); text-align: left; font: inherit; }
+.cat-ph { position: absolute; inset: 0; background-repeat: no-repeat; }
+.cat::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(0 0 0 / 0) 40%, rgb(0 0 0 / 0.72)); }
+.cat-t { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 1; color: #ffffff; display: flex; flex-direction: column; gap: 1px; }
+.cat-t b { font-size: 18px; line-height: 1.2; }
+.cat-t span { font-size: 13px; opacity: 0.92; }
+.rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 250px); gap: 12px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; }
+.mini { display: flex; flex-direction: column; text-align: left; font: inherit; color: inherit; cursor: pointer; scroll-snap-align: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; padding: 0; }
+.mini:hover { border-color: var(--schach); }
+.mini-ph { display: block; width: 100%; aspect-ratio: 10 / 7; background-repeat: no-repeat; background-color: var(--surface-2); }
+.mini-b { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.mini-b b { font-size: 15px; line-height: 1.3; }
+.mini-m { font-size: 12.5px; color: var(--muted); }
+.askpromo { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--schach-soft); border-radius: 14px; padding: 18px 20px; margin-block: 28px 8px; }
+.askpromo h2 { margin: 0 0 4px; font-size: 20px; }
+.askpromo p { margin: 0; color: var(--muted); max-width: 62ch; }
+.pagehead { padding-block: 26px 4px; }
+.pagehead h1 { font-size: clamp(26px, 4vw, 36px); margin: 0 0 6px; }
+.pagehead p { margin: 0; color: var(--muted); max-width: 70ch; }
+.view-pad { padding-bottom: 40px; }
+@media (max-width: 720px) {
+  .navlinks { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; background: var(--surface); border-top: 1px solid var(--line); justify-content: space-around; padding: 4px 4px calc(4px + env(safe-area-inset-bottom, 0px)); gap: 0; }
+  .navlinks a { flex-direction: column; gap: 2px; font-size: 11.5px; padding: 6px 10px; }
+  .navlinks .count { position: absolute; transform: translate(14px, -4px); }
+  .navrow { justify-content: space-between; }
+  body { padding-bottom: 64px; }
+  .totop { bottom: calc(78px + env(safe-area-inset-bottom, 0px)); }
+  .mosaic { grid-template-columns: repeat(2, 1fr); }
+  .hero-in { padding-block: 34px 26px; }
+  .herosearch label { border-left: 0; padding-left: 12px; width: 100%; }
+  .herosearch .btn { width: 100%; }
+}
 @media (max-width: 960px) {
   .layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .panel { position: static; max-height: none; overflow: visible; display: none; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
@@ -241,22 +311,75 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
 }
 </style>
 
+<nav class="topnav" aria-label="Main">
+  <div class="wrap navrow">
+    <a class="brand" href="#home"><span class="yi" lang="he" dir="rtl">חול המועד</span>Outing Finder</a>
+    <div class="navlinks">
+      <a href="#home" data-view="home"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+      <a href="#search" data-view="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search</a>
+      <a href="#explore" data-view="explore"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>Explore</a>
+      <a href="#trips" data-view="trips"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z" stroke-linejoin="round"/></svg>My Trips <span class="count" id="nav-saved"></span></a>
+    </div>
+    <button class="pill ask" id="askbtn" type="button" hidden aria-controls="askpanel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span class="lbl">Ask AI</span></button>
+  </div>
+</nav>
 
+<div class="view" id="view-home">
+  
 </head>
 <body>
-<header class="masthead wrap">
-  <div class="eyebrow"><span class="yi" lang="he" dir="rtl">חול המועד סוכות תשפ״ז</span><span>Mon Sep 28 – Fri Oct 2 (Hoshana Rabbah)</span></div>
-  <h1>Chol Hamoed <span>Outing Finder</span></h1>
-  <p class="lede">Every place from the <a href="https://yazory.com/outings/" target="_blank" rel="noopener">Navigation Sukkos 5787 outings guide</a>, with photos, family reviews, websites, phone numbers, hours, prices, ages and drive times from Monsey and Monroe. Use the quick picks below, tap a photo to see more pictures and reviews, or ask the AI helper to pick a place for your family.</p>
-</header>
+<header class="hero">
+    <div class="mosaic" id="mosaic" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <div class="eyebrow"><span class="yi" lang="he" dir="rtl">חול המועד סוכות תשפ״ז</span><span>From the Navigation outings guide</span></div>
+      <h1>Where should we go this Chol Hamoed?</h1>
+      <p class="lede" id="herolede">Hundreds of places with photos, family reviews, hours, prices and drive times from your community.</p>
+      <form class="herosearch" id="heroform" role="search">
+        <input id="heroq" type="search" placeholder="Try zoo, bowling, apple picking, boat…" aria-label="Search places" autocomplete="off">
+        <label for="herofrom">From <select id="herofrom"></select></label>
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <div class="quick" id="heroquick" role="group" aria-label="Quick picks">
+        <button class="chip" type="button" data-q="rain">Rainy day (indoors)</button>
+        <button class="chip" type="button" data-q="little">Good for little kids</button>
+        <button class="chip" type="button" data-q="free">Free</button>
+        <button class="chip" type="button" data-q="close">Within 30 min</button>
+        <button class="chip" type="button" data-q="rev">Has family reviews</button>
+      </div>
+    </div>
+  </header>
+  <div class="wrap view-pad">
+    <section class="band"><div class="bandhead"><div><h2>Browse by category</h2></div><a href="#explore">See all</a></div><div class="catgrid" id="home-cats"></div></section>
+    <section class="band"><div class="bandhead"><div><h2>Families' favorites</h2><p>The places with the most family reviews in the guide.</p></div><a href="#search" data-go="reviews">See all</a></div><div class="rail" id="rail-fav"></div></section>
+    <section class="band"><div class="bandhead"><div><h2>Free and close by</h2><p id="free-sub">Free places, closest first.</p></div><a href="#search" data-go="free">See all</a></div><div class="rail" id="rail-free"></div></section>
+    <section class="band"><div class="bandhead"><div><h2>Trips away</h2><p>Overnight destinations, with shuls, mikvahs and kosher food.</p></div><a href="#explore">See all</a></div><div class="catgrid" id="home-trips"></div></section>
+    <section class="askpromo" id="askpromo" hidden><div><h2>Not sure where to go?</h2><p>Tell the AI helper about your family, like how many kids, their ages and where you're coming from, and it picks places from this guide only.</p></div><button class="btn" type="button" id="askpromo-btn">Ask AI</button></section>
+  </div>
+</div>
 
+<div class="view" id="view-explore" hidden>
+  <div class="wrap view-pad">
+    <div class="pagehead"><h1>Explore</h1><p>Pick a category near home or a destination for a trip away.</p></div>
+    <section class="band"><div class="bandhead"><h2>Near home</h2></div><div class="catgrid" id="ex-cats"></div></section>
+    <section class="band"><div class="bandhead"><h2>Trips away</h2></div><div class="catgrid" id="ex-trips"></div></section>
+  </div>
+</div>
+
+<div class="view" id="view-trips" hidden>
+  <div class="wrap view-pad">
+    <div class="pagehead"><h1>My Trips</h1><p>The places you saved with the star. They stay saved on this device.</p></div>
+    <div class="results-head"><p id="trips-sum"></p><button class="btn ghost" type="button" id="copylist2">Copy my list</button></div>
+    <div class="grid" id="trips-grid"></div>
+  </div>
+</div>
+
+<div class="view" id="view-search" hidden>
 <div class="searchbar">
   <div class="wrap searchrow">
     <label class="search" for="q">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Search places, towns, or words like zoo, bowling, farm…" autocomplete="off">
     </label>
-    <button class="pill ask" id="askbtn" type="button" hidden aria-controls="askpanel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span class="lbl">Ask AI</span></button>
     <button class="pill filter-toggle" id="ftoggle" type="button" aria-expanded="false" aria-controls="panel">Filters <span class="n" id="fcount" hidden>0</span></button>
   </div>
 </div>
@@ -333,6 +456,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     <div class="grid" id="grid"></div>
   </section>
 </main>
+</div>
 
 <footer class="wrap">
   <p>Listings, booklet photos, Yiddish descriptions and family reviews come from the Navigation Sukkos 5787 guide published at yazory.com. Google's own reviews can't be copied in; the "Google reviews" button opens them on Google Maps. Hours and prices were set at print time for Chol Hamoed; where it says "Checked on their website", a helper compared them with the place's own website on that date. Always call before you go.</p>
@@ -449,7 +573,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     ['local', 'trip', 'saved'].forEach(a => $('area-' + a).setAttribute('aria-pressed', state.area === a));
     $('cnt-local').textContent = P.filter(p => p.k === 'local').length;
     $('cnt-trip').textContent = P.filter(p => p.k === 'trip').length;
-    $('cnt-saved').textContent = saved.size;
+    $('cnt-saved').textContent = saved.size; $('nav-saved').textContent = saved.size || '';
     $('sec-title').textContent = state.area === 'trip' ? 'Destination' : 'Category';
     $('sections').innerHTML = chipsHTML(sectionList(), state.sections, countBy(p => p.s, 'sections'));
     $('ages').innerHTML = chipsHTML(AGE_TAGS, state.ages, countBy(p => p.ag, 'ages'));
@@ -675,8 +799,9 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
       const k = s.dataset.key; saved.has(k) ? saved.delete(k) : saved.add(k); persist();
       const on = saved.has(k);
       document.querySelectorAll('.save').forEach(b => { if (b.dataset.key === k) { b.setAttribute('aria-pressed', on); b.title = on ? 'Remove from my list' : 'Save to my list'; } });
-      $('cnt-saved').textContent = saved.size;
+      $('cnt-saved').textContent = saved.size; $('nav-saved').textContent = saved.size || '';
       if (state.area === 'saved' && !openSheet) render();
+      if (curView === 'trips' && !openSheet) renderTrips();
       return true;
     }
     const c = e.target.closest('.copy');
@@ -715,14 +840,15 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     if (q === 'little') { state.ages.clear(); if (on) { state.ages.add('Toddler+'); state.ages.add('Entire Family'); } }
     render();
   });
-  $('copylist').addEventListener('click', () => {
+  function copyList(b) {
     const list = P.filter(p => saved.has(p.key));
     const txt = 'My Chol Hamoed list\n\n' + list.map(p => [p.n, (p.locs ? p.locs[0] : p.a), p.p[0], p.w].filter(Boolean).join('\n')).join('\n\n');
-    const b = $('copylist');
     const done = () => { b.textContent = 'Copied. Paste it in WhatsApp or a text'; setTimeout(() => { b.textContent = 'Copy my list'; }, 2500); };
     const fail = () => { b.textContent = 'Copy didn\'t work here'; setTimeout(() => { b.textContent = 'Copy my list'; }, 2500); };
     try { navigator.clipboard.writeText(txt).then(done, fail); } catch (err) { fail(); }
-  });
+  }
+  $('copylist').addEventListener('click', e => copyList(e.currentTarget));
+  $('copylist2').addEventListener('click', e => copyList(e.currentTarget));
   window.addEventListener('scroll', () => { $('totop').hidden = window.scrollY < 900; }, { passive: true });
   $('totop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
   $('sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
@@ -734,7 +860,96 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   });
   $('ftoggle').addEventListener('click', () => { const open = $('panel').dataset.open !== 'true'; $('panel').dataset.open = open; $('ftoggle').setAttribute('aria-expanded', open); });
   $('grid').addEventListener('click', handleCommon);
-  render();
+
+  // ----- views: home, explore, my trips -----
+  const VIEWS = ['home', 'search', 'explore', 'trips'];
+  let curView = 'home';
+  const heroPh = p => photoList(p)[p.gal.length ? 1 : 0];
+  const miniMeta = p => [tm(p) != null ? fmt(tm(p)) + ' from ' + (ORIG_NAME[state.origin] || '') : '', p.fp === 0 ? 'Free' : (p.fp != null ? 'from $' + (Number.isInteger(p.fp) ? p.fp : p.fp.toFixed(2)) : ''), p.rv.length ? p.rv.length + (p.rv.length === 1 ? ' review' : ' reviews') : ''].filter(Boolean).join(' · ');
+  const mini = p => `<button class="mini" type="button" data-open="${p.i}"><span class="mini-ph" style="${bgStyle(heroPh(p))}"></span><span class="mini-b"><span class="sec${p.k === 'trip' ? ' trip' : ''}">${esc(p.s)}</span><b>${esc(p.n)}</b><span class="mini-m">${esc(miniMeta(p))}</span></span></button>`;
+  const uniqName = list => { const seen = new Set(); return list.filter(p => { const k = p.n.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; }); };
+  const median = a => { const s = a.slice().sort((x, y) => x - y); return s.length ? s[Math.floor(s.length / 2)] : null; };
+  const COVER = { 'Parks & Farms': 'West Maple Farm', 'Airports': 'Skydive The Ranch', 'Water Fun': 'Lake Welch', 'Museums': 'Liberty Science Center', 'Outdoor Fun': 'Six Flags' };
+  function coverFor(list) {
+    const want = list.length && COVER[list[0].s] ? list.find(p => p.n === COVER[list[0].s]) : null;
+    if (want) return bgStyle(heroPh(want));
+    const best = list.filter(p => p.gal.length).sort((a, b) => b.rv.length - a.rv.length)[0] || list[0];
+    return best ? bgStyle(heroPh(best)) : '';
+  }
+  function catCard(sec, kind) {
+    const list = P.filter(p => p.s === sec && p.k === kind);
+    let sub = `${list.length} ${list.length === 1 ? 'place' : 'places'}`;
+    if (kind === 'trip') { const m = median(list.map(p => tm(p)).filter(x => x != null)); if (m) sub += ` · about ${fmt(m)} drive`; }
+    return `<button class="cat" type="button" data-sec="${esc(sec)}" data-kind="${kind}"><span class="cat-ph" style="${coverFor(list)}"></span><span class="cat-t"><b>${esc(sec)}</b><span>${esc(sub)}</span></span></button>`;
+  }
+  const originOptions = () => ORIG.map(o => `<option value="${esc(o.k)}">${esc(o.n)}</option>`).join('');
+  function renderHome() {
+    const picks = ['Six Flags', 'Bronx Zoo', 'Kalahari', 'Dorney Park', 'Liberty Science Center', 'NY Aquarium', 'Maid of the Mist', 'West Maple Farm'];
+    const tiles = picks.map(n => P.find(p => p.n === n)).filter(Boolean);
+    P.filter(p => p.gal.length && p.rv.length).sort((a, b) => b.rv.length - a.rv.length).forEach(p => { if (tiles.length < 8 && !tiles.includes(p)) tiles.push(p); });
+    $('mosaic').innerHTML = tiles.slice(0, 8).map(p => `<span style="${bgStyle(heroPh(p))}"></span>`).join('');
+    if (!$('herofrom').options.length) $('herofrom').innerHTML = originOptions();
+    $('herofrom').value = state.origin;
+    $('herolede').textContent = `${P.length} places with photos, family reviews, hours, prices and drive times from your community.`;
+    $('home-cats').innerHTML = LOCAL_ORDER.map(s => catCard(s, 'local')).join('');
+    $('home-trips').innerHTML = TRIP_ORDER.slice(0, 8).map(s => catCard(s, 'trip')).join('');
+    $('rail-fav').innerHTML = uniqName(P.filter(p => p.k === 'local' && p.rv.length).sort((a, b) => b.rv.length - a.rv.length || a.i - b.i)).slice(0, 14).map(mini).join('');
+    const free = uniqName(P.filter(p => p.k === 'local' && (p.fp === 0 || isFree(p)) && tm(p) != null).sort((a, b) => tm(a) - tm(b))).slice(0, 14);
+    $('rail-free').innerHTML = free.map(mini).join('');
+    $('free-sub').textContent = `Free places, closest to ${ORIG_NAME[state.origin] || 'you'} first.`;
+    $('askpromo').hidden = $('askbtn').hidden;
+  }
+  function renderExplore() {
+    $('ex-cats').innerHTML = LOCAL_ORDER.map(s => catCard(s, 'local')).join('');
+    $('ex-trips').innerHTML = TRIP_ORDER.map(s => catCard(s, 'trip')).join('');
+  }
+  function renderTrips() {
+    const list = P.filter(p => saved.has(p.key)).sort((a, b) => (tm(a) == null ? 1e6 : tm(a)) - (tm(b) == null ? 1e6 : tm(b)));
+    $('trips-sum').innerHTML = list.length ? `<strong>${list.length}</strong> saved ${list.length === 1 ? 'place' : 'places'}, closest first` : '';
+    $('copylist2').hidden = !list.length;
+    $('trips-grid').innerHTML = list.length ? list.map(card).join('') : '<div class="empty">Nothing saved yet. Tap the star on any place to add it to My Trips. <a href="#search">Find places</a></div>';
+  }
+  function showView(v) {
+    if (!VIEWS.includes(v)) v = 'home';
+    curView = v;
+    VIEWS.forEach(x => { $('view-' + x).hidden = x !== v; });
+    document.querySelectorAll('.navlinks a').forEach(a => a.setAttribute('aria-current', a.dataset.view === v ? 'page' : 'false'));
+    $('nav-saved').textContent = saved.size || '';
+    if (v === 'home') renderHome();
+    else if (v === 'explore') renderExplore();
+    else if (v === 'trips') renderTrips();
+    else render();
+    window.scrollTo(0, 0);
+  }
+  function go(v) { if (location.hash.slice(1) === v) showView(v); else location.hash = v; }
+  window.addEventListener('hashchange', () => showView(location.hash.slice(1)));
+  function applyQuick(q) {
+    state.indoor = q === 'rain'; state.free = q === 'free'; state.rev = q === 'rev';
+    state.max = q === 'close' ? 30 : Infinity;
+    state.ages.clear(); if (q === 'little') { state.ages.add('Toddler+'); state.ages.add('Entire Family'); }
+    state.area = 'local'; state.sections.clear(); state.states.clear();
+  }
+  function onCat(e) {
+    const c = e.target.closest('.cat'); if (!c) return false;
+    state.area = c.dataset.kind; state.sections.clear(); state.states.clear(); state.sections.add(c.dataset.sec);
+    go('search'); return true;
+  }
+  ['view-home', 'view-explore', 'view-trips'].forEach(id => $(id).addEventListener('click', e => { if (!onCat(e)) handleCommon(e); }));
+  $('heroquick').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; applyQuick(b.dataset.q); go('search'); });
+  $('heroform').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = $('heroq').value.trim();
+    $('q').value = v; state.q = norm(v).split(/\s+/).filter(Boolean);
+    state.area = 'local'; state.sections.clear();
+    go('search');
+  });
+  $('herofrom').addEventListener('change', e => { state.origin = e.target.value; savePrefs(); renderHome(); });
+  document.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', () => {
+    if (a.dataset.go === 'reviews') { applyQuick('rev'); state.sort = 'reviews'; }
+    if (a.dataset.go === 'free') { applyQuick('free'); state.sort = 'near'; }
+  }));
+  $('askpromo-btn').addEventListener('click', () => $('askbtn').click());
+  showView(location.hash.slice(1) || 'home');
 
   // ----- website checks (saved daily into data/checks.json by the GitHub checker) -----
   const CFG = window.SITE_CONFIG || {};
@@ -755,7 +970,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   const AI_URL = CFG.aiUrl || null;
   let busy = null;
   const turns = [];
-  if (AI_URL) $('askbtn').hidden = false;
+  if (AI_URL) { $('askbtn').hidden = false; $('askpromo').hidden = false; }
   $('askbtn').addEventListener('click', () => { show($('askpanel')); setTimeout(() => $('askinput').focus(), 30); });
   $('examples').addEventListener('click', e => { const b = e.target.closest('.example'); if (b) { $('askinput').value = b.textContent; send(); } });
   $('askinput').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
