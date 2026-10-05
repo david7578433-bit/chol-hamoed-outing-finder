@@ -8,41 +8,45 @@
 <title>Chol Hamoed Outing Finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Rubik:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
 /* Layout: field-guide index. Filter rail left on desktop, stacked on phones; cards in a grid; a details sheet and an Ask AI drawer open over the page. */
+/* Look: clean and airy. White space, one green accent, big rounded photos; details live in the place sheet. */
 :root {
-  --bg: #f2f4ee;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-2: #e8ece2;
-  --ink: #17231b;
-  --muted: #586659;
-  --line: #d6ddd0;
-  --schach: #2c6a3d;
+  --surface-2: #f3f5f4;
+  --ink: #101814;
+  --muted: #66716a;
+  --line: #e5e9e7;
+  --schach: #0f7a55;
   --schach-ink: #ffffff;
-  --schach-soft: #dcebdf;
-  --etrog: #8a6600;
-  --etrog-soft: #f6e8b4;
-  --warn: #9a4a00;
-  --warn-soft: #fbe6d2;
-  --focus: #c79a00;
-  --scrim: rgb(10 20 14 / 0.55);
-  --font-ui: "Rubik", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-yi: "Frank Ruhl Libre", "David", "Times New Roman", serif;
-  --radius: 10px;
+  --schach-soft: #e8f4ee;
+  --etrog: #a66a12;
+  --etrog-soft: #fdf3dc;
+  --warn: #b45309;
+  --warn-soft: #fef1e1;
+  --focus: #0f7a55;
+  --scrim: rgb(10 16 13 / 0.5);
+  --shadow: 0 1px 2px rgb(16 24 20 / 0.06), 0 10px 30px rgb(16 24 20 / 0.08);
+  --font-ui: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-yi: "Heebo", "Segoe UI", Arial, sans-serif;
+  --radius: 16px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0d1410; --surface: #151f19; --surface-2: #1c2921; --ink: #e6ede6; --muted: #9caa9f; --line: #2a372f;
-    --schach: #7cc591; --schach-ink: #0d1410; --schach-soft: #1f3526; --etrog: #f0cb48; --etrog-soft: #3a3214;
-    --warn: #f3a35c; --warn-soft: #3b2614; --focus: #f0cb48; --scrim: rgb(0 0 0 / 0.65);
+    --bg: #0c110e; --surface: #131a16; --surface-2: #1b241f; --ink: #edf2ee; --muted: #9ba79f; --line: #26312b;
+    --schach: #3fcf98; --schach-ink: #06110b; --schach-soft: #173126; --etrog: #f2c35a; --etrog-soft: #3a2f12;
+    --warn: #f5a35c; --warn-soft: #3a2414; --focus: #3fcf98; --scrim: rgb(0 0 0 / 0.6);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px rgb(0 0 0 / 0.35);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0d1410; --surface: #151f19; --surface-2: #1c2921; --ink: #e6ede6; --muted: #9caa9f; --line: #2a372f;
-  --schach: #7cc591; --schach-ink: #0d1410; --schach-soft: #1f3526; --etrog: #f0cb48; --etrog-soft: #3a3214;
-  --warn: #f3a35c; --warn-soft: #3b2614; --focus: #f0cb48; --scrim: rgb(0 0 0 / 0.65);
+  --bg: #0c110e; --surface: #131a16; --surface-2: #1b241f; --ink: #edf2ee; --muted: #9ba79f; --line: #26312b;
+  --schach: #3fcf98; --schach-ink: #06110b; --schach-soft: #173126; --etrog: #f2c35a; --etrog-soft: #3a2f12;
+  --warn: #f5a35c; --warn-soft: #3a2414; --focus: #3fcf98; --scrim: rgb(0 0 0 / 0.6);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px rgb(0 0 0 / 0.35);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -309,6 +313,101 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   .card { transition: border-color 0.15s; }
   .card:hover { border-color: var(--schach); }
 }
+
+/* ---- clean modern look (overrides) ---- */
+body { letter-spacing: -0.005em; }
+h1, h2, h3 { letter-spacing: -0.02em; }
+.topnav { background: var(--surface); background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); }
+.brand { font-size: 16px; }
+.brand .yi { color: var(--schach); font-size: 19px; }
+.navlinks a { border-radius: 999px; padding: 8px 14px; }
+.navlinks a[aria-current="page"] { color: var(--ink); background: var(--surface-2); }
+.navlinks .count { background: var(--schach); color: var(--schach-ink); }
+.pill { border-color: var(--line); }
+.pill.ask { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.btn { border-radius: 999px; padding: 9px 16px; }
+.btn.ghost { border-color: var(--line); color: var(--ink); }
+.chip { padding: 7px 14px; font-weight: 500; }
+.chip[aria-pressed="true"], .quick .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.chip[aria-pressed="true"] .c { color: inherit; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.searchbar { background: var(--bg); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.search input { background: var(--surface-2); border-color: transparent; }
+.search input:focus { background: var(--surface); border-color: var(--line); }
+.layout { gap: 36px; padding-block: 24px 56px; }
+.group h2 { font-size: 11.5px; letter-spacing: 0.1em; }
+select { border-radius: 10px; }
+/* hero */
+.hero { background: var(--bg); overflow: visible; }
+.hero::after { display: none; }
+.hero-in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 44px; align-items: center; padding-block: 48px 20px; }
+.hero-copy { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.hero .eyebrow { color: var(--muted); }
+.hero .eyebrow .yi { color: var(--schach); }
+.hero h1 { color: var(--ink); font-size: clamp(36px, 5vw, 62px); font-weight: 800; line-height: 1.02; max-width: 13ch; }
+.hero .lede { color: var(--muted); font-size: 17px; }
+.herosearch { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 999px; padding: 6px 6px 6px 8px; align-items: center; }
+.herosearch input, .herosearch select { color: var(--ink); }
+.herosearch label { border-left-color: var(--line); color: var(--muted); }
+.herosearch .btn { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.hero .quick .chip { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.hero .quick .chip:hover { background: var(--surface-2); }
+.mosaic { position: static; display: grid; grid-template-columns: 1.25fr 1fr; grid-template-rows: 1fr 1fr; grid-auto-rows: auto; gap: 12px; height: 440px; inset: auto; }
+.mosaic span { position: relative; overflow: hidden; border-radius: 22px; background-color: var(--surface-2); container-type: size; }
+.mosaic span:first-child { grid-row: span 2; }
+.mosaic span:nth-child(n+4) { display: none; }
+.mosaic i { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: max(100cqw, calc(100cqh * 10 / 7)); height: max(100cqh, calc(100cqw * 0.7)); background-repeat: no-repeat; }
+/* bands, categories, rails */
+.band { padding-block: 36px 4px; }
+.bandhead h2 { font-size: 24px; font-weight: 800; }
+.cat { border-radius: 20px; }
+.cat::after { background: linear-gradient(180deg, rgb(0 0 0 / 0) 50%, rgb(0 0 0 / 0.62)); }
+.mini { border: 0; background: transparent; border-radius: 0; overflow: visible; }
+.mini:hover { border-color: transparent; }
+.mini:hover .mini-ph { transform: translateY(-2px); box-shadow: var(--shadow); }
+.mini-ph { border-radius: var(--radius); transition: transform 0.2s, box-shadow 0.2s; }
+.mini-b { padding: 10px 2px 0; }
+.askpromo { background: var(--surface-2); border-radius: 24px; padding: 24px 26px; }
+/* cards: photo first, details in the sheet */
+.grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 26px 18px; }
+.card { border: 0; padding: 0; background: transparent; gap: 0; border-radius: 0; overflow: visible; }
+.card:hover { border-color: transparent; }
+.ph-wrap { position: relative; }
+.ph-wrap .photo { width: 100%; margin: 0; border-radius: var(--radius); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.card:hover .photo { transform: translateY(-2px); box-shadow: var(--shadow); }
+.ph-wrap .save { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; border: 0; background: rgb(255 255 255 / 0.92); color: #101814; box-shadow: 0 2px 8px rgb(0 0 0 / 0.15); }
+.ph-wrap .save[aria-pressed="true"] { background: #ffffff; color: #c88a12; }
+.photo .more { left: 10px; right: auto; background: rgb(255 255 255 / 0.92); color: #101814; }
+.card-body { display: flex; flex-direction: column; gap: 2px; padding: 10px 2px 0; text-align: left; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.ctag { font-size: 12.5px; color: var(--muted); }
+.ctitle { font-size: 16px; font-weight: 700; line-height: 1.3; }
+.card-body:hover .ctitle { text-decoration: underline; text-underline-offset: 3px; }
+.cmeta { font-size: 13.5px; color: var(--muted); }
+.cmeta b { color: var(--ink); font-weight: 600; }
+.cextra { font-size: 12.5px; color: var(--schach); font-weight: 600; }
+/* place sheet */
+.sheet { box-shadow: 0 24px 80px rgb(0 0 0 / 0.25); }
+.detail { border-radius: 24px; }
+.sheet-head { border-bottom: 0; padding: 16px 20px 6px; }
+.sheet-head h2 { font-size: 22px; font-weight: 800; }
+.x { border: 0; background: var(--surface-2); }
+.sheet-body { padding: 10px 20px 22px; gap: 24px; }
+.gal-main { border-radius: 18px; }
+.thumb { border-radius: 10px; }
+.sitebox, .check { border-radius: 12px; }
+.rev { border-radius: 12px; }
+.desc { font-size: 15.5px; border-top: 0; padding-top: 0; }
+.info { border-radius: 18px; border-color: var(--line); background: var(--surface-2); }
+.empty { border-radius: 18px; }
+footer { border-top: 1px solid var(--line); }
+@media (max-width: 860px) {
+  .hero-in { grid-template-columns: minmax(0, 1fr); gap: 22px; padding-block: 26px 8px; }
+  .mosaic { height: 230px; grid-template-columns: 1.4fr 1fr; order: -1; }
+  .herosearch { border-radius: 20px; padding: 8px; }
+  .herosearch input { flex-basis: 100%; }
+  .herosearch label { border-left: 0; padding-left: 8px; width: auto; flex: 1; }
+  .herosearch .btn { width: auto; }
+}
 </style>
 
 <nav class="topnav" aria-label="Main">
@@ -329,8 +428,8 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
 </head>
 <body>
 <header class="hero">
-    <div class="mosaic" id="mosaic" aria-hidden="true"></div>
     <div class="wrap hero-in">
+      <div class="hero-copy">
       <div class="eyebrow"><span class="yi" lang="he" dir="rtl">חול המועד סוכות תשפ״ז</span><span>From the Navigation outings guide</span></div>
       <h1>Where should we go this Chol Hamoed?</h1>
       <p class="lede" id="herolede">Hundreds of places with photos, family reviews, hours, prices and drive times from your community.</p>
@@ -346,6 +445,8 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
         <button class="chip" type="button" data-q="close">Within 30 min</button>
         <button class="chip" type="button" data-q="rev">Has family reviews</button>
       </div>
+      </div>
+      <div class="mosaic" id="mosaic" aria-hidden="true"></div>
     </div>
   </header>
   <div class="wrap view-pad">
@@ -503,7 +604,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   const key = p => p.s + '|' + p.n + '|' + p.a.slice(0, 24);
   const $ = id => document.getElementById(id);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const fmt = m => m == null ? '' : m <= 5 ? 'Local' : m < 60 ? m + ' min' : Math.floor(m / 60) + ' hr' + (m % 60 ? ' ' + (m % 60) + ' min' : '');
+  const fmt = m => m == null ? '' : m < 60 ? m + ' min' : Math.floor(m / 60) + ' hr' + (m % 60 ? ' ' + (m % 60) + ' min' : '');
   const norm = s => String(s || '').toLowerCase().normalize('NFKD').replace(/[֑-ׇ]/g, '');
   const host = u => u ? u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '') : '';
   const isFree = p => /^\s*free/i.test(p.pr);
@@ -641,29 +742,31 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     const r = p.rv[0];
     return `<div class="revsnip"><p class="${r.l === 'yi' ? 'yi' : ''}" dir="auto">“${esc(r.t)}”</p><button type="button" data-open="${p.i}" data-rev="1">${p.rv.length === 1 ? 'Read the family review' : `Read ${p.rv.length} family reviews`} ›</button></div>`;
   };
+  function cardPh(p) { return photoList(p)[p.gal.length ? 1 : 0]; }
   function card(p) {
     const isSaved = saved.has(p.key);
     const n = p.gal.length + 1;
+    const m = tm(p);
+    const bits = [];
+    if (m != null) bits.push(`<b>${esc(fmt(m))}</b> from ${esc(ORIG_NAME[state.origin] || '')}`);
+    if (p.fp != null) bits.push(p.fp === 0 ? 'Free' : 'from $' + esc(Number.isInteger(p.fp) ? p.fp : p.fp.toFixed(2)));
+    if (p.g) bits.push(esc(p.g));
+    const extra = [];
+    if (p.rv.length) extra.push(`${p.rv.length} family ${p.rv.length === 1 ? 'review' : 'reviews'}`);
+    if (isChm(p)) extra.push('Chol Hamoed hours');
+    const c = CHECKS[p.i];
+    if (c && (c.hours === 'different' || c.price === 'different')) extra.push('Website shows changes');
     return `<article class="card">
-      <button class="photo" type="button" data-open="${p.i}" aria-label="See photos and details: ${esc(p.n)}" style="${bgStyle(photoList(p)[0])}">${n > 1 ? `<span class="more">${n} photos</span>` : ''}</button>
-      <div class="card-top">
-        <div><div class="sec${p.k === 'trip' ? ' trip' : ''}">${esc(p.s)}</div><h3><button class="namebtn" type="button" data-open="${p.i}">${esc(p.n)}</button></h3></div>
-        <button class="save" type="button" data-key="${esc(p.key)}" aria-pressed="${isSaved}" aria-label="${isSaved ? 'Remove from my list' : 'Save to my list'}: ${esc(p.n)}" title="${isSaved ? 'Remove from my list' : 'Save to my list'}">${STAR}</button>
+      <div class="ph-wrap">
+        <button class="photo" type="button" data-open="${p.i}" aria-label="See photos and details: ${esc(p.n)}" style="${bgStyle(cardPh(p))}">${n > 1 ? `<span class="more">${n} photos</span>` : ''}</button>
+        <button class="save" type="button" data-key="${esc(p.key)}" aria-pressed="${isSaved}" aria-label="${isSaved ? 'Remove from My Trips' : 'Save to My Trips'}: ${esc(p.n)}" title="${isSaved ? 'Remove from My Trips' : 'Save to My Trips'}">${STAR}</button>
       </div>
-      <div class="badges">${p.g ? `<span class="badge age">${esc(p.g)}</span>` : ''}${priceBadge(p)}${drives(p)}${isChm(p) ? '<span class="badge ch">Chol Hamoed hours</span>' : ''}</div>
-      ${(p.h || p.pr) ? `<dl>${p.h ? `<div><dt>Hours</dt><dd>${esc(p.h)}</dd></div>` : ''}${p.pr ? `<div><dt>Price</dt><dd>${esc(p.pr)}</dd></div>` : ''}</dl>` : ''}
-      ${checkLine(p)}
-      ${revSnip(p)}
-      ${addrHTML(p)}
-      ${phonesHTML(p)}
-      ${p.w ? `<p class="webline"><a href="${esc(p.w)}" target="_blank" rel="noopener">${esc(host(p.w))}</a></p>` : ''}
-      ${p.d ? `<p class="desc" dir="rtl" lang="yi">${esc(p.d)}</p>` : ''}
-      <div class="actions">
-        ${p.w ? `<a class="btn" href="${esc(p.w)}" target="_blank" rel="noopener">Website</a>` : ''}
-        <a class="btn ghost" href="${dirUrl(p)}" target="_blank" rel="noopener">Directions</a>
-        <button class="btn ghost" type="button" data-open="${p.i}">Details</button>
-        ${p.w ? '' : `<span class="noweb">No website found · <a href="${searchUrl(p)}" target="_blank" rel="noopener">search</a></span>`}
-      </div>
+      <button class="card-body" type="button" data-open="${p.i}">
+        <span class="ctag">${esc(p.s)}${p.io === 'in' ? ' · Indoors' : ''}</span>
+        <span class="ctitle">${esc(p.n)}</span>
+        ${bits.length ? `<span class="cmeta">${bits.join(' · ')}</span>` : ''}
+        ${extra.length ? `<span class="cextra">${esc(extra.join(' · '))}</span>` : ''}
+      </button>
     </article>`;
   }
 
@@ -887,7 +990,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     const picks = ['Six Flags', 'Bronx Zoo', 'Kalahari', 'Dorney Park', 'Liberty Science Center', 'NY Aquarium', 'Maid of the Mist', 'West Maple Farm'];
     const tiles = picks.map(n => P.find(p => p.n === n)).filter(Boolean);
     P.filter(p => p.gal.length && p.rv.length).sort((a, b) => b.rv.length - a.rv.length).forEach(p => { if (tiles.length < 8 && !tiles.includes(p)) tiles.push(p); });
-    $('mosaic').innerHTML = tiles.slice(0, 8).map(p => `<span style="${bgStyle(heroPh(p))}"></span>`).join('');
+    $('mosaic').innerHTML = tiles.slice(0, 3).map(p => `<span><i style="${bgStyle(heroPh(p))}"></i></span>`).join('');
     if (!$('herofrom').options.length) $('herofrom').innerHTML = originOptions();
     $('herofrom').value = state.origin;
     $('herolede').textContent = `${P.length} places with photos, family reviews, hours, prices and drive times from your community.`;
