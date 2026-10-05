@@ -1,29 +1,29 @@
 {
 "0": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://bouncevalleycottage.com/"
 },
 "1": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
-"siteHours": "Wed-Thu 2-9pm, Fri 12-11pm, Sat 10am-11:59pm, Sun 11am-9pm; closed Mon-Tue",
-"sitePrice": "Bomb Missions from $34.95; Arcade Bomb Battle from $19.95; varies by day",
+"siteHours": "Open Wednesday through Sunday; Closed Mondays and Tuesdays",
+"sitePrice": "Tickets start as low as $19.95+ (for Arcade Bomb Battle) and $34.95+ (for Bomb Missions)",
 "url": "https://www.beatthebomb.com/locations/brooklyn"
 },
 "10": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
 "note": "",
 "price": "same",
 "siteHours": "",
-"sitePrice": "Part 1 $25, Part 2 $25, both parts $45",
+"sitePrice": "Part 1: $25, Part 2: $25, Both Parts: $45",
 "url": "https://mikdashtour.com/"
 },
 "100": {
@@ -45,9 +45,9 @@
 "url": "https://www.superchargednj.com/"
 },
 "102": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Facebook page only; no info retrievable",
+"note": "social media page",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -63,20 +63,20 @@
 "url": "https://gravityvault.com/locations/melville-ny"
 },
 "104": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
-"note": "Fri/Sat games added; prices not in text",
-"price": "not_found",
-"siteHours": "Tue-Thu 4,5:30,7pm; Fri/Sat 12pm-10:30pm games; Sun 10:30am-7:30pm",
-"sitePrice": "",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "same",
+"note": "",
+"price": "different",
+"siteHours": "Monday: Closed; Tuesday–Thursday: 4:00 PM – 8:30 PM; Friday: 12:00 PM – 12:00 AM; Saturday: 10:30 AM – 12:00 AM; Sunday: 10:30 AM – 7:30 PM",
+"sitePrice": "Weekday games (Tue, Wed, Thu): $30 per game per player. Weekend games (Fri, Sat, Sun): $40 per game per person.",
 "url": "https://tacopslasertag.com/contact/princeton-nj/"
 },
 "105": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Price not shown on home page",
+"note": "Open play hours vary depending on private parties",
 "price": "not_found",
-"siteHours": "Mon-Sun 10am-8pm (weekends open play from 1pm)",
+"siteHours": "Monday - Sunday: 10:00am to 8:00pm",
 "sitePrice": "",
 "url": "https://sweetspotplayhouse.com/"
 },
@@ -90,18 +90,18 @@
 "url": "https://www.xtremeplayct.com/"
 },
 "107": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "Ticket prices not shown",
-"price": "not_found",
-"siteHours": "Mon-Thu 3-8pm, Fri 3-10pm, Sat 10am-10pm, Sun 10am-9pm",
-"sitePrice": "",
+"note": "",
+"price": "same",
+"siteHours": "Monday - Thursday: 3:00 pm - 8:00 pm; Friday: 3:00 pm - 10:00 pm; Saturday: 10:00 am - 10:00 pm; Sunday: 10:00 am - 9:00 pm",
+"sitePrice": "Unlimited Play Ticket: $29.99; Parent Ticket: $14.99; Socks: $4.49",
 "url": "https://www.urbanair.com/new-jersey-avenel/"
 },
 "108": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Facebook page only; no info retrievable",
+"note": "social media page",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -117,11 +117,11 @@
 "url": "https://www.xtreme.energy"
 },
 "11": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "Page text is mostly paintball info",
+"note": "",
 "price": "not_found",
-"siteHours": "Mon 5-11pm, Sat 11am-11pm, Sun 11am-8pm",
+"siteHours": "Monday: Closed, Tuesday: Closed, Wednesday: 5pm – 11pm, Thursday: 5pm-11pm, Friday: 5pm-11pm, Saturday: 11am-11pm, Sunday: 11am-8pm",
 "sitePrice": "",
 "url": "https://area53nyc.com/williamsburg/"
 },
@@ -144,39 +144,39 @@
 "url": "https://www.wiggleroomusa.com/"
 },
 "112": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "",
+"note": "Members have 24/7 access",
 "price": "same",
-"siteHours": "Mon-Thu 8am-11pm, Fri 8am-10pm, Sat-Sun 9am-10pm",
-"sitePrice": "Day pass $38; shoes $6",
+"siteHours": "Monday - Thursday: 8am - 11pm; Friday: 8am - 10pm; Saturday - Sunday: 9am - 10pm",
+"sitePrice": "Day Pass: $38; Climbing Shoes: $6; Chalk bag: $2; 5-Day Punch Pass: $170; 10-Day Punch Pass: $330",
 "url": "https://www.vitalclimbinggym.com/brooklyn"
 },
 "113": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours vary by date, see their calendar",
+"note": "",
 "price": "different",
-"siteHours": "Calendar-based; site shows park closed today",
-"sitePrice": "Day ticket $62.99; 2026 any day $45.99",
+"siteHours": "",
+"sitePrice": "Date-Specific Tickets: As low as $46.99 (Reg. $53.99/$50.99 at the gate); Any Day Tickets: $50.98 ($49.99 + $.99 fee); Children under 36″ are free",
 "url": "https://diggerlandusa.com/"
 },
 "114": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "Hours vary by date, see their calendar",
-"price": "same",
-"siteHours": "See hours calendar",
-"sitePrice": "2hr $67, 3hr $77, junior $44 same-day",
-"url": "https://boundlessadventures.net/ny-park/"
-},
-"115": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
 "note": "",
 "price": "same",
-"siteHours": "See calendar for hours",
-"sitePrice": "Tickets $5; 10 for $45; 30 for $100; 60 for $160; go-kart $10",
+"siteHours": "",
+"sitePrice": "Advance Purchase: 3 Hour $70, 2 Hour $60, 2 Hr Jr Explorer $40. Same Day: 3 Hour $77, 2 Hour $67, 2 Hr Jr Explorer $44",
+"url": "https://boundlessadventures.net/ny-park/"
+},
+"115": {
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "not_found",
+"note": "Website states: See Calendar for Hours",
+"price": "same",
+"siteHours": "",
+"sitePrice": "Single Ticket; Book of 10: $45.00; Book of 30: $100.00; Book of 60: $160.00; Go Kart: $10.00 Single Car, $5.00 Passenger Ticket",
 "url": "http://www.adventurerspark.com/"
 },
 "116": {
@@ -189,12 +189,12 @@
 "url": "https://abovethecloudsinc.com/"
 },
 "117": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "",
+"note": "Hours and prices vary by day/season",
 "price": "different",
-"siteHours": "Fri 3-8pm, Sat 10am-8pm, Sun 10am-6pm; Mon-Thu closed",
-"sitePrice": "General admission $64-$69",
+"siteHours": "Friday: 3 p.m. – 8 p.m., Saturday: 10 a.m. – 8 p.m., Sunday: 10 a.m. – 6 p.m., Monday – Thursday: CLOSED*",
+"sitePrice": "GENERAL ADMISSION: $64 (SAVE $5), $55 (SAVE $9), $42 (SAVE $3), $74 (SAVE $25)",
 "url": "https://myadventurepark.com/location/bridgeport-ct/"
 },
 "118": {
@@ -216,36 +216,36 @@
 "url": "https://bayvilleadventurepark.com/"
 },
 "12": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
 "note": "",
 "price": "not_found",
-"siteHours": "Mon-Thu 11am-9pm, Fri 11am-10pm, Sat 10am-10pm, Sun 11am-9pm",
-"sitePrice": "",
+"siteHours": "Mon - Thurs: 11 AM - 9 PM, Fri: 11 AM - 10 PM, Sat: 10 AM - 10 PM, Sun: 11 AM - 9 PM",
+"sitePrice": "Unlimited Visits for $7.99/mo",
 "url": "https://www.chuckecheese.com/paramus-nj/"
 },
 "120": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "Site text empty; no info retrievable",
-"price": "not_found",
-"siteHours": "",
-"sitePrice": "",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
+"price": "same",
+"siteHours": "Open Saturdays, Sundays, and select weekdays; open 7 days a week in season. Available times vary by day. Reservations required.",
+"sitePrice": "Adventure Courses 1-4 (Ages 9+): $55; Kids Treetop Adventure (Ages 6+): $40; Zip Tour: $50",
 "url": "https://adirondackextreme.com/"
 },
 "121": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours via calendar page",
-"price": "not_found",
-"siteHours": "See calendar; open fall weekends",
-"sitePrice": "Park admission $49 online",
+"note": "",
+"price": "same",
+"siteHours": "",
+"sitePrice": "Plus processing fees of up to $9.99 & applicable taxes; Group Admission 15-99: $61.99",
 "url": "https://www.sixflags.com/dorneypark"
 },
 "122": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Page is county site, no ski hours/prices",
+"note": "Website text refers to Bergen County Zoo/Planning Board/McFaul Center, not Campgaw Mountain",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -261,12 +261,12 @@
 "url": "https://www.nysba.ny.gov/bridge/bear-mountain"
 },
 "124": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
-"note": "Hours vary daily",
-"price": "not_found",
-"siteHours": "Open weekends & holidays in fall; hours vary, check social media",
-"sitePrice": "Alfie's Last Call $29.50 + tax; regular not shown",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "not_found",
+"note": "Operating hours do vary, check social media for daily hours",
+"price": "same",
+"siteHours": "",
+"sitePrice": "Adult Admission (ages 25+): $39.50; General Admission (ages 2-24): $51.50; Guests 1 year old and younger: Free",
 "url": "https://adventureland.us/"
 },
 "125": {
@@ -288,63 +288,63 @@
 "url": "https://harnessmuseum.com/"
 },
 "127": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site redirects to Facebook; no info",
+"note": "website could not be loaded (HTTP 400)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://forestparkcarousel.com/"
 },
 "128": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.echolakestables.com/"
 },
 "129": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours vary by date, see their calendar",
+"note": "",
 "price": "different",
-"siteHours": "See 2026 calendar; open for the 2026 season",
-"sitePrice": "Single ticket $1.35; 50 $45.95; 100 $89.95; 200 $159.95",
+"siteHours": "",
+"sitePrice": "Individuo $1.35; Hoja de 50 boletos $45.95; Libro de 100 boletos $89.95; Libro de 200 boletos $159.95",
 "url": "https://keansburgamusementpark.com/"
 },
 "13": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Generic locations page; hours/prices vary by store",
-"price": "not_found",
-"siteHours": "Sun-Wed 10am-7pm, Thu-Sat 10am-8pm",
-"sitePrice": "Generic page shows varying prices ($8.49-$19.49)",
+"note": "",
+"price": "different",
+"siteHours": "Sun–Wed: 10am–7pm, Thu–Sat: 10am–8pm",
+"sitePrice": "$8.49, $10.49, $13.99, $15.99, $17.49, $19.49; 1 Free per child, $3.99, $5.99; Free with paid sibling",
 "url": "https://catchair.com/location/"
 },
 "130": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours vary by date",
-"price": "different",
-"siteHours": "Evening 5-10pm shown; see hours calendar",
-"sitePrice": "1-day any day $66.99; Halloween $56.99",
+"note": "",
+"price": "not_found",
+"siteHours": "",
+"sitePrice": "Family 4-Pack: $55 per person",
 "url": "https://www.hersheypark.com/"
 },
 "132": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "Site text empty; no info retrievable",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "Rides/food closed for season; arcade open weekends",
 "price": "not_found",
-"siteHours": "",
+"siteHours": "Friday–Sunday (Arcade only)",
 "sitePrice": "",
 "url": "https://fantasyislandlbi.com/"
 },
 "133": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site blocked or empty",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -360,12 +360,12 @@
 "url": "https://skiholidaymtn.com/"
 },
 "135": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site blocked or empty",
-"price": "not_found",
+"note": "Go Ape Bear operates seasonally",
+"price": "different",
 "siteHours": "",
-"sitePrice": "",
+"sitePrice": "$64.95, $59.95, $37.95, $24.95",
 "url": "https://www.goape.com/location/delaware-bear/"
 },
 "136": {
@@ -378,57 +378,57 @@
 "url": "https://flgxnj.com/"
 },
 "138": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "",
+"note": "Online reservations must be made 16 hours prior",
 "price": "same",
-"siteHours": "Typically open March-December; see schedule",
-"sitePrice": "$120/person, $110 groups of 6+, $25 passenger",
+"siteHours": "",
+"sitePrice": "$120/per person; $110/per person with groups of 6 or more; $25 passenger fee (For kids 5-10 yrs old)",
 "url": "https://www.njatvrentals.com/"
 },
 "139": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours/prices on linked pages only",
+"note": "",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.moreyspiers.com/"
 },
 "14": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
 "note": "",
 "price": "same",
-"siteHours": "Sun-Wed 10am-7pm, Thu-Sat 10am-8pm",
-"sitePrice": "$15.99 / $17.49 child, $24.99 / $26.49, adult $7.99",
+"siteHours": "Sun–Wed 10am–7pm, Thu–Sat 10am–8pm",
+"sitePrice": "FREE with Paid Sibling, $15.99, $17.49, $24.99, $26.49, $7.99",
 "url": "https://catchair.com/location/paramus-nj/"
 },
 "140": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Website says closed for the season",
-"price": "not_found",
-"siteHours": "10am-6pm; closed for season, reopens May 2027",
-"sitePrice": "",
+"note": "Closed for the season. We will be open in May",
+"price": "same",
+"siteHours": "10am – 6pm",
+"sitePrice": "Adults (19-61): $41 ($38.45 + tax, reg $45); Children (2-18): $41 ($38.45 + tax, reg $45); Seniors (62+): $38 ($35.64 + tax, reg $43); Under 24 mos: Free",
 "url": "https://www.lomb.com/"
 },
 "141": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Site lists parking rates, not tram fare",
+"note": "Operates every 7.5 minutes during rush hour, 15 minutes off-peak",
 "price": "not_found",
-"siteHours": "Sun-Thu 6am-2am; Fri-Sat 6am-3:30am; every 7.5 min at rush hour, else 15 min",
+"siteHours": "Sunday–Thursday: 6:00 a.m. – 2:00 a.m.; Friday–Saturday: 6:00 a.m. – 3:30 a.m.",
 "sitePrice": "",
 "url": "https://www.rioc.ny.gov/community/transportation/tram"
 },
 "142": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
-"note": "Closed for the season",
-"price": "same",
-"siteHours": "Season ended Sept 13, 2026; 'See you next season!'",
-"sitePrice": "Free park admission; ride band required to ride",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "not_found",
+"note": "",
+"price": "different",
+"siteHours": "",
+"sitePrice": "Playland Park has free admission. To ride, all guests must purchase a band.",
 "url": "https://playlandpark.org/"
 },
 "143": {
@@ -441,30 +441,30 @@
 "url": "https://mtpeter.com/"
 },
 "144": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
-"note": "Open now for Brick or Treat season",
-"price": "different",
-"siteHours": "Today 12pm-6pm; Sat Oct 3 10am-6pm; hours vary by date",
-"sitePrice": "$49 Brick or Treat open-dated tickets (Sep 21-Nov 1); kids from $29 with hotel stay",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "not_found",
+"note": "Hours and prices vary by date and option",
+"price": "not_found",
+"siteHours": "Opening time is typically 10am, though closing times change throughout the year. Park hours vary by date.",
+"sitePrice": "Brick or Treat from $49; Kids Tickets from Just $29/Day with Hotel Stay; Hotel Stay + 2-Day Park Tickets $136",
 "url": "https://www.legoland.com/new-york/"
 },
 "145": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
-"note": "Outdoor open now, hours vary by date",
-"price": "not_found",
-"siteHours": "Outdoor park open today 12-5pm; indoor 10am-6pm; see calendar",
-"sitePrice": "Membership $6.99/month; ticket prices not shown",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "same",
+"note": "",
+"price": "same",
+"siteHours": "Indoor Water Park open 10:00 am - 6:00 pm (hours vary by date). Outdoor Water Park Memorial Day - Labor Day.",
+"sitePrice": "1 Day Ticket: $36.99 Mon-Fri, $39.99 Weekends & Holidays (In Park: $39.99-$49.99). Under 2 Free.",
 "url": "https://saharasams.com/"
 },
 "146": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
-"note": "Closed for the season",
-"price": "same",
-"siteHours": "Sat-Sun 11am-5pm in fall; rides/waterpark reopen in April, full summer hours in May",
-"sitePrice": "All-day passes under $32 per person; 2027 season pass $109",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
+"price": "different",
+"siteHours": "11:00 am - 5:00pm, 4:00 pm - 8:00 pm",
+"sitePrice": "All-day passes for less than $32 per person; Reg. $43 combo wristbands ($10 off for guest over 45\")",
 "url": "https://www.quassy.com/"
 },
 "147": {
@@ -477,48 +477,48 @@
 "url": "https://www.mountaincreek.com/"
 },
 "148": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours vary by date, see their calendar",
+"note": "",
 "price": "not_found",
-"siteHours": "Hours vary by day and weather; see park hours page",
+"siteHours": "Depending on the day and the weather, park hours vary.",
 "sitePrice": "",
 "url": "https://lunaparknyc.com/"
 },
 "149": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be read",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://wildwestcity.com/"
 },
 "15": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "",
-"price": "not_found",
-"siteHours": "Mon-Tue closed, Thu 3-10pm, Fri 3pm-12am, Sat 12pm-12am, Sun 12-8pm",
-"sitePrice": "",
+"note": "Website lists arcade hours and credits only",
+"price": "different",
+"siteHours": "Monday-Tuesday: CLOSED, Wednesday - Thursday: 3pm-10pm, Friday: 3pm-12am, Saturday: 12pm-12am, Sunday: 12pm-8pm",
+"sitePrice": "Arcade Credits: $10 (40 credits), $25 (125 credits), $50 (280 credits), $100 (600 credits)",
 "url": "https://breakpointbowl.com/"
 },
 "150": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "Open now; hours differ from guide",
-"price": "not_found",
-"siteHours": "Fri 10am-3pm; Sat-Sun 11am-5pm",
-"sitePrice": "Prices not shown on page; buy online and save",
+"note": "",
+"price": "same",
+"siteHours": "Fridays 10:00 - 3:00, Saturdays and Sundays 11:00 - 5:00. Open from April 5th - December 30th, 2025.",
+"sitePrice": "Online: $42.95 (Ages 2-64); Gate: $45.95; Senior / Military: $39.95; Under 2: Free",
 "url": "https://www.storybookland.com/"
 },
 "151": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours not shown; Fright Fest dates",
-"price": "different",
+"note": "Website text does not show regular daily park hours or base ticket price",
+"price": "not_found",
 "siteHours": "",
-"sitePrice": "Park admission $90 listed ($45 sale); season pass $99-115",
+"sitePrice": "",
 "url": "https://www.sixflags.com/greatadventure"
 },
 "152": {
@@ -531,39 +531,39 @@
 "url": "https://www.windhammountain.com/"
 },
 "154": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Facebook page could not be read",
+"note": "social media page",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.facebook.com/sifunpark"
 },
 "155": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Site shows park closed until April",
+"note": "",
 "price": "same",
-"siteHours": "Kiddie Park 11am, adult rides noon; park opens April 12; summer May 25-Sep 8",
-"sitePrice": "Free admission; ride credits $50/60, $90/125, $125/175",
+"siteHours": "May 25 through Sept 8 daily: Kiddie Park opens 11:00 AM, Adult rides open 12:00 PM. Hours vary.",
+"sitePrice": "Admission is FREE at all times. Ride credits: $50 for 60 credits, $90 for 125 credits, $125 for 175 credits.",
 "url": "https://www.denoswonderwheel.com/"
 },
 "156": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Open Fri-Sun now",
+"note": "",
 "price": "not_found",
-"siteHours": "Open Friday-Sunday; times on Hours & Calendar page",
-"sitePrice": "Tickets & prices on separate page; amounts not shown",
+"siteHours": "",
+"sitePrice": "",
 "url": "https://myadventurepark.com/"
 },
 "157": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours not shown on page",
+"note": "",
 "price": "same",
-"siteHours": "See Hours page for current hours",
-"sitePrice": "Ride tickets $2 cash, 50 for $75, 100 for $100",
+"siteHours": "",
+"sitePrice": "Single Ticket: $2.08 (Cash: $2.00); 50 Tickets: $78.13 (Cash: $75.00); 100 Tickets: $104.17 (Cash: $100.00)",
 "url": "https://www.steelpier.com/"
 },
 "158": {
@@ -576,36 +576,36 @@
 "url": "https://www.prideofthehudson.com/"
 },
 "159": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Page has no bike/boat rental info",
+"note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.nycgovparks.org/parks/flushing-meadows-corona-park"
 },
 "16": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "Site appears to be a toy store",
+"note": "Website is for ABC Toys delivery service",
 "price": "not_found",
-"siteHours": "Sun-Thu 10am-7pm; Fri 10am-1pm; Shabbos closed",
+"siteHours": "Sunday – Thursday 10am – 7pm, Friday 10am – 1pm, Shabbos: closed",
 "sitePrice": "",
 "url": "https://abctoysusa.com/"
 },
 "161": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "Times and prices shown only on booking tool",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
 "price": "not_found",
-"siteHours": "Two locations open 364 days a year; cruise times by date",
+"siteHours": "Monday-Sunday: 09:30 - 21:00",
 "sitePrice": "",
 "url": "https://www.circleline.com/"
 },
 "162": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site lacks boating hours and prices",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -621,9 +621,9 @@
 "url": "https://bergencountynj.gov/bergen-county-department-of-parks/overpeck-county-park/"
 },
 "164": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site does not show Haverstraw-Ossining schedule",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -639,12 +639,12 @@
 "url": "https://www.saugertiesmarina.com/"
 },
 "167": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
 "note": "",
-"price": "not_found",
-"siteHours": "Grounds open 24 hours; best sunrise to sunset",
-"sitePrice": "",
+"price": "same",
+"siteHours": "Park grounds are available 24 hours a day. The best time to visit is between sunrise and sunset.",
+"sitePrice": "Free",
 "url": "https://www.nps.gov/pagr/"
 },
 "168": {
@@ -666,12 +666,12 @@
 "url": "https://www.ferry.nyc"
 },
 "17": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
-"note": "Generic locations page; hours/prices vary by store",
-"price": "not_found",
-"siteHours": "Sun-Wed 10am-7pm, Thu-Sat 10am-8pm",
-"sitePrice": "Generic page shows varying prices ($8.49-$19.49)",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
+"price": "different",
+"siteHours": "Sun–Wed 10am–7pm, Thu–Sat 10am–8pm",
+"sitePrice": "FREE with Paid Sibling, $8.49, $10.49, $13.99, $15.99, $17.49, $19.49, 1 FREE Per Child, $3.99, $5.99",
 "url": "https://catchair.com/location/"
 },
 "170": {
@@ -693,11 +693,11 @@
 "url": "https://www.thekartrite.com"
 },
 "172": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
 "note": "",
 "price": "not_found",
-"siteHours": "8am-5pm daily",
+"siteHours": "Monday - Sunday: 08:00 am – 05:00 pm",
 "sitePrice": "",
 "url": "https://sunnysidelanding.com/"
 },
@@ -765,27 +765,27 @@
 "url": "https://www.capemaycountyzoo.org"
 },
 "18": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
-"siteHours": "Mon-Thu 7-10pm, Fri-Sun 6-10pm (open play schedule varies weekly)",
-"sitePrice": "Drop-in/open gym $30",
+"siteHours": "Open Gym: Monday-Thursday: 7pm-10pm, Friday-Sunday: 6pm-10pm (Kids Open Play varies by week)",
+"sitePrice": "Open Gym: $30.00 per day; Drop in classes: $30.00; 10 Pack of Open Play: $260",
 "url": "https://brooklynzoony.com/"
 },
 "180": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
-"note": "Hours from county site FAQ",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "not_found",
+"note": "no hours or prices found in the page text",
 "price": "not_found",
-"siteHours": "10am-4:30pm (last entry 4pm); 10am-3:30pm seasonal",
+"siteHours": "",
 "sitePrice": "",
 "url": "https://www.co.bergen.nj.us/bergen-county-zoo"
 },
 "181": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Domain is parked/for sale",
+"note": "no hours or prices found in the page text",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -819,9 +819,9 @@
 "url": "https://www.brandywinezoo.org"
 },
 "185": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Domain is parked/for sale",
+"note": "no hours or prices found in the page text",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -864,11 +864,11 @@
 "url": "https://parks.ny.gov/parks/bearmountain"
 },
 "19": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "same",
 "note": "",
 "price": "not_found",
-"siteHours": "Sun 11am-8pm, Mon 11am-9pm",
+"siteHours": "Sunday: 11:00am - 8:00pm, Tuesday: Closed, Thursday: 11:00am - 9:00pm",
 "sitePrice": "",
 "url": "https://ridgewood.colormemine.com/"
 },
@@ -954,30 +954,30 @@
 "url": "https://plumptonparkzoo.org"
 },
 "199": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website blocked access",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.adventureaquarium.com"
 },
 "2": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "not_found",
 "note": "",
-"price": "same",
-"siteHours": "Mon 5-11pm, Sat 10am-12:30am, Sun 11am-9pm; other weekdays vary",
-"sitePrice": "General $40, weekend $51 (regular sessions)",
+"price": "not_found",
+"siteHours": "Facility Operating Hours Vary",
+"sitePrice": "",
 "url": "https://area53nyc.com/"
 },
 "20": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "Website text could not be read",
-"price": "not_found",
-"siteHours": "",
-"sitePrice": "",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
+"price": "different",
+"siteHours": "Monday: 12pm – 7pm, Friday: 11am – 7pm, Saturday: 11am – 8pm",
+"sitePrice": "$19.99, $24.99, $38.99 (60 Min Admission); Spectators: $2.99",
 "url": "https://climbzone.us/palisades/"
 },
 "200": {
@@ -1062,12 +1062,12 @@
 "url": "https://prospectparkzoo.com/"
 },
 "21": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
-"note": "Generic locations page; hours/prices vary by store",
-"price": "not_found",
-"siteHours": "Sun-Wed 10am-7pm, Thu-Sat 10am-8pm",
-"sitePrice": "Generic page shows varying prices ($8.49-$19.49)",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
+"price": "different",
+"siteHours": "Sun–Wed 10am–7pm, Thu–Sat 10am–8pm",
+"sitePrice": "FREE with Paid Sibling, $8.49, $10.49, $13.99, $15.99, $17.49, $19.49, 1 FREE Per Child, $3.99, $5.99",
 "url": "https://catchair.com/location/"
 },
 "210": {
@@ -1080,9 +1080,9 @@
 "url": "https://www.zooamerica.com/"
 },
 "211": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1161,9 +1161,9 @@
 "url": "https://www.esbnyc.com"
 },
 "22": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Store hours not on page fetched",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1260,11 +1260,11 @@
 "url": "https://www.howecaverns.com"
 },
 "23": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Mon-Wed 3:30-8:30pm, Thu 10-8:30, Fri-Sat 10am-10pm, Sun 10am-8pm",
+"siteHours": "MON-WED: 3:30 PM - 8:30 PM, THUR: 10:00 AM - 8:30 PM, FRI-SAT: 10:00 AM - 10:00 PM, SUN: 10:00 AM - 8:00 PM",
 "sitePrice": "",
 "url": "https://www.funmaxadventurepark.com/"
 },
@@ -1422,9 +1422,9 @@
 "url": "https://empirestateplaza.ny.gov/tours/new-york-state-capitol"
 },
 "246": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website blocked/could not be read",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1458,18 +1458,18 @@
 "url": "https://www.osv.org"
 },
 "25": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours/prices vary by location",
+"note": "",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.daveandbusters.com/"
 },
 "250": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Visitor info not found",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1494,9 +1494,9 @@
 "url": "https://www.brooklynbridgepark.org"
 },
 "253": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours/fees not found on site",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1557,11 +1557,11 @@
 "url": "https://www.centralparknyc.org/locations/adventure-playground"
 },
 "26": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "same",
 "note": "",
 "price": "not_found",
-"siteHours": "Sun 11am-8pm, Mon 11am-10pm",
+"siteHours": "Sunday: 11:00am - 8:00pm, Thursday: 11:00am - 10:00pm",
 "sitePrice": "",
 "url": "https://newcity.colormemine.com/"
 },
@@ -1638,9 +1638,9 @@
 "url": "https://www.orangecountygov.com/1474/Gonzaga-Park"
 },
 "269": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours not on text",
+"note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1674,9 +1674,9 @@
 "url": "https://parks.westchestercountyny.gov/croton-gorge-park"
 },
 "272": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Page could not be read",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1719,9 +1719,9 @@
 "url": "https://www.keldersfarm.com"
 },
 "277": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows only trail parking dawn-dusk, no trail hours/fees",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1746,12 +1746,12 @@
 "url": "https://www.blazingsaddles.com/new-york/locations"
 },
 "28": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
-"siteHours": "10am-6pm",
-"sitePrice": "$25 first child, $20 sibling, $5 additional adult",
+"siteHours": "Open 7 days/week: 10am – 6pm",
+"sitePrice": "Drop-in Play (2 Hours): $25 1 child with 1 adult, $20 each additional sibling, $5 each additional adult",
 "url": "https://fitkidplayandpartyplace.com/"
 },
 "280": {
@@ -1773,9 +1773,9 @@
 "url": "https://www.hurdsfamilyfarm.com/"
 },
 "282": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1800,27 +1800,27 @@
 "url": "https://lawrencefarmsorchards.com/"
 },
 "285": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.rocklandcountyny.gov/Home/Components/FacilityDirectory/FacilityDirectory/22/169?widgetId=1264"
 },
 "286": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows only trail parking dawn-dusk, no trail hours/fees",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.orangecountygov.com/1475/Heritage-Trail"
 },
 "287": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Page shows no hours or fees",
+"note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1845,12 +1845,12 @@
 "url": "https://www.maskers.com/"
 },
 "29": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours not shown; only group event pricing",
+"note": "Prices shown are party/catering package options",
 "price": "not_found",
 "siteHours": "",
-"sitePrice": "Teambuilding events $100-$110pp",
+"sitePrice": "Minimum of 8 guests at $100pp; party/group options range from $80pp to $200pp",
 "url": "https://escaperoomnj.com/"
 },
 "290": {
@@ -1863,9 +1863,9 @@
 "url": "https://littleisland.org/"
 },
 "291": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows no hours or prices",
+"note": "website could not be loaded (HTTP 429)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1899,9 +1899,9 @@
 "url": "https://longwoodgardens.org/"
 },
 "295": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Page shows no park hours or fees",
+"note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1917,9 +1917,9 @@
 "url": "https://njbg.org/"
 },
 "297": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Only rec center/pool hours shown, no park hours",
+"note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -1944,20 +1944,20 @@
 "url": "https://dep.nj.gov/parksandforests/state-park/liberty-state-park/"
 },
 "3": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Sun 11am-8pm, Mon 10am-9pm, Tue from 4pm (per site data)",
+"siteHours": "Sunday 11:00-20:00, Monday 10:00-21:00, Tuesday 16:00-21:00",
 "sitePrice": "",
 "url": "https://jumpaltitude.com/woodbridge/"
 },
 "30": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Sun-Wed 11am-6pm, Thu-Sat 11am-8pm",
+"siteHours": "Sunday-Wednesday: 11am-6pm, Thursday, Friday, Saturday: 11am-8pm",
 "sitePrice": "",
 "url": "https://tribeca.colormemine.com/"
 },
@@ -1998,9 +1998,9 @@
 "url": "https://www.phipps.conservatory.org/"
 },
 "305": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Domain appears expired/for sale; website unavailable",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2025,9 +2025,9 @@
 "url": "https://www.nyc.gov/"
 },
 "308": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2043,18 +2043,18 @@
 "url": "https://www.bergencountynj.gov/"
 },
 "31": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Mon-Thu 10am-11pm, Fri 10am-12am, Sat 11am-12am, Sun 11am-10pm",
+"siteHours": "MON-THUR: 10AM-11PM, FRI: 10AM - 12AM, SAT: 11AM-12AM, SUN: 11AM-10PM",
 "sitePrice": "",
 "url": "https://www.funstationsi.com/"
 },
 "310": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Only county office hours shown, no arboretum info",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2124,9 +2124,9 @@
 "url": "https://njbg.org/"
 },
 "318": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Page shows no Sams Point hours or fees",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2142,18 +2142,18 @@
 "url": "https://www.rocklandbeetours.com/"
 },
 "32": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
-"siteHours": "Mon 10am-9pm, Tue-Thu 11am-9pm, Fri-Sun 10am-9pm",
-"sitePrice": "Ages 4+ $21.99, 3 and under $15.99, add. adult $7.99",
+"siteHours": "Mon, Fri, Sat, Sun: 10:00 am - 9:00 pm, Tue - Thu: 11:00 am - 9:00 pm",
+"sitePrice": "3 and under: $15.99; Children 4+: $21.99 (Mon-Fri) / $29.99 (Sat-Sun); 1 Adult Free, Add'l Adult: $7.99",
 "url": "https://www.flyingappleny.com/"
 },
 "320": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows no path hours or fees",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2241,9 +2241,9 @@
 "url": "https://www.americandream.com"
 },
 "331": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "JS-only site, hours and prices not shown",
+"note": "no hours or prices found in the page text",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2322,9 +2322,9 @@
 "url": "https://climbzone.us/palisades/"
 },
 "34": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours/prices vary by location",
+"note": "",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2394,9 +2394,9 @@
 "url": "https://www.buildabear.com/"
 },
 "348": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded (503)",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2412,12 +2412,12 @@
 "url": "https://www.americandream.com/venue/the-rink"
 },
 "35": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Multiple locations; hours not specified",
-"price": "same",
+"note": "Website lists multiple locations with varying hours and prices.",
+"price": "not_found",
 "siteHours": "",
-"sitePrice": "General admission $29.99 / $25.99 (varies by location)",
+"sitePrice": "",
 "url": "https://www.hooplavip.com/"
 },
 "350": {
@@ -2430,9 +2430,9 @@
 "url": "https://www.buildabear.com/"
 },
 "351": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows no rink hours or prices",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2457,9 +2457,9 @@
 "url": "https://www.round1usa.com/"
 },
 "354": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site text empty; could not read hours/prices",
+"note": "no hours or prices found in the page text",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2502,18 +2502,18 @@
 "url": "https://www.vr360usa.com/"
 },
 "36": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
 "note": "",
 "price": "different",
-"siteHours": "",
-"sitePrice": "Holiday/off days $24.99, school days $19.99",
+"siteHours": "Boro Park: Sun-Thu 12pm-8pm, Fri 12pm-2 hrs before zman; Monroe: Sun-Thu 10am-12am, Fri 10am-2pm",
+"sitePrice": "$24.99, $19.99",
 "url": "https://hooplavip.com/boro-park.html"
 },
 "360": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows no ropes course hours or prices",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2574,12 +2574,12 @@
 "url": "https://www.jumpcenter.com/"
 },
 "37": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
 "note": "",
-"price": "same",
-"siteHours": "Mon-Sat 10am-8pm, Sun 11am-6pm",
-"sitePrice": "$20",
+"price": "different",
+"siteHours": "Monday - Saturday: 10 AM–8 PM, Sunday: 11 AM–6 PM",
+"sitePrice": "One adult per child is FREE with an additional charge of $10 for each extra adult",
 "url": "https://goplayland.com/go-playland-nanuet/"
 },
 "370": {
@@ -2610,9 +2610,9 @@
 "url": "https://www.independenthelicopter.com/"
 },
 "374": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2763,11 +2763,11 @@
 "url": "https://www.ripleys.com/niagarafalls/"
 },
 "39": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Mon-Thu 12-10pm, Fri 11am-11pm, Sat 10am-12am, Sun 10am-10pm",
+"siteHours": "Monday - Thursday: 12 PM - 10 PM, Friday: 11 AM - 11 PM, Saturday: 10 AM - 12 AM, Sunday: 10 AM - 10 PM",
 "sitePrice": "",
 "url": "https://humdingersnj.com/"
 },
@@ -2826,9 +2826,9 @@
 "url": "https://www.newportmansions.org/mansions-and-gardens/marble-house/"
 },
 "396": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website text empty",
+"note": "website could not be loaded (HTTP 307)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -2862,21 +2862,21 @@
 "url": "https://rwpzoo.org"
 },
 "4": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Hours vary by date, see their calendar",
+"note": "",
 "price": "same",
-"siteHours": "Open bounce limited to school breaks/some days; see calendar",
-"sitePrice": "$19.95 first child, $16.95 each additional",
+"siteHours": "Check calendar; SAT 31 11:00 AM - 12:45 PM; TUE 03 9:00 AM - 3:30 PM, 9:00 AM - 12:00 PM",
+"sitePrice": "Open Bounce (1.5hrs): $19.95 for first child, $16.95 for each additional child. Parents are FREE.",
 "url": "https://www.bounceu.com/paramus-nj/"
 },
 "40": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
 "note": "",
 "price": "different",
-"siteHours": "",
-"sitePrice": "Holiday/off days $24.99, school days $19.99",
+"siteHours": "Sunday - Thursday: 12:00 PM - 8:00 PM, Friday: Closed",
+"sitePrice": "$22.99, $16.99",
 "url": "https://hooplavip.com/williamsburg.html"
 },
 "400": {
@@ -2916,9 +2916,9 @@
 "url": "https://www.vikingtoursnewport.com"
 },
 "404": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site text empty",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3042,12 +3042,12 @@
 "url": "https://www.greatwolf.com/poconos"
 },
 "42": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
-"siteHours": "Sun-Mon, Fri-Sat 11am-5pm, Thu 3-9pm",
-"sitePrice": "$5 admission per person plus project cost",
+"siteHours": "Sun, Mon, Fri, Sat: 11 am - 5 pm; Tue, Wed: CLOSED; Thu: 3 pm - 9 pm",
+"sitePrice": "$5 admission fee per person includes two hours of crafting, all materials, and tools.",
 "url": "https://www.umakeglass.com/"
 },
 "420": {
@@ -3123,18 +3123,18 @@
 "url": "https://www.saugertiesmarina.com"
 },
 "43": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "Hours not clearly shown on page",
-"price": "not_found",
-"siteHours": "",
-"sitePrice": "",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
+"price": "same",
+"siteHours": "Mon: CLOSED",
+"sitePrice": "$37.99",
 "url": "https://www.iplayamerica.com/"
 },
 "430": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours/prices not shown on site",
+"note": "no hours or prices found in the page text",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3150,9 +3150,9 @@
 "url": "https://www.puttinplus.com"
 },
 "433": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3204,12 +3204,12 @@
 "url": "https://www.amishfarmandhouse.com"
 },
 "44": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Multiple locations; hours not specified",
-"price": "same",
+"note": "Website lists multiple locations with varying hours and prices.",
+"price": "not_found",
 "siteHours": "",
-"sitePrice": "General admission $29.99 / $25.99 (varies by location)",
+"sitePrice": "",
 "url": "https://www.hooplavip.com/"
 },
 "440": {
@@ -3240,9 +3240,9 @@
 "url": "https://www.aaabuggyrides.com"
 },
 "444": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website returned no usable content",
+"note": "no hours or prices found in the page text",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3267,9 +3267,9 @@
 "url": "https://www.kreiderfarms.com"
 },
 "447": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded (blocked)",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3330,9 +3330,9 @@
 "url": "https://www.juliussturgis.com"
 },
 "455": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3348,9 +3348,9 @@
 "url": "https://www.spymuseum.org"
 },
 "457": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3474,12 +3474,12 @@
 "url": "https://www.bigbearzoo.org"
 },
 "47": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
-"price": "not_found",
-"siteHours": "Mon-Thu 12-10pm, Fri 12pm-12am, Sat 10am-12am, Sun 10am-10pm",
-"sitePrice": "",
+"price": "same",
+"siteHours": "MON-THU: 12:00PM - 10:00PM; FRI: 12:00PM - 12:00AM; SAT: 10:00AM - 12:00AM; SUN: 10:00AM - 10:00PM",
+"sitePrice": "1-RACE - $24; 2-RACE - $42; 3-RACE - $58; SPEEDPASS - $60; $8.50 License",
 "url": "https://www.k1speed.com/mount-kisco-location.html"
 },
 "470": {
@@ -3573,9 +3573,9 @@
 "url": "https://www.palmspringsairmuseum.org"
 },
 "480": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3636,9 +3636,9 @@
 "url": "https://www.fs.usda.gov/coronado"
 },
 "488": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website shows no hours or prices",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3654,11 +3654,11 @@
 "url": "https://kpno.noirlab.edu"
 },
 "49": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Sun 10am-6pm (other days vary)",
+"siteHours": "Sunday: 10:00-18:00, Monday: 08:00-09:00, Tuesday: 14:00-21:00",
 "sitePrice": "",
 "url": "https://www.iflyworld.com/queens/"
 },
@@ -3699,9 +3699,9 @@
 "url": "https://azstateparks.com/catalina"
 },
 "494": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows unrelated spam content, not Sabino Canyon info",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3753,21 +3753,21 @@
 "url": "https://clarkdalekayak.com/"
 },
 "5": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
-"siteHours": "Mon-Thu 11am-9pm, Sat 10am-10pm, Sun 11am-9pm",
-"sitePrice": "Ages 1-3 $18.95, 4-17 $22.95, adult $8.95/$10.95",
+"siteHours": "Mon - Thu: 11 AM - 9 PM, Fri - Sun: 10 AM - 10 PM (West Nyack: 11 AM - 7 PM, 10 AM - 9 PM)",
+"sitePrice": "Children (4-17): $22.95, Toddler: $18.95, 1st Adult: $8.95, 2nd Adult: $10.95, Socks: $3.19",
 "url": "https://billybeezus.com/location/the-mall-at-bay-plaza/"
 },
 "50": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "same",
 "note": "",
 "price": "same",
-"siteHours": "Mon-Thu 10am-8pm, Fri-Sun 10am-10pm",
-"sitePrice": "General admission $17.90-$24.90; 2 adults free, $5 extra adult",
+"siteHours": "Monday through Thursday: 10:00 am - 8:00 pm; Friday through Sunday: 10:00 am - 10:00 pm",
+"sitePrice": "General Admission: $17.90 to $24.90 (includes 2 adults for free); Free for infants with siblings; $5 per additional adult",
 "url": "https://www.kidsempire.com/"
 },
 "500": {
@@ -3888,9 +3888,9 @@
 "url": "https://www.visitsealife.com/arizona/"
 },
 "513": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Could not retrieve park hours/fees",
+"note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -3933,9 +3933,9 @@
 "url": "https://www.skywheelmb.com"
 },
 "520": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Domain is parked/for sale",
+"note": "no hours or prices found in the page text",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -4014,11 +4014,11 @@
 "url": "https://www.miamidade.gov/parks/arch-creek.asp"
 },
 "53": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Sun 10am-6pm, Wed from 2pm-9pm, Thu from 2pm",
+"siteHours": "Sunday: 10:00-18:00, Wednesday: 14:00-21:00, Thursday: 14:00-21:00",
 "sitePrice": "",
 "url": "https://www.iflyworld.com/westchester/"
 },
@@ -4086,9 +4086,9 @@
 "url": "https://monkeyjungle.com"
 },
 "538": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows only bankruptcy contact info",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -4158,12 +4158,12 @@
 "url": "https://www.k1speed.com/"
 },
 "55": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
-"siteHours": "Mon-Thu 10am-8pm, Fri-Sun 10am-10pm",
-"sitePrice": "General admission $17.90-$24.90; 2 adults free, $5 extra adult",
+"siteHours": "Monday through Thursday: 10:00 am - 8:00 pm; Friday through Sunday: 10:00 am - 10:00 pm",
+"sitePrice": "General Admission: $17.90 to $24.90 (includes 2 adults for free); Free for infants with siblings; $5 per additional adult",
 "url": "https://www.kidsempire.com/"
 },
 "551": {
@@ -4203,20 +4203,20 @@
 "url": "https://www.seewinter.com"
 },
 "56": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Mon 9:30-3:30, Tue 9:30-3:30 & 7-9:30pm, weekends call",
+"siteHours": "Mon, Wed: 9:30 AM - 3:30 PM; Tue: 9:30 AM - 3:30 PM, 7:00 PM - 9:30 PM; Thu: 7:00 PM - 9:30 PM; Fri: 3:00 PM - 5:00 PM; Sat - Sun: Call for weekend hours",
 "sitePrice": "",
 "url": "https://jillsceramics.com"
 },
 "57": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "same",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
 "note": "",
 "price": "not_found",
-"siteHours": "Sun 10am-7pm, Tue 2-9pm, Wed 11am-9pm",
+"siteHours": "Sunday: 10:00-19:00, Tuesday: 14:00-21:00, Wednesday: 11:00-21:00",
 "sitePrice": "",
 "url": "https://www.iflyworld.com/paramus/"
 },
@@ -4230,39 +4230,39 @@
 "url": "https://libertyheightsny.com"
 },
 "59": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "",
-"price": "same",
-"siteHours": "",
-"sitePrice": "$35 all-day, parent pass $10, socks $4",
-"url": "https://launchfamilyentertainment.com/queens/"
-},
-"6": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "different",
-"siteHours": "Mon 5-11pm, Sat 11am-11pm, Sun 11am-8pm",
-"sitePrice": "Tickets $40 / $51 / $42 (includes tax)",
+"siteHours": "MONDAY: 3:00PM-8:30PM; FRIDAY: 3:00PM- 10:00PM; SATURDAY: 10:00AM-8:30PM",
+"sitePrice": "One Hour Action Pass $25; Parent Pass $10; Launch grip socks $4",
+"url": "https://launchfamilyentertainment.com/queens/"
+},
+"6": {
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
+"price": "not_found",
+"siteHours": "Monday: Closed, Tuesday: Closed, Wednesday: 5pm – 11pm, Thursday: 5pm-11pm, Friday: 5pm-11pm, Saturday: 11am-11pm, Sunday: 11am-8pm",
+"sitePrice": "",
 "url": "https://area53nyc.com/williamsburg/"
 },
 "60": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
 "note": "",
-"price": "same",
-"siteHours": "Open every day 10am-8pm",
-"sitePrice": "$15/child incl. 1-2 adults, extra adult $5",
+"price": "different",
+"siteHours": "Open Every Day 10:00 am - 8:00 pm",
+"sitePrice": "Mon-Fri: $15 per Child & 2 Adults/Each Add Adult $5; Sat-Sun/Holidays/School Breaks: $15 per Child & 1 Adult/Each Add Adult $5",
 "url": "https://www.land-o-fun.com/"
 },
 "61": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
 "note": "",
 "price": "different",
-"siteHours": "Two-hour sessions Mon-Fri; times not listed",
-"sitePrice": "Open sessions $18 per child",
+"siteHours": "",
+"sitePrice": "$18 Per Child (2 Hours)",
 "url": "https://www.kidsnshape.com/"
 },
 "62": {
@@ -4275,12 +4275,12 @@
 "url": "https://littleexplorersplayhouse.com"
 },
 "63": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "",
-"price": "same",
-"siteHours": "",
-"sitePrice": "All-day pass $39; 1-hour $29; parent pass $9.99",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "Website says location temporarily closed",
+"price": "different",
+"siteHours": "TEMPORARILY CLOSED",
+"sitePrice": "1 HOUR ACTION PASS $29; $19 - 1 Hour Action Pass; Parent Pass $9.99",
 "url": "https://launchfamilyentertainment.com/brooklyn/"
 },
 "64": {
@@ -4293,21 +4293,21 @@
 "url": "https://queens.laserbounce.com/"
 },
 "65": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
 "note": "",
 "price": "different",
-"siteHours": "Two-hour sessions Mon-Fri; times not listed",
-"sitePrice": "Open sessions $18 per child",
+"siteHours": "",
+"sitePrice": "$18 Per Child (2 Hours)",
 "url": "https://www.kidsnshape.com/"
 },
 "67": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "Hours vary by date",
-"price": "same",
-"siteHours": "Opening 10am-8pm/7pm; attraction hours 11am-5pm",
-"sitePrice": "From $24.99; $27.99 and up",
+"note": "",
+"price": "different",
+"siteHours": "11am - 5pm (Last entry at 3:30pm)",
+"sitePrice": "Tickets from $24.99; ADMISSION $24.99, $27.99",
 "url": "https://www.legolanddiscoverycenter.com/westchester/"
 },
 "68": {
@@ -4320,102 +4320,102 @@
 "url": "https://longisland.laserbounce.com/"
 },
 "69": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded (Facebook)",
+"note": "social media page",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.facebook.com/kidspoint772/"
 },
 "7": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site lists only online shop prices",
+"note": "",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.americangirl.com/"
 },
 "70": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "",
-"price": "not_found",
-"siteHours": "Mon-Thu 10am-7pm, Fri-Sun 10am-8pm",
-"sitePrice": "",
+"note": "Hours may vary on weekends due to private events",
+"price": "different",
+"siteHours": "Monday–Thursday: 10 AM – 7 PM; Friday–Sunday: 10 AM – 8 PM",
+"sitePrice": "One (1) Free Adult; Add. Adult ($5)",
 "url": "https://rainbowplayspace.com/bensonhurst/"
 },
 "71": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "different",
-"siteHours": "Sun-Thu 10am-6pm, Fri-Sat 10am-7pm",
-"sitePrice": "$20/1hr, $25/2hr incl. 1 adult; extra adult $10",
+"siteHours": "Sunday- Thursday 10:00 AM - 6:00 PM; Friday - Saturday 10:00 AM - 7:00 PM",
+"sitePrice": "$20 for one hour including one kid and one adult. $25 for two hours including one kid and one adult. Additional adult is $10",
 "url": "https://www.peekabooonyc.com/"
 },
 "72": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "Site shows 2026 show already ended (Apr 12)",
-"price": "not_found",
-"siteHours": "Apr 3-12, 2026: Mon-Thu 10am-8pm, Fri-Sat 10am-10pm, Sun 10am-7pm",
-"sitePrice": "",
+"note": "Open March 26 to April 4, 2027",
+"price": "different",
+"siteHours": "Monday – Thursday 10am – 8pm; Fridays & Saturdays 10am – 10pm; Sunday 10am – 7pm",
+"sitePrice": "General Admission: Adult (13+) $22, Child (3-12) $8, Children 2 & under $0; Early Access Adult $48, Child $18",
 "url": "https://autoshowny.com/"
 },
 "73": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
-"price": "same",
-"siteHours": "Daily 9AM-12AM (Fri-Sat to 1AM)",
-"sitePrice": "Lanes $60/hr Mon-Fri 9-5, $65 Sat-Sun 9-5, $70/hr evenings",
+"price": "different",
+"siteHours": "Monday - Thursday: 9AM – 12AM; Friday - Saturday: 9AM – 1AM; Sunday: 9AM – 12AM",
+"sitePrice": "Monday - Friday | 9am-5pm | $60/per hour; Saturday - Sunday | 9am-5pm | $65/per hour; Sunday - Thursday | 5pm-Closing | $65/per hour; Friday - Saturday | 5pm-Cl",
 "url": "https://melodylanesny.com"
 },
 "74": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
-"siteHours": "Mon-Fri 12-11pm, Sat 10am-10pm, Sun 10am-8pm",
-"sitePrice": "Day pass $24 adult, $21 youth/senior; rental extras",
+"siteHours": "Monday – Friday: 12:00pm – 11:00pm; Saturday: 10:00am – 10:00pm; Sunday: 10:00am – 8:00pm",
+"sitePrice": "$24.00; $21.00; $10.00",
 "url": "https://njrockgym.com/"
 },
 "75": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Open jump hours not shown on site",
-"price": "not_found",
+"note": "",
+"price": "same",
 "siteHours": "",
-"sitePrice": "5 Jump Pass $60; no single open jump price shown",
+"sitePrice": "Open Play Jump: $15.95 per child; Glow Jump: $17.95 per child; Character Jump: $19.95 per child; 5 Jump Pass: $60",
 "url": "https://www.pumpitupparty.com/roselle-park-nj/"
 },
 "76": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Facebook page only; no info retrievable",
+"note": "social media page",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://www.facebook.com/OceansPlayhouse/"
 },
 "77": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
-"siteHours": "Mon-Thu 2-9pm, Fri 2-10pm, Sat 12-10pm, Sun 12-8pm",
-"sitePrice": "Mini golf $14-16; bundles $23-30",
+"siteHours": "Monday – Thursday: 2 p.m. – 9 p.m.; Friday: 2 p.m. – 10 p.m.; Saturday: 12 p.m. – 10 p.m.; Sunday: 12 p.m. – 8 p.m.",
+"sitePrice": "Little Monsters – $15.00; Big Monsters – $16.00; Seniors, Military, EMT, First Responders, College Students – $14.00",
 "url": "https://monsterminigolf.com/locations/us/nj/paramus/"
 },
 "78": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
-"siteHours": "Sun-Thu 10AM-12AM, Fri-Sat 10AM-1AM",
-"sitePrice": "Bowling by time/day, e.g. $34.25-$50/hr; shoes $5.25",
+"siteHours": "Sun-Thu 10AM to 12AM (Midnight); Fri-Sat 10AM to 1AM",
+"sitePrice": "Shoes rental $5.25 per person; Bowling: Mon-Thu $8.75 - $39.50, Fri $9.25 - $45.00, Sun/Holiday $10.25 - $43.00",
 "url": "https://www.round1usa.com/locations/016bwm"
 },
 "79": {
@@ -4437,30 +4437,30 @@
 "url": "https://www.bounceu.com/elmsford-ny/"
 },
 "80": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours not shown on site",
+"note": "",
 "price": "different",
 "siteHours": "",
-"sitePrice": "$35/person (published rate)",
+"sitePrice": "$35/person rate",
 "url": "https://www.peddlersandparchments.com/escape-room-brooklyn"
 },
 "81": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Website could not be loaded",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
 "url": "https://montvalelanes.com"
 },
 "82": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Pass price not shown; socks $1",
+"note": "",
 "price": "different",
-"siteHours": "8am-7pm, 365 days a year",
-"sitePrice": "Grip socks $1",
+"siteHours": "8am - 7pm, 365 days a year!",
+"sitePrice": "Grip socks are required and are available for $1",
 "url": "https://spaceclub.com/"
 },
 "83": {
@@ -4473,39 +4473,39 @@
 "url": "https://www.skyzone.com/south-plainfield-piscataway-nj/"
 },
 "84": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "Ticket prices not shown on site",
-"price": "not_found",
-"siteHours": "Mon-Fri 11am-8pm, Sat 9am-10pm, Sun 10am-8pm",
-"sitePrice": "",
+"note": "",
+"price": "different",
+"siteHours": "Monday - Wednesday: 11:00am - 8:00pm",
+"sitePrice": "120-MIN TICKET: $32.99 /Ticket",
 "url": "https://www.skyzone.com/spring-valley-ny/"
 },
 "85": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "not_found",
-"note": "Hours not shown on site",
-"price": "same",
-"siteHours": "",
-"sitePrice": "Race $30 (1), $60 (2), $90 (3)",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "different",
+"note": "",
+"price": "not_found",
+"siteHours": "Monday - Thursday: 12 PM - 10 PM; Friday: 12 PM - 11 PM; Saturday: 10 AM - 11 PM; Sunday: 10 AM - 10 PM",
+"sitePrice": "",
 "url": "https://www.rpmraceway.com/locations/long-island-ny"
 },
 "86": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Pass price not shown; socks $1",
+"note": "",
 "price": "different",
-"siteHours": "8am-7pm, 365 days a year",
-"sitePrice": "Grip socks $1",
+"siteHours": "8am - 7pm, 365 days a year!",
+"sitePrice": "Grip socks are required and are available for $1",
 "url": "https://spaceclub.com/"
 },
 "87": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Hours/prices on external ticketing site",
-"price": "not_found",
-"siteHours": "Check ticketing platform",
-"sitePrice": "",
+"note": "",
+"price": "different",
+"siteHours": "",
+"sitePrice": "$27.99",
 "url": "https://www.sloomoo.com/locations/new-york"
 },
 "88": {
@@ -4527,9 +4527,9 @@
 "url": "https://www.rpmraceway.com/"
 },
 "9": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Site shows only party info",
+"note": "",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -4545,12 +4545,12 @@
 "url": "https://kiddosspaceny.com/"
 },
 "91": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "same",
-"note": "Pass price not shown; socks $1",
-"price": "different",
-"siteHours": "8am-7pm, 365 days a year",
-"sitePrice": "Grip socks $1",
+"note": "",
+"price": "same",
+"siteHours": "8am - 7pm, 365 days a year!",
+"sitePrice": "Grip socks are required and are available for $1",
 "url": "https://spaceclub.com/"
 },
 "92": {
@@ -4563,9 +4563,9 @@
 "url": "https://www.skyzone.com/springfield-nj/"
 },
 "93": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "not_found",
-"note": "Facebook page only; no info retrievable",
+"note": "social media page",
 "price": "not_found",
 "siteHours": "",
 "sitePrice": "",
@@ -4590,21 +4590,21 @@
 "url": "https://thecastlefuncenter.com/"
 },
 "96": {
-"checkedAt": "2026-10-02T10:17:18Z",
-"hours": "different",
-"note": "Fri/Sat games added; prices not in text",
-"price": "not_found",
-"siteHours": "Tue-Thu 4,5:30,7pm; Fri/Sat 12pm-10:30pm games; Sun 10:30am-7:30pm",
-"sitePrice": "",
+"checkedAt": "2026-10-05T18:58:36+00:00",
+"hours": "same",
+"note": "",
+"price": "different",
+"siteHours": "Monday: Closed; Tuesday–Thursday: 4:00 PM – 8:30 PM; Friday: 12:00 PM – 12:00 AM; Saturday: 10:30 AM – 12:00 AM; Sunday: 10:30 AM – 7:30 PM",
+"sitePrice": "Weekday games (Tue, Wed, Thu): $30 per game per player. Weekend games (Fri, Sat, Sun): $40 per game per person.",
 "url": "https://tacopslasertag.com/contact/fairfield-nj/"
 },
 "97": {
-"checkedAt": "2026-10-02T10:17:18Z",
+"checkedAt": "2026-10-05T18:58:36+00:00",
 "hours": "different",
-"note": "Hours vary weekly",
+"note": "Hours vary weekly and are subject to change.",
 "price": "same",
-"siteHours": "Hours vary weekly; this week Fri 3-8pm, Sat 5:30-9pm, Sun 11am-7:30pm",
-"sitePrice": "$6.75/ride, $10/game, $5.50/climb, $4/ride",
+"siteHours": "Mon: CLOSED; Tues: CLOSED; Wed: CLOSED; Thurs: 3pm-8pm; Fri: 3pm-8pm; Sat: 11am-8pm; Sun: 11am-7:30pm",
+"sitePrice": "Arcade Card: $8, $13, $23, $33, $53; Rides: $6.75/per ride, $4/per ride, $5.50/per climb, $10/per game",
 "url": "https://sportimeusa.com"
 },
 "99": {
