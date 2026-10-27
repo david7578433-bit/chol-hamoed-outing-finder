@@ -24,21 +24,7 @@
       snowIds: [122, 143, 134, 370, 152, 338, 349, 351, 593, 474, 475, 491, 511],
       // Trip destinations shown first in winter: warm-weather trips, then snow country.
       tripFirst: ['North Miami', 'West Palm Beach', 'Tampa', 'Palm Springs', 'Tucson', 'Grand Canyon & Arizona', 'Poconos', 'Hunter Mountain'],
-      // Places added for winter. Not from the guide: checked on each official website on Oct 27, 2026.
-      addPlaces: [
-        { n: 'Sport-O-Rama Ice Rink', s: 'Indoor Fun', k: 'local', io: 'in', st: 'NY', a: '20 College Road, Monsey, NY 10952', p: ['845.356.3919'],
-          w: 'https://www.sportorama.com/', de: 'Indoor ice rink in Monsey with public skating sessions. Their public skating page lists a Friday girls-only session; check it for the current schedule.',
-          ll: [41.11231, -74.0874], tFrom: 575, src2: 'https://www.sportorama.com/public-skating', snow: true },
-        { n: 'Wollman Rink', s: 'Outdoor Fun', k: 'local', io: 'out', st: 'NY', a: '830 5th Ave, New York, NY 10065', p: ['833.615.3500'],
-          w: 'https://wollmanrinknyc.com/', de: 'Outdoor ice skating rink in Central Park, open in the winter season. The rink\u2019s site says it is near the southeast corner of the park; the closest entrance is at 59th Street and 6th Avenue.',
-          ll: [40.76772, -73.97447], tFrom: 183, src2: 'https://wollmanrinknyc.com/plan/', snow: true },
-        { n: 'LeFrak Center at Lakeside (Prospect Park)', s: 'Outdoor Fun', k: 'local', io: 'out', st: 'NY', a: 'Prospect Park, near the Lincoln Road and Parkside/Ocean Avenue entrances, Brooklyn, NY', p: [],
-          w: 'https://www.prospectpark.org/visit-the-park/places-to-go/lefrak-center-lakeside/', de: 'Ice skating in Prospect Park in the winter, on connected covered and open rinks (Prospect Park Alliance).',
-          ll: [40.65702, -73.9642], tFrom: 162, src2: 'https://www.prospectpark.org/visit-the-park/things-to-do/skating/', snow: true },
-        { n: 'Thunder Ridge Ski Area', s: 'Outdoor Fun', k: 'local', io: 'out', st: 'NY', a: '137 Birch Hill Rd, Patterson, NY 12563', p: ['845.878.4100'],
-          w: 'https://thunderridgeski.com/', de: 'Ski and snowboard area in Patterson, NY with 22 trails, 3 chairlifts, 4 magic carpets and lessons, according to its website.',
-          ll: [41.51256, -73.57717], tFrom: null, src2: 'https://thunderridgeski.com/', snow: true }
-      ],
+      addPlaces: [],
       fun: [
         ['@snow', 'img/cat/snow-ice.webp', 'Snow & Ice', 'Skate, ski and slide'],
         ['Indoor Fun', 'img/cat/indoor-fun.webp', 'Indoor Fun', 'Warm, busy and fun'],
