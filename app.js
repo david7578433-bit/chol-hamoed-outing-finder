@@ -484,7 +484,7 @@
   function copyList(b) {
     const list = P.filter(p => saved.has(p.key));
     const txt = (SEASON.copyTitle || 'My Chol Hamoed list') + '\n\n' + list.map(p => [p.n, (p.locs ? p.locs[0] : p.a), p.p[0], p.w].filter(Boolean).join('\n')).join('\n\n');
-    const done = () => { b.textContent = 'Copied. Paste it in WhatsApp or a text'; setTimeout(() => { b.textContent = 'Copy my list'; }, 2500); };
+    const done = () => { b.textContent = 'Copied. Paste it in a text or email'; setTimeout(() => { b.textContent = 'Copy my list'; }, 2500); };
     const fail = () => { b.textContent = 'Copy didn\'t work here'; setTimeout(() => { b.textContent = 'Copy my list'; }, 2500); };
     try { navigator.clipboard.writeText(txt).then(done, fail); } catch (err) { fail(); }
   }
