@@ -4,7 +4,15 @@ Every place from the Navigation Sukkos 5787 outings guide (yazory.com), with boo
 websites, phone numbers, hours, prices and drive times from Monsey, Monroe (Kiryas Joel), New Square,
 Williamsburg, Boro Park, Flatbush, Crown Heights, Queens, the Five Towns, Lakewood and Passaic.
 
-- **Website:** plain HTML, hosted free on GitHub Pages (`index.html`, `photos/`, `gallery/`, `data/`, `ai/`).
+- **Website:** plain HTML, hosted free on GitHub Pages (`index.html`, `app.js`, `seasons.js`, `photos/`, `gallery/`, `img/`, `data/`, `ai/`).
+- **Seasons:** the same site works for Chol Hamoed Sukkos, Chol Hamoed Pesach and winter vacation. `seasons.js` holds each
+  season's dates, wording, winter categories and the few places added for winter. Without `?season=` in the address the site
+  picks the season by date (winter until Jan 3, 2027, then Pesach, then Sukkos); `?season=winter`, `?season=pesach` or
+  `?season=sukkos` picks one, and the hero and footer have a switch. Update the dates in `seasons.js` each year.
+- **Place data:** `data/core.json` (lists and cards) and `data/details.json` (Yiddish descriptions and family reviews) load
+  after the first screen. To edit them in one file, run `python3 scripts/data_tool.py merge`, edit `data/all-places.json`,
+  then `python3 scripts/data_tool.py split`. The site needs a web server (GitHub Pages or `python3 -m http.server`); opening
+  index.html straight from the disk won't load the places.
 - **Hours & prices check:** `scripts/check_sites.py` runs every day (Sunday–Friday) on GitHub Actions,
   compares each website with the guide using Google Gemini (free), and saves the results into `data/checks.json`.
 - **Ask AI:** a small Supabase Edge Function (`supabase/functions/ask/index.ts`) answers with Google Gemini (free),
