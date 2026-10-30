@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Add your hotel, shul, kosher restaurant, mikvah, Chabad house or car service to the Outing Finder, or ask about a sponsored spot.">
+<title>Add your place · Outing Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="list.css">
+<script src="world-config.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">Outing Finder</a>
+  <nav aria-label="Main">
+    <a href="index.html">Outings</a>
+    <a href="world.html">World trips</a>
+    <a href="list.html" aria-current="page">Add your place</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Add your place</h1>
+  <p class="lead">Hotels, shuls, kosher food, mikvaos, Chabad houses and car services.</p>
+
+  <div id="banner" class="note warn" hidden></div>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" id="t-add" aria-selected="true" aria-controls="p-add">Add your place</button>
+    <button role="tab" id="t-ad" aria-selected="false" aria-controls="p-ad">Advertise with us</button>
+  </div>
+
+  <!-- ADD YOUR PLACE -->
+  <section id="p-add" role="tabpanel" aria-labelledby="t-add" class="card">
+    <form id="f-add" novalidate>
+      <div class="grid two">
+        <label>Type <span class="req">*</span>
+          <select name="type" required>
+            <option value="">Choose…</option>
+            <option value="hotel">Hotel</option>
+            <option value="shul">Shul</option>
+            <option value="restaurant">Restaurant / kosher food</option>
+            <option value="mikvah_men">Mikvah (men)</option>
+            <option value="mikvah_women">Mikvah (women)</option>
+            <option value="chabad">Chabad house</option>
+            <option value="car_service">Car service</option>
+          </select>
+        </label>
+        <label>City <span class="req">*</span>
+          <select name="city_id" required data-cities><option value="">Loading…</option></select>
+        </label>
+        <label class="span2">Name <span class="req">*</span>
+          <input name="name" required maxlength="120" autocomplete="organization">
+        </label>
+        <div class="span2 note" data-for="mikvah_women" hidden>For women's mikvaos we never show a street address. Please give a phone or appointment note.</div>
+        <label class="span2" data-not="mikvah_women">Address
+          <input name="address" maxlength="200" autocomplete="street-address">
+        </label>
+        <label>Phone <span class="req">*</span>
+          <input name="phone" required maxlength="40" type="tel" autocomplete="tel">
+        </label>
+        <label>Website
+          <span class="hint">Must show this name and phone</span>
+          <input name="website" maxlength="300" type="url" inputmode="url" placeholder="https://">
+        </label>
+        <label class="span2">Contact email <span class="req">*</span>
+          <span class="hint">Use an email on your website's domain to go live faster</span>
+          <input name="contact_email" required maxlength="200" type="email" autocomplete="email">
+        </label>
+        <label class="span2" data-for="shul" hidden>Minyan times
+          <span class="hint">e.g. Shacharis 6:30, 8:00 · Mincha 4:15 · Maariv 8:30</span>
+          <textarea name="minyan_times" maxlength="400"></textarea>
+        </label>
+        <label class="span2" data-for="restaurant" hidden>Kashrus supervision
+          <input name="kashrus" maxlength="120" placeholder="e.g. OK, CRC, Badatz">
+        </label>
+        <label class="span2">Short description <span class="counter" data-count="description">0/600</span>
+          <textarea name="description" maxlength="600"></textarea>
+        </label>
+        <label class="hp" aria-hidden="true">Leave empty <input name="hp" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <div class="actions">
+        <button class="btn" type="submit" data-submit>Submit</button>
+        <span class="small" data-status role="status"></span>
+      </div>
+      <div data-result></div>
+    </form>
+  </section>
+
+  <!-- ADVERTISE -->
+  <section id="p-ad" role="tabpanel" aria-labelledby="t-ad" class="card" hidden>
+    <h2>Advertise with us</h2>
+    <p class="small" style="margin-top:0">A short sponsored line on a city page. Plain text, no pop-ups. Every request is reviewed.</p>
+    <form id="f-ad" novalidate>
+      <input type="hidden" name="type" value="sponsor">
+      <div class="grid two">
+        <label class="span2">Business name <span class="req">*</span>
+          <input name="name" required maxlength="120" autocomplete="organization">
+        </label>
+        <label>City <span class="req">*</span>
+          <select name="city_id" required data-cities data-all><option value="">Loading…</option></select>
+        </label>
+        <label>Website
+          <input name="website" maxlength="300" type="url" inputmode="url" placeholder="https://">
+        </label>
+        <label class="span2">Contact email <span class="req">*</span>
+          <input name="contact_email" required maxlength="200" type="email" autocomplete="email">
+        </label>
+        <label class="span2">Message <span class="counter" data-count="description">0/600</span>
+          <textarea name="description" maxlength="600" placeholder="What would you like to promote, and when?"></textarea>
+        </label>
+        <label class="hp" aria-hidden="true">Leave empty <input name="hp" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <div class="actions">
+        <button class="btn" type="submit" data-submit>Send request</button>
+        <span class="small" data-status role="status"></span>
+      </div>
+      <div data-result></div>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>How it goes live</h2>
+    <ol class="how">
+      <li>Your website loads and shows the same name and phone.</li>
+      <li>Your contact email is on that website's domain, and you click the link we email you.</li>
+      <li>Then it goes up by itself. Otherwise we review it by hand.</li>
+    </ol>
+    <p class="small">Shuls already listed in our minyan data go up right away. Women's mikvaos and ads are always reviewed.</p>
+  </section>
+</main>
+<footer>No tracking. We only use your details to check and show the listing.</footer>
+<script src="list.js"></script>
+</body>
+</html>

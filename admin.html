@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin · Outing Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="list.css">
+<script src="world-config.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">Outing Finder</a>
+  <nav aria-label="Main">
+    <a href="list.html">Add your place</a>
+    <a href="admin.html" aria-current="page">Admin</a>
+  </nav>
+</header>
+<main>
+  <h1>Admin</h1>
+  <div id="msg" class="note warn" hidden role="status"></div>
+
+  <!-- LOGIN -->
+  <section id="login" class="card" hidden>
+    <h2>Sign in</h2>
+    <form id="f-login" novalidate>
+      <div class="grid">
+        <label>Admin email <input name="email" type="email" required autocomplete="username"></label>
+        <label>Password <span class="hint">Leave empty to get a sign-in link by email</span>
+          <input name="password" type="password" autocomplete="current-password"></label>
+      </div>
+      <div class="actions"><button class="btn" type="submit">Sign in</button><span class="small" id="login-st" role="status"></span></div>
+    </form>
+  </section>
+
+  <!-- APP -->
+  <section id="app" hidden>
+    <div class="actions" style="margin:0 0 12px">
+      <div class="tabs" role="tablist" style="margin:0">
+        <button role="tab" id="t-pending" aria-selected="true" aria-controls="p-pending">Pending <span id="n-pending"></span></button>
+        <button role="tab" id="t-live" aria-selected="false" aria-controls="p-live">Live</button>
+        <button role="tab" id="t-spons" aria-selected="false" aria-controls="p-spons">Sponsors</button>
+      </div>
+      <button class="btn ghost small" id="logout" type="button">Sign out</button>
+    </div>
+    <p class="small" id="who"></p>
+
+    <div id="p-pending" role="tabpanel"><div id="pending-list"></div></div>
+    <div id="p-live" role="tabpanel" hidden><div id="live-list"></div></div>
+    <div id="p-spons" role="tabpanel" hidden>
+      <section class="card">
+        <h2 id="sp-title">Add sponsor</h2>
+        <form id="f-sp" novalidate>
+          <input type="hidden" name="id"><input type="hidden" name="request_id">
+          <div class="grid two">
+            <label>Name <input name="name" required maxlength="120"></label>
+            <label>City <select name="city_id" data-cities data-all></select></label>
+            <label class="span2">Text <span class="counter" id="sp-count">0/120</span>
+              <input name="text" required maxlength="120"></label>
+            <label class="span2">Link <input name="url" type="url" maxlength="300" placeholder="https://"></label>
+            <label>Start date <input name="start_date" type="date"></label>
+            <label>End date <input name="end_date" type="date"></label>
+            <label style="display:flex;gap:8px;align-items:center"><input name="active" type="checkbox" style="width:auto;min-height:0;margin:0"> Active</label>
+          </div>
+          <div class="actions">
+            <button class="btn" type="submit">Save</button>
+            <button class="btn ghost" type="button" id="sp-clear">Clear</button>
+            <span class="small" id="sp-st" role="status"></span>
+          </div>
+        </form>
+      </section>
+      <div id="sp-list"></div>
+    </div>
+  </section>
+</main>
+<script src="admin.js"></script>
+</body>
+</html>

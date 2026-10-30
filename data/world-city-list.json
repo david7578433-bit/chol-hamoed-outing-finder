@@ -1,0 +1,668 @@
+[
+{
+"id": "brooklyn-boro-park",
+"name": "Brooklyn – Boro Park",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "brooklyn-williamsburg",
+"name": "Brooklyn – Williamsburg",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "brooklyn-flatbush",
+"name": "Brooklyn – Flatbush",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "brooklyn-crown-heights",
+"name": "Brooklyn – Crown Heights",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "manhattan",
+"name": "Manhattan",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "queens",
+"name": "Queens (Kew Gardens Hills)",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "five-towns",
+"name": "Five Towns / Far Rockaway",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "monsey",
+"name": "Monsey",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "kiryas-joel",
+"name": "Monroe / Kiryas Joel",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "lakewood",
+"name": "Lakewood",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "passaic",
+"name": "Passaic",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "teaneck",
+"name": "Teaneck",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "baltimore",
+"name": "Baltimore",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "silver-spring",
+"name": "Washington DC / Silver Spring",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "philadelphia",
+"name": "Philadelphia (Bala Cynwyd)",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "boston",
+"name": "Boston (Brookline)",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "miami-beach",
+"name": "Miami Beach / Surfside",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "north-miami-beach",
+"name": "North Miami Beach / Aventura",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "boca-raton",
+"name": "Boca Raton",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "orlando",
+"name": "Orlando",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "atlanta",
+"name": "Atlanta (Toco Hills)",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "cleveland",
+"name": "Cleveland (University Heights)",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "detroit",
+"name": "Detroit (Oak Park / Southfield)",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "chicago",
+"name": "Chicago (West Rogers Park)",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "st-louis",
+"name": "St. Louis",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "dallas",
+"name": "Dallas",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "houston",
+"name": "Houston",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "denver",
+"name": "Denver",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "phoenix",
+"name": "Phoenix / Scottsdale",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "las-vegas",
+"name": "Las Vegas",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "los-angeles",
+"name": "Los Angeles (Pico-Robertson / La Brea)",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "san-francisco",
+"name": "San Francisco Bay Area",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "seattle",
+"name": "Seattle",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "honolulu",
+"name": "Honolulu",
+"country": "USA",
+"region": "North America"
+},
+{
+"id": "toronto",
+"name": "Toronto",
+"country": "Canada",
+"region": "North America"
+},
+{
+"id": "montreal",
+"name": "Montreal",
+"country": "Canada",
+"region": "North America"
+},
+{
+"id": "vancouver",
+"name": "Vancouver",
+"country": "Canada",
+"region": "North America"
+},
+{
+"id": "london-stamford-hill",
+"name": "London – Stamford Hill",
+"country": "UK",
+"region": "Europe"
+},
+{
+"id": "london-golders-green",
+"name": "London – Golders Green / Hendon",
+"country": "UK",
+"region": "Europe"
+},
+{
+"id": "manchester",
+"name": "Manchester",
+"country": "UK",
+"region": "Europe"
+},
+{
+"id": "gateshead",
+"name": "Gateshead",
+"country": "UK",
+"region": "Europe"
+},
+{
+"id": "antwerp",
+"name": "Antwerp",
+"country": "Belgium",
+"region": "Europe"
+},
+{
+"id": "brussels",
+"name": "Brussels",
+"country": "Belgium",
+"region": "Europe"
+},
+{
+"id": "amsterdam",
+"name": "Amsterdam",
+"country": "Netherlands",
+"region": "Europe"
+},
+{
+"id": "paris",
+"name": "Paris",
+"country": "France",
+"region": "Europe"
+},
+{
+"id": "strasbourg",
+"name": "Strasbourg",
+"country": "France",
+"region": "Europe"
+},
+{
+"id": "marseille",
+"name": "Marseille",
+"country": "France",
+"region": "Europe"
+},
+{
+"id": "nice",
+"name": "Nice",
+"country": "France",
+"region": "Europe"
+},
+{
+"id": "zurich",
+"name": "Zurich",
+"country": "Switzerland",
+"region": "Europe"
+},
+{
+"id": "geneva",
+"name": "Geneva",
+"country": "Switzerland",
+"region": "Europe"
+},
+{
+"id": "lugano",
+"name": "Lugano",
+"country": "Switzerland",
+"region": "Europe"
+},
+{
+"id": "vienna",
+"name": "Vienna",
+"country": "Austria",
+"region": "Europe"
+},
+{
+"id": "berlin",
+"name": "Berlin",
+"country": "Germany",
+"region": "Europe"
+},
+{
+"id": "frankfurt",
+"name": "Frankfurt",
+"country": "Germany",
+"region": "Europe"
+},
+{
+"id": "munich",
+"name": "Munich",
+"country": "Germany",
+"region": "Europe"
+},
+{
+"id": "milan",
+"name": "Milan",
+"country": "Italy",
+"region": "Europe"
+},
+{
+"id": "rome",
+"name": "Rome",
+"country": "Italy",
+"region": "Europe"
+},
+{
+"id": "venice",
+"name": "Venice",
+"country": "Italy",
+"region": "Europe"
+},
+{
+"id": "prague",
+"name": "Prague",
+"country": "Czech Republic",
+"region": "Europe"
+},
+{
+"id": "budapest",
+"name": "Budapest",
+"country": "Hungary",
+"region": "Europe"
+},
+{
+"id": "krakow",
+"name": "Krakow",
+"country": "Poland",
+"region": "Europe"
+},
+{
+"id": "warsaw",
+"name": "Warsaw",
+"country": "Poland",
+"region": "Europe"
+},
+{
+"id": "uman",
+"name": "Uman",
+"country": "Ukraine",
+"region": "Europe"
+},
+{
+"id": "moscow",
+"name": "Moscow",
+"country": "Russia",
+"region": "Europe"
+},
+{
+"id": "madrid",
+"name": "Madrid",
+"country": "Spain",
+"region": "Europe"
+},
+{
+"id": "barcelona",
+"name": "Barcelona",
+"country": "Spain",
+"region": "Europe"
+},
+{
+"id": "athens",
+"name": "Athens",
+"country": "Greece",
+"region": "Europe"
+},
+{
+"id": "istanbul",
+"name": "Istanbul",
+"country": "Turkey",
+"region": "Europe"
+},
+{
+"id": "stockholm",
+"name": "Stockholm",
+"country": "Sweden",
+"region": "Europe"
+},
+{
+"id": "copenhagen",
+"name": "Copenhagen",
+"country": "Denmark",
+"region": "Europe"
+},
+{
+"id": "dublin",
+"name": "Dublin",
+"country": "Ireland",
+"region": "Europe"
+},
+{
+"id": "gibraltar",
+"name": "Gibraltar",
+"country": "Gibraltar",
+"region": "Europe"
+},
+{
+"id": "yerushalayim",
+"name": "Yerushalayim",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "bnei-brak",
+"name": "Bnei Brak",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "beit-shemesh",
+"name": "Beit Shemesh / RBS",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "tel-aviv",
+"name": "Tel Aviv",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "tzfas",
+"name": "Tzfas (Safed)",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "teveria",
+"name": "Teveria (Tiberias)",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "chevron",
+"name": "Chevron / Kiryat Arba",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "netanya",
+"name": "Netanya",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "haifa",
+"name": "Haifa",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "eilat",
+"name": "Eilat",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "ashdod",
+"name": "Ashdod",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "modiin-illit",
+"name": "Kiryat Sefer (Modiin Illit)",
+"country": "Israel",
+"region": "Israel"
+},
+{
+"id": "melbourne",
+"name": "Melbourne (Caulfield / St Kilda East)",
+"country": "Australia",
+"region": "Australia & NZ"
+},
+{
+"id": "sydney",
+"name": "Sydney (Bondi / Rose Bay)",
+"country": "Australia",
+"region": "Australia & NZ"
+},
+{
+"id": "perth",
+"name": "Perth",
+"country": "Australia",
+"region": "Australia & NZ"
+},
+{
+"id": "brisbane",
+"name": "Brisbane / Gold Coast",
+"country": "Australia",
+"region": "Australia & NZ"
+},
+{
+"id": "auckland",
+"name": "Auckland",
+"country": "New Zealand",
+"region": "Australia & NZ"
+},
+{
+"id": "johannesburg",
+"name": "Johannesburg",
+"country": "South Africa",
+"region": "Africa"
+},
+{
+"id": "cape-town",
+"name": "Cape Town",
+"country": "South Africa",
+"region": "Africa"
+},
+{
+"id": "casablanca",
+"name": "Casablanca",
+"country": "Morocco",
+"region": "Africa"
+},
+{
+"id": "mexico-city",
+"name": "Mexico City (Polanco / Tecamachalco)",
+"country": "Mexico",
+"region": "Latin America"
+},
+{
+"id": "cancun",
+"name": "Cancun",
+"country": "Mexico",
+"region": "Latin America"
+},
+{
+"id": "panama",
+"name": "Panama City",
+"country": "Panama",
+"region": "Latin America"
+},
+{
+"id": "buenos-aires",
+"name": "Buenos Aires",
+"country": "Argentina",
+"region": "Latin America"
+},
+{
+"id": "sao-paulo",
+"name": "São Paulo",
+"country": "Brazil",
+"region": "Latin America"
+},
+{
+"id": "rio",
+"name": "Rio de Janeiro",
+"country": "Brazil",
+"region": "Latin America"
+},
+{
+"id": "santiago",
+"name": "Santiago",
+"country": "Chile",
+"region": "Latin America"
+},
+{
+"id": "montevideo",
+"name": "Montevideo",
+"country": "Uruguay",
+"region": "Latin America"
+},
+{
+"id": "bogota",
+"name": "Bogotá",
+"country": "Colombia",
+"region": "Latin America"
+},
+{
+"id": "lima",
+"name": "Lima",
+"country": "Peru",
+"region": "Latin America"
+},
+{
+"id": "costa-rica",
+"name": "San José, Costa Rica",
+"country": "Costa Rica",
+"region": "Latin America"
+},
+{
+"id": "dubai",
+"name": "Dubai",
+"country": "UAE",
+"region": "Asia & Middle East"
+},
+{
+"id": "hong-kong",
+"name": "Hong Kong",
+"country": "Hong Kong",
+"region": "Asia & Middle East"
+},
+{
+"id": "singapore",
+"name": "Singapore",
+"country": "Singapore",
+"region": "Asia & Middle East"
+},
+{
+"id": "bangkok",
+"name": "Bangkok",
+"country": "Thailand",
+"region": "Asia & Middle East"
+},
+{
+"id": "tokyo",
+"name": "Tokyo",
+"country": "Japan",
+"region": "Asia & Middle East"
+},
+{
+"id": "shanghai",
+"name": "Shanghai",
+"country": "China",
+"region": "Asia & Middle East"
+},
+{
+"id": "mumbai",
+"name": "Mumbai",
+"country": "India",
+"region": "Asia & Middle East"
+},
+{
+"id": "kathmandu",
+"name": "Kathmandu",
+"country": "Nepal",
+"region": "Asia & Middle East"
+}
+]

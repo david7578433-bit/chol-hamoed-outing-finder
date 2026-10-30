@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Plan a Jewish trip anywhere: shuls and minyan times, men's and women's mikvaos, kosher food, zmanim, Shabbos-safe flights and an honest cost estimate.">
+<title>World Jewish Trip Planner · Outing Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="world.css">
+</head>
+<body>
+<header class="top"><div class="wrap toprow">
+  <a class="brand" href="index.html"><span class="yi" lang="he" dir="rtl">חול המועד</span>Outing Finder</a>
+  <nav class="toplinks" aria-label="Main"><a href="index.html">Home</a><a href="world.html" aria-current="page">World trips</a><a href="list.html">Add your place</a></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>World <span>Jewish</span> Trip Planner</h1>
+    <p>Pick home and your stops. You get a day-by-day plan with a minyan, mikvah and kosher food each day where possible, zmanim, Shabbos-safe flights and an estimated cost.</p>
+    <div class="honest"><span class="tag"><span id="citycount">100+</span>&nbsp;Jewish cities</span><span class="tag warn">Times change — confirm with the shul</span><span class="tag">Flight prices and times from the airline</span><span class="tag gold" id="sampletag">Example: Brooklyn → Australia, 2 weeks</span></div>
+    <div class="tabs" role="group" aria-label="View"><button type="button" data-tab="plan" aria-pressed="true">Trip planner</button><button type="button" data-tab="cities" aria-pressed="false">City directory</button></div>
+  </section>
+
+  <div id="planner" class="layout">
+    <form class="card form" id="planform" autocomplete="off">
+      <h2>Your trip</h2>
+      <label class="field">Home<select id="home"></select></label>
+      <div class="field">Stops <small>in order · nights (blank = auto)</small><div id="stops"></div><button type="button" class="linkbtn" id="addstop">+ Add a stop</button></div>
+      <div class="row2">
+        <label class="field">Total days<input type="number" id="days" min="2" max="60" inputmode="numeric"></label>
+        <label class="field">Start date<input type="date" id="start"></label>
+      </div>
+      <button type="button" class="btn ghost block" id="today" style="margin-bottom:12px">Leaving today</button>
+      <div class="row2">
+        <label class="field">Adults<input type="number" id="adults" min="1" max="20" inputmode="numeric"></label>
+        <label class="field">Children<input type="number" id="children" min="0" max="20" inputmode="numeric"></label>
+      </div>
+      <button class="btn block" type="submit">Build my plan</button>
+      <p class="src" style="margin:10px 0 0">No travel is planned on Shabbos or Yom Tov; flights land 3+ hours before candle lighting. <button type="button" class="linkbtn" id="sample">Load the example</button></p>
+    </form>
+    <div id="result" aria-live="polite"><p>Loading…</p></div>
+  </div>
+
+  <section id="directory" hidden>
+    <div class="dir-controls" style="margin-top:16px"><input id="dirq" type="search" placeholder="Search a city or country" aria-label="Search cities"><select id="dirf" aria-label="Filter" style="width:auto"><option value="all">All cities</option><option value="full">Minyan + men's mikvah found</option><option value="gaps">Missing a minyan or mikvah</option></select></div>
+    <div id="dirlist"></div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <p>Shuls and minyan times: <a href="https://godaven.com" target="_blank" rel="noopener">GoDaven</a>. Women's mikvaos: <a href="https://www.mikvah.org/directory" target="_blank" rel="noopener">mikvah.org</a>. Kosher food, Chabad and men's mikvaos: the source named on each item, with the date checked. Zmanim are calculated in your browser from sunrise and sunset (GRA); candle lighting 18 minutes before sunset (40 in Yerushalayim) — follow your local custom. Times change — confirm with the shul. Flight prices and times from the airline. Costs are estimates, never quotes.</p>
+  <p class="noprint">Something wrong or missing? <a href="list.html">Add or correct a place</a>.</p>
+</div></footer>
+<script src="world-config.js"></script>
+<script src="listings.js"></script>
+<script src="world.js"></script>
+</body>
+</html>
