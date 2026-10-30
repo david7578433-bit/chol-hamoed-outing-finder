@@ -1,0 +1,8 @@
+# Chol Hamoed Outing Finder
+# Note: search engines read robots.txt only at the top of a host (https://david7578433-bit.github.io/robots.txt).
+# This copy documents the site's wishes and takes effect if the site moves to its own domain.
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+Sitemap: https://david7578433-bit.github.io/chol-hamoed-outing-finder/sitemap.xml

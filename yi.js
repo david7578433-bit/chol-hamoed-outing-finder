@@ -18,6 +18,10 @@ window.YI_WORDS = {
 "Chol Hamoed Pesach": "חול המועד פסח",
 "Pesach": "פסח",
 "Chol Hamoed Sukkos": "חול המועד סוכות",
+"Chanukah": "חנוכה",
+"Chanukah · Dec 4 – 12, 2026": "חנוכה · 4טן – 12טן דעצעמבער 2026",
+"Warm indoor fun and places open in December, for the days the kids are off.": "ווארעמע שפאס אינעווייניג און ערטער וואס זענען אפן אין דעצעמבער, פאר די טעג וואס די קינדער זענען פריי.",
+"My Chanukah outings list": "מיין חנוכה אויספלוגן ליסטע",
 "Sukkos": "סוכות",
 "Winter vacation · Dec 24 – Jan 1": "ווינטער וואקאציע · 24טן דעצעמבער – 1טן יאנואר",
 "Winter vacation": "ווינטער וואקאציע",
@@ -433,6 +437,7 @@ window.YI_WORDS = {
     m = s.match(/^(\d+) min$/); if (m) return m[1] + ' מינוט'; return null;
   };
   window.YI_RULES = [
+    [/^(\d+) places, sorted for Chanukah.*$/, '$1 ערטער, סארטירט פאר חנוכה: אינעווייניגסטע ערטער פריער, דעצעמבער שעות וואו מיר האבן זיי געקענט באשטעטיגן, און פאר-צייטן פון אייער קהילה.'],
     [/^(\d+ hr(?: \d+ min)?|\d+ min)$/, function (m) { return dur(m[1]); }],
     [/^(.+) · (.+)$/, function (m, look) { return m[0].split(' · ').map(function (x) { return tr(x, look); }).join(' · '); }],
     [/^(.+) ·$/, function (m, look) { return tr(m[1], look) + ' ·'; }],

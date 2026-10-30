@@ -1,5 +1,5 @@
 /* Seasons: which outing season the site is dressed for.
-   Pick one with ?season=winter | sukkos | pesach in the address. Without it, the site shows the first
+   Pick one with ?season=chanukah | winter | sukkos | pesach in the address. Without it, the site shows the first
    season below whose "until" date has not passed yet (so winter now, Pesach after the winter break,
    then Sukkos). Update the dates each year. Colors live in index.html under html[data-season="..."]. */
 (function () {
@@ -57,16 +57,28 @@
       copyTitle: 'My Chol Hamoed list', base: true
     }
   ];
+  // Chanukah (until the last day of Chanukah 2026): the winter setup (indoor places first, winter hours from each
+  // place's own website, outdoor places hidden at first), dressed for Chanukah. Shown by default until Dec 12.
+  SEASONS.unshift(Object.assign({}, SEASONS[0], {
+    id: 'chanukah', look: 'winter', until: '2026-12-12', noOutdoor: true,
+    label: 'Chanukah', short: 'Chanukah', yi: '\u05D7\u05E0\u05D5\u05DB\u05D4', icon: '\uD83D\uDD4E',
+    title: 'Chanukah Outings for Families \u00B7 Outing Finder', brandYi: '\u05D7\u05E0\u05D5\u05DB\u05D4',
+    eyebrow: 'Chanukah \u00B7 Dec 4 \u2013 12, 2026', eyebrowYi: '\u05D7\u05E0\u05D5\u05DB\u05D4 \u05EA\u05E9\u05E4\u05F4\u05D6',
+    h1: 'Chanukah <em>outings.</em>', sub: 'Warm indoor fun and places open in December, for the days the kids are off.',
+    lede: 'places, sorted for Chanukah: indoor places first, December hours where we could confirm them, and drive times from your community.',
+    dates: [{ k: 'chanukah', text: 'Chanukah: first candle Friday, Dec 4 (before Shabbos), through Saturday, Dec 12, 2026.', until: '2026-12-12' }],
+    holidayNote: '', copyTitle: 'My Chanukah outings list'
+  }));
   var byId = {}; SEASONS.forEach(function (s) { byId[s.id] = s; });
   var today = new Date(); var iso = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
   var asked = null;
   try { asked = new URLSearchParams(location.search).get('season'); } catch (e) {}
-  if (asked) asked = asked.toLowerCase().replace(/^(sukkot|succos|sukkos)$/, 'sukkos').replace(/^(passover|pesah)$/, 'pesach');
+  if (asked) asked = asked.toLowerCase().replace(/^(sukkot|succos|sukkos)$/, 'sukkos').replace(/^(passover|pesah)$/, 'pesach').replace(/^(hanukkah|hanukah|chanuka|chanukkah)$/, 'chanukah');
   var dflt = SEASONS.filter(function (s) { return s.until >= iso; })[0] || byId.sukkos;
   var cur = (asked && byId[asked]) || dflt;
   cur.isDefault = cur === dflt;
   window.SEASONS = SEASONS; window.SEASON = cur; window.SEASON_DEFAULT = dflt.id; window.SEASON_TODAY = iso;
-  document.documentElement.setAttribute('data-season', cur.id);
+  document.documentElement.setAttribute('data-season', cur.look || cur.id);
   if (cur.heroImg) {
     var phone = window.matchMedia && matchMedia('(max-width: 700px) and (max-resolution: 1.4dppx)').matches;
     var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image';
@@ -84,7 +96,7 @@
     if (eb) eb.innerHTML = '<span>' + s.eyebrow + '</span><span class="yi" lang="yi" dir="rtl">' + s.eyebrowYi + '</span>';
     if ($('hero-title')) $('hero-title').innerHTML = s.h1;
     var sub = document.querySelector('.coast-sub'); if (sub) sub.textContent = s.sub;
-    if (s.id === 'winter' && $('heroq')) $('heroq').placeholder = 'Search outings: ice skating, bowling, museum\u2026';
+    if ((s.look || s.id) === 'winter' && $('heroq')) $('heroq').placeholder = 'Search outings: ice skating, bowling, museum\u2026';
     renderSwitch();
   };
   function renderSwitch() {

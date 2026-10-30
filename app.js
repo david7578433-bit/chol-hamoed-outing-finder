@@ -1,7 +1,7 @@
 /* Outing Finder app. Data: data/core.json + data/details.json; season settings: seasons.js; website checks: data/checks.json. */
 (async function () {
   const SEASON = window.SEASON || { id: 'sukkos', base: true, copyTitle: 'My Chol Hamoed list' };
-  const WINTER = SEASON.id === 'winter';
+  const WINTER = SEASON.id === 'winter' || SEASON.look === 'winter';
   // Data lives in two files so the first screen is quick: data/core.json (what lists and cards need) and
   // data/details.json (Yiddish descriptions and family reviews), which loads right after.
   async function getJSON(u) { const r = await fetch(u); if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); }
@@ -89,8 +89,11 @@
       ['sections', 'ages', 'states'].forEach(k => { if (Array.isArray(s[k])) s[k].forEach(v => state[k].add(v)); });
     }
   } catch (e) {}
+  // Chanukah opens on indoor places: outdoor ones start hidden (the Winter filter can show them again)
+  const prefNoout = state.noout;
+  if (SEASON.noOutdoor) state.noout = true;
   function savePrefs() {
-    try { localStorage.setItem(PREFS, JSON.stringify({ area: state.area, origin: state.origin, free: state.free, chm: state.chm, web: state.web, indoor: state.indoor, rev: state.rev, budget: state.budget, sort: state.sort, noout: state.noout, showclosed: state.showclosed, open: state.open, openunk: state.openunk, max: state.max === Infinity ? null : state.max, sections: [...state.sections], ages: [...state.ages], states: [...state.states] })); } catch (e) {}
+    try { localStorage.setItem(PREFS, JSON.stringify({ area: state.area, origin: state.origin, free: state.free, chm: state.chm, web: state.web, indoor: state.indoor, rev: state.rev, budget: state.budget, sort: state.sort, noout: SEASON.noOutdoor ? prefNoout : state.noout, showclosed: state.showclosed, open: state.open, openunk: state.openunk, max: state.max === Infinity ? null : state.max, sections: [...state.sections], ages: [...state.ages], states: [...state.states] })); } catch (e) {}
   }
 
   const tm = (p, k) => (p.t && p.t[k || state.origin] != null) ? p.t[k || state.origin] : null;
@@ -126,7 +129,8 @@
   function dayChoices() {
     const out = [], base = dateOf(TODAY);
     for (let k = 0; k < 8; k++) out.push(isoOf(new Date(base.getTime() + k * 864e5)));
-    if (WINTER) for (let d = dateOf('2026-12-24'); isoOf(d) <= '2027-01-01'; d = new Date(d.getTime() + 864e5)) { const s = isoOf(d); if (s > out[out.length - 1]) out.push(s); }
+    // Chanukah weekdays (Sun Dec 6 – Fri Dec 11, 2026) and the winter break
+    if (WINTER) [['2026-12-06', '2026-12-11'], ['2026-12-24', '2027-01-01']].forEach(([a, b]) => { for (let d = dateOf(a); isoOf(d) <= b; d = new Date(d.getTime() + 864e5)) { const s = isoOf(d); if (s > out[out.length - 1]) out.push(s); } });
     return out;
   }
   function hoursLine(p, iso, short) {
