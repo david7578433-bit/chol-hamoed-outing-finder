@@ -20,7 +20,14 @@
 <script src="i18n.js"></script>
 <script src="seasons.js"></script>
 <link rel="preload" href="data/core.json" as="fetch" crossorigin="anonymous">
-<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Google reviews link on cards and details, price-change note, optional map */
+.card .cg{display:block;padding:0 14px 12px;font-size:13px;font-weight:600;color:var(--ink-2,#475569);text-decoration:none}
+.card .cg:hover,.card .cg:focus-visible{text-decoration:underline}
+.pchg{margin:4px 0 10px;color:#b45309;font-size:14px}
+.gmap{display:block;width:100%;height:220px;border:0;border-radius:12px;margin:8px 0}
+.dinfo>.hsrc{font-size:12.5px;line-height:1.4;color:#66716a;margin:2px 0 12px}
+</style>
 <title>Chol Hamoed Outing Finder · Chanukah, winter &amp; Yom Tov family outings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1001,17 +1008,15 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
         <div class="quick" id="heroquick" role="group" aria-label="Quick picks">
           <button class="chip" type="button" data-q="open">Open today</button>
           <button class="chip" type="button" data-q="rain">Rainy day (indoors)</button>
-          <button class="chip" type="button" data-q="little">Good for little kids</button>
           <button class="chip" type="button" data-q="free">Free</button>
           <button class="chip" type="button" data-q="close">Within 30 min</button>
-          <button class="chip" type="button" data-q="rev">Has family reviews</button>
         </div>
-        <p class="coast-lede" id="herolede">Hundreds of places with photos, family reviews, hours, prices and drive times from your community.</p>
+        <p class="coast-lede" id="herolede">Hundreds of family outing places, with hours, phone numbers and drive times from your community.</p>
       </div>
     </div>
     <script>window.applySeason && window.applySeason();</script>
     <div class="wrap fun-wrap" id="fun">
-      <div class="fun-head"><h2>Find your kind of fun</h2><p>Pick a category to see every place, with photos, hours, prices and drive times.</p></div>
+      <div class="fun-head"><h2>Find your kind of fun</h2><p>Pick a category to see every place, with hours, phone numbers and drive times.</p></div>
       <div class="fun-grid" id="fun-grid"></div>
       <div class="fun-more" id="fun-more" role="group" aria-label="More categories"></div>
     </div>
@@ -1019,11 +1024,11 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
   <div class="wrap view-pad">
     <div id="rainbox" aria-live="polite"></div>
     <div id="home-notes"></div>
-    <section class="band"><div class="bandhead"><div><h2 id="rail1-t">Families' favorites</h2><p id="rail1-s">The places with the most family reviews in the guide.</p></div><a href="#search" data-go="reviews" id="rail1-a">See all</a></div><div class="rail" id="rail-fav"></div></section>
+    <section class="band"><div class="bandhead"><div><h2 id="rail1-t">Indoor fun near you</h2><p id="rail1-s">Indoor places, closest first.</p></div><a href="#search" data-go="indoorfav" id="rail1-a">See all</a></div><div class="rail" id="rail-fav"></div></section>
     <section class="band"><div class="bandhead"><div><h2 id="rail2-t">Free and close by</h2><p id="free-sub">Free places, closest first.</p></div><a href="#search" data-go="free" id="rail2-a">See all</a></div><div class="rail" id="rail-free"></div></section>
-    <section class="band"><div class="bandhead"><div><h2>Trips away</h2><p>Overnight destinations, with shuls, mikvahs and kosher food.</p></div><a href="#explore">See all</a></div><div class="catgrid" id="home-trips"></div></section>
-    <section class="band"><div class="bandhead"><div><h2>Stay &amp; services</h2><p class="stay-sub">Guest rentals, vans and rides, kosher pizza with a sukkah and kosher boat cruises from the guide.</p></div><a href="#explore" data-go="stay">See all</a></div><div class="xpromo" id="home-extras"></div></section>
-    <section class="askpromo" id="askpromo" hidden><div><h2>Not sure where to go?</h2><p>Tell the AI helper about your family, like how many kids, their ages and where you're coming from, and it picks places from this guide only.</p></div><button class="btn" type="button" id="askpromo-btn">Ask AI</button></section>
+    <section class="band"><div class="bandhead"><div><h2>Trips away</h2><p>Overnight destinations farther from home.</p></div><a href="#explore">See all</a></div><div class="catgrid" id="home-trips"></div></section>
+    <section class="band" hidden><div class="xpromo" id="home-extras"></div></section>
+    <section class="askpromo" id="askpromo" hidden><div><h2>Not sure where to go?</h2><p>Tell the AI helper about your family, like how many kids, their ages and where you're coming from, and it picks places from this site's list only.</p></div><button class="btn" type="button" id="askpromo-btn">Ask AI</button></section>
   </div>
 </div>
 
@@ -1032,7 +1037,7 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
     <div class="pagehead"><h1>Explore</h1><p>Pick a category near home or a destination for a trip away.</p></div>
     <section class="band"><div class="bandhead"><h2>Near home</h2></div><div class="catgrid" id="ex-cats"></div></section>
     <section class="band"><div class="bandhead"><h2>Trips away</h2></div><div class="catgrid" id="ex-trips"></div></section>
-    <section class="band" id="stay"><div class="bandhead"><div><h2>Stay &amp; services</h2><p class="stay-sub">From the guide: places to stay, getting around, kosher food with a sukkah and kosher boat cruises.</p></div></div><div id="ex-extras"></div></section>
+    <section class="band" id="stay" hidden><div id="ex-extras"></div></section>
   </div>
 </div>
 
@@ -1090,7 +1095,7 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
       </div>
     </div>
     <div class="group"><h2 id="sec-title">Category</h2><div class="chips" id="sections"></div></div>
-    <div class="group"><h2>Ages</h2><div class="chips" id="ages"></div></div>
+    <div class="group" hidden><h2>Ages</h2><div class="chips" id="ages"></div></div>
     <div class="group">
       <h2>Drive time</h2>
       <div class="drive-row">
@@ -1116,17 +1121,17 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
       <label class="toggle" for="chm"><input type="checkbox" id="chm"> Lists special Chol Hamoed hours</label>
       <label class="toggle" for="hasweb"><input type="checkbox" id="hasweb"> Has a website</label>
       <label class="toggle" for="indoor"><input type="checkbox" id="indoor"> Indoors (good for rain)</label>
-      <label class="toggle" for="hasrev"><input type="checkbox" id="hasrev"> Has family reviews</label>
+      <label class="toggle" for="hasrev" hidden><input type="checkbox" id="hasrev"> Has family reviews</label>
     </div>
     <div class="group" data-winter hidden>
       <h2>Winter</h2>
       <label class="toggle" for="snow"><input type="checkbox" id="snow"> Snow &amp; ice (skating, skiing, snow tubing)</label>
       <label class="toggle" for="iwater"><input type="checkbox" id="iwater"> Indoor water parks</label>
       <label class="toggle" for="noout"><input type="checkbox" id="noout"> Hide outdoor places</label>
-      <label class="toggle" for="showclosed"><input type="checkbox" id="showclosed"> Show places the guide lists as closed for the season</label>
+      <label class="toggle" for="showclosed"><input type="checkbox" id="showclosed"> Show places that may be closed for the season</label>
       <p class="hint">"Closest first" puts snow and indoor places before outdoor ones in winter.</p>
     </div>
-    <div class="group">
+    <div class="group" hidden>
       <h2>Budget per person</h2>
       <select id="budget" aria-label="Budget per person">
         <option value="any">Any price</option>
@@ -1135,7 +1140,7 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
         <option value="25">Up to about $25</option>
         <option value="40">Up to about $40</option>
       </select>
-      <p class="hint">Uses the starting price in the guide, so check the full price before you go.</p>
+      <p class="hint">Check the price on their website before you go.</p>
     </div>
     <button class="clear" id="clear" type="button">Clear all filters</button>
   </aside>
@@ -1144,10 +1149,8 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
     <div class="quick" id="quick" role="group" aria-label="Quick picks">
       <button class="chip" type="button" data-q="open" aria-pressed="false">Open today</button>
       <button class="chip" type="button" data-q="rain" aria-pressed="false">Rainy day (indoors)</button>
-      <button class="chip" type="button" data-q="little" aria-pressed="false">Good for little kids</button>
       <button class="chip" type="button" data-q="free" aria-pressed="false">Free</button>
       <button class="chip" type="button" data-q="close" aria-pressed="false">Within 30 min</button>
-      <button class="chip" type="button" data-q="rev" aria-pressed="false">Has family reviews</button>
     </div>
     <div class="results-head">
       <p id="summary"></p>
@@ -1158,8 +1161,7 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
           <select id="sort">
             <option value="near">Closest first</option>
             <option value="az">A to Z</option>
-            <option value="reviews">Most family reviews</option>
-            <option value="guide">Guide order</option>
+            <option value="guide">List order</option>
           </select>
         </label>
       </div>
@@ -1174,11 +1176,10 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
   <p class="tagline">Explore · Discover · Together</p>
   <nav class="seasonswitch foot" id="seasonswitch-foot" aria-label="Season"></nav>
   <p class="langfoot" data-noi18n><button class="linkbtn" type="button" data-setlang="en">English</button> · <button class="linkbtn" type="button" data-setlang="yi" lang="yi" dir="rtl">יידיש</button></p>
-  <p data-winter hidden>Winter mode uses the same guide listings. The "Winter hours" on each place were read from that place's own website (the page and the date checked are shown); places we couldn't confirm say "Hours not confirmed, call first". Prices are still the guide's, and holiday hours (Dec 25, Jan 1) can change, so call before you go. Places marked "New for winter" were added by the site, not by the guide, and were checked on each place's own website on Oct 27, 2026; verify before visiting. The winter scenery pictures are illustrations made for this site.</p>
+  <p data-winter hidden>Winter mode uses the same list of places. The "Winter hours" on each place were read from that place's own website (the page and the date checked are shown); places we couldn't confirm say "Hours not confirmed, call first". Holiday hours (Dec 25, Jan 1) can change, so call before you go. The winter scenery pictures are illustrations made for this site.</p>
   <p class="fbline" id="fbline" hidden><span>Something not working, an idea, or a question about the site?</span> <button class="btn ghost" type="button" data-feedback="">Send feedback</button></p>
-  <p>Listings, booklet photos, Yiddish descriptions and family reviews come from the Navigation Sukkos 5787 guide published at yazory.com. Google's own reviews can't be copied in; the "Google reviews" button opens them on Google Maps. Hours and prices were set at print time for Chol Hamoed; where it says "Checked on their website", a helper compared them with the place's own website on that date. Always call before you go.</p>
-  <p>More places come from The Monsey View's Excursions trip guide (issue 567, September 23, 2026); those are marked on each place.</p>
-  <p>The guide doesn't list websites; they were looked up separately and checked against each place's phone number or address where possible. Extra photos come from each place's own website, and photos showing people were left out. The beach scenery is from Fire Island National Seashore (National Park Service photos, public domain).</p>
+  <p>Addresses, phone numbers and regular hours come from each place's own website or its Google business listing (checked Oct 30, 2026). The short descriptions were written for this site from what each place says it offers. Google's reviews and more photos open on Google Maps. Always call before you go.</p>
+  <p>Drive times are estimates from OpenStreetMap road data for normal traffic. Some places show photos from their own website; photos showing people were left out. The beach scenery is from Fire Island National Seashore (National Park Service photos, public domain).</p>
 </footer>
 
 <button class="totop" id="totop" type="button" aria-label="Back to top" hidden>↑</button>
@@ -1215,10 +1216,10 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
       <summary>Quick answers</summary>
       <dl>
         <dt>How are the drive times worked out?</dt><dd>They are estimates for normal traffic from the community you pick under "From". Chol Hamoed traffic can be heavier, so leave extra time.</dd>
-        <dt>Are the hours and prices up to date?</dt><dd>They come from the printed guide. Every morning a checker compares them with each place's own website, and "Checked on their website" shows what it found. Always call before you go.</dd>
+        <dt>Are the hours up to date?</dt><dd>Regular hours come from each place's Google business listing or its own website. Every morning a checker reads each place's website, and "Checked on their website" shows what it found. Hours change for holidays and seasons, so always call before you go.</dd>
         <dt>How do I save places for my trip?</dt><dd>Tap the star on any place. Your list is under My Trips, and it is saved on this phone or computer only.</dd>
-        <dt>What can Ask AI do?</dt><dd>Describe your family and your day, and it suggests places from this guide only. It can make mistakes, so check the details before you go.</dd>
-        <dt>A place is missing.</dt><dd>The site lists the places in the Navigation Sukkos guide. Send us the name and we'll look at adding it.</dd>
+        <dt>What can Ask AI do?</dt><dd>Describe your family and your day, and it suggests places from this site's list only. It can make mistakes, so check the details before you go.</dd>
+        <dt>A place is missing.</dt><dd>Send us the name and town, and we'll look at adding it.</dd>
       </dl>
     </details>
   </form>
@@ -1233,14 +1234,14 @@ html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3,
 <section class="sheet ask" id="askpanel" role="dialog" aria-modal="true" aria-labelledby="ask-title">
   <div class="sheet-head"><h2 id="ask-title">Ask AI for a place</h2><button class="x" id="ask-close" type="button" aria-label="Close">×</button></div>
   <div class="ask-log" id="asklog" aria-live="polite">
-    <p class="ask-intro">Tell me about your family and your day, and I'll pick places from this guide only. For example: how many kids and their ages, where you're coming from, how far you'll drive, indoor or outdoor, and your budget.</p>
+    <p class="ask-intro">Tell me about your family and your day, and I'll pick places from this site's list only. For example: how many kids and their ages, where you're coming from, how far you'll drive, indoor or outdoor, and your budget.</p>
     <div class="examples" id="examples">
       <button class="example" type="button" dir="auto">We have five kids ages 2 to 12, coming from Boro Park. Something indoors, under 45 minutes, not too expensive.</button>
       <button class="example" type="button" dir="auto">מיר זענען א משפחה מיט פינף קינדער, פון מאנראו. וואס איז גוט פאר היינט?</button>
       <button class="example" type="button" dir="auto">Free outdoor places near Lakewood that are good for little kids.</button>
     </div>
   </div>
-  <p class="ask-note">Answers come from Google Gemini (free) and only from places in this guide. Please don't type private information.</p>
+  <p class="ask-note">Answers come from Google Gemini (free) and only from places on this site. Please don't type private information.</p>
   <form class="ask-form" id="askform">
     <textarea id="askinput" rows="1" placeholder="Describe your family and what you're looking for…" aria-label="Your question"></textarea>
     <button class="btn" id="asksend" type="submit">Send</button>

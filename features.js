@@ -94,7 +94,7 @@
     const STAY = { 'Zoos & Aquariums': 180, 'Museums': 150, 'Outdoor Fun': 150, 'Water Fun': 180, 'Parks & Farms': 120, 'Malls': 120, 'Indoor Fun': 120 };
     const stayOf = p => plan.stay[p.key] || (p.snow ? 180 : STAY[p.s] || 120);
     const placeLL = p => p.ll || null;
-    function legHome(p, origin) {   // home <-> place: the guide's drive time when there is one
+    function legHome(p, origin) {   // home <-> place: the road drive-time estimate when there is one
       const g = tm(p, origin); if (g != null) return { m: g, est: false };
       if (p.ll && ORLL[origin]) return { m: estDrive(ORLL[origin], p.ll), est: true };
       return { m: null, est: true };
@@ -132,7 +132,7 @@
       perms(picks).forEach(o => { const r = simulate(o, origin, iso, plan.start || '10:00'); if (!best || r.cost < best.cost) best = Object.assign(r, { order: o }); });
       return Object.assign(best, { origin, iso });
     }
-    function driveTxt(s) { if (s.m == null) return T('Drive time unknown'); return s.est ? T('about {t} drive (estimate from distance)', { t: fmt(s.m) }) : T('{t} drive (guide drive time)', { t: fmt(s.m) }); }
+    function driveTxt(s) { if (s.m == null) return T('Drive time unknown'); return s.est ? T('about {t} drive (estimate from distance)', { t: fmt(s.m) }) : T('about {t} drive (road estimate)', { t: fmt(s.m) }); }
     function routeUrl(r) {
       const o = (ORIG_NAME[r.origin] || '').replace(/\s*\(.*\)/, '');
       const at = p => p.ll ? p.ll.join(',') : ((p.locs && p.locs[0]) || p.a || p.n);

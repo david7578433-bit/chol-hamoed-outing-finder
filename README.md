@@ -1,26 +1,29 @@
 # Chol Hamoed Outing Finder
 
-Every place from the Navigation Sukkos 5787 outings guide (yazory.com), with booklet photos, family reviews,
-websites, phone numbers, hours, prices and drive times from Monsey, Monroe (Kiryas Joel), New Square,
-Williamsburg, Boro Park, Flatbush, Crown Heights, Queens, the Five Towns, Lakewood and Passaic.
+Hundreds of family outing places, with websites, phone numbers, hours, prices and drive times from Monsey,
+Monroe (Kiryas Joel), New Square, Williamsburg, Boro Park, Flatbush, Crown Heights, Queens, the Five Towns, Lakewood and Passaic.
 
-- **Website:** plain HTML, hosted free on GitHub Pages (`index.html`, `app.js`, `features.js`, `i18n.js`, `yi.js`, `seasons.js`, `photos/`, `gallery/`, `img/`, `data/`, `ai/`).
+- **Website:** plain HTML, hosted free on GitHub Pages (`index.html`, `app.js`, `features.js`, `i18n.js`, `yi.js`, `seasons.js`, `gallery/`, `img/`, `data/`, `ai/`).
 - **Seasons:** the same site works for Chol Hamoed Sukkos, Chol Hamoed Pesach and winter vacation. `seasons.js` holds each
   season's dates, wording, winter categories and the few places added for winter. Without `?season=` in the address the site
   picks the season by date (winter until Jan 3, 2027, then Pesach, then Sukkos); `?season=winter`, `?season=pesach` or
   `?season=sukkos` picks one, and the hero and footer have a switch. Update the dates in `seasons.js` each year.
-- **Place data:** `data/core.json` (lists and cards) and `data/details.json` (Yiddish descriptions and family reviews) load
-  after the first screen. To edit them in one file, run `python3 scripts/data_tool.py merge`, edit `data/all-places.json`,
-  then `python3 scripts/data_tool.py split`. The site needs a web server (GitHub Pages or `python3 -m http.server`); opening
+- **Place data:** `data/core.json` holds every place. Address, phone and regular hours come from each place's Google business
+  listing or its own website (checked Oct 30, 2026); prices come from each place's own website with the page and date;
+  descriptions were written for this site. To edit in one file, run `python3 scripts/data_tool.py merge`, edit
+  `data/all-places.json`, then `python3 scripts/data_tool.py split`. The site needs a web server (GitHub Pages or `python3 -m http.server`); opening
   index.html straight from the disk won't load the places.
 - **Hours & prices check:** `scripts/check_sites.py` runs every day (Sunday–Friday) on GitHub Actions,
-  compares each website with the guide using Google Gemini (free), and saves the results into `data/checks.json`.
+  reads each place's own website with Google Gemini (free), compares hours and prices with what the site lists, and saves the
+  results into `data/checks.json` (including whether the website loaded and whether the price changed — the card then says
+  "Price may have changed, check their website"; prices are never overwritten automatically). For a quick test, run the
+  workflow by hand with `limit` set (for example 20).
 - **Ask AI:** a small Supabase Edge Function (`supabase/functions/ask/index.ts`) answers with Google Gemini (free),
-  using only the places in this guide (it reads them from `ai/catalog.txt` on the website).
+  using only the places on this site (it reads them from `ai/catalog.txt` on the website).
 
 ## Added features (features branch)
 - **Day planner** (My Trips): pick 2–3 saved places, a starting community, the day and a start time. The site puts them in the order with the
-  least driving and shows a timeline. Home ↔ place uses the guide's drive times; place ↔ place is an estimate from the straight-line
+  least driving and shows a timeline. Home ↔ place uses the road drive-time estimates; place ↔ place is an estimate from the straight-line
   distance and is labeled that way. Opening hours for that day are checked, with a warning when a place is closed or closes early.
 - **Open today + winter hours**: `data/hours.json` holds a `winterHours` entry per place (same order as `core.json`), read only from each
   place's official website, with the page (`source`) and the date checked (`checked`). `status` is `holiday` (the site lists Dec 24–Jan 1
@@ -30,7 +33,7 @@ Williamsburg, Boro Park, Flatbush, Crown Heights, Queens, the Five Towns, Lakewo
   where sharing isn't available, plus a printable page (Save as PDF from the print dialog). No WhatsApp or social buttons.
 - **Yiddish**: the English / יידיש switch is in the top bar and the footer. The choice is kept on the device. `i18n.js` switches the page
   to right-to-left and translates the interface with the words in `yi.js` (English → Yiddish, plus a few patterns for text with numbers).
-  Place names and the guide's own text stay as they are. To fix a word, edit `yi.js`.
+  Place names and descriptions stay as they are. To fix a word, edit `yi.js`.
 - **Rainy day**: the "☔ Rainy day?" button (and a quiet check on the home page) reads the free Open-Meteo forecast for the chosen
   community and day. When rain or snow is forecast it suggests indoor places nearby; when the forecast can't load it shows nothing.
 - **Davening & Mikvah** (`#daven`, `data/daven.json`): shuls with weekday minyan times, men's mikvaos and women's mikvaos as separate lists,
@@ -41,8 +44,11 @@ Williamsburg, Boro Park, Flatbush, Crown Heights, Queens, the Five Towns, Lakewo
 - **Ask AI**: `ai/catalog.txt` now carries each place's winter hours, and `ai/trip_info.txt` has the DAVENING & MIKVAH list, so the helper
   sees them without redeploying. The extra rule text in `supabase/functions/ask/index.ts` takes effect after you paste it into the function again.
 
-Listings, booklet photos, Yiddish descriptions and family reviews come from the Navigation Sukkos 5787 guide.
-Drive times are estimates from OpenStreetMap road data, calibrated against the guide's own times.
+Facts (address, phone, hours, price) come from each place's own website or Google business listing; descriptions are original.
+No text, photos, prices or reviews from any printed or online guide or magazine are used. Drive times are estimates from
+OpenStreetMap road data (OSRM) for normal traffic, plus 5 minutes.
+Optional: put a Google Maps Embed API key in `config.js` (`MAPS_EMBED_KEY`) to show a small map in each place's details;
+empty means only the "Reviews & photos on Google" button.
 
 ## One-time setup
 

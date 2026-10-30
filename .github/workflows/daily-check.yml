@@ -4,7 +4,12 @@ on:
   schedule:
     # 10:00 UTC = 6 AM New York (5 AM in winter), Sunday to Friday. Skips Shabbos.
     - cron: "0 10 * * 0-5"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Check only the first N places (empty = all)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -23,6 +28,7 @@ jobs:
         timeout-minutes: 72
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CHECK_LIMIT: ${{ github.event.inputs.limit }}
         run: python scripts/check_sites.py
       - name: Save the results to the website
         if: always()

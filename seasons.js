@@ -10,18 +10,18 @@
       title: 'Outing Finder · Winter vacation', brandYi: 'ווינטער',
       eyebrow: 'Winter vacation · Dec 24 – Jan 1', eyebrowYi: 'ווינטער וואקאציע',
       h1: 'Winter vacation <em>outings.</em>', sub: 'Ice skating, snow days and warm indoor fun for the whole family.',
-      lede: 'places from the Navigation guide, sorted for winter: snow and indoor places first, with drive times from your community.',
+      lede: 'family outing places, sorted for winter: snow and indoor places first, with drive times from your community.',
       heroImg: { day: 'img/winter/day-2400.webp', dayPhone: 'img/winter/day-1280.webp', dusk: 'img/winter/dusk-2400.webp' },
       dates: [
         { k: 'break', text: 'Winter break: Thursday, Dec 24, 2026 – Friday, Jan 1, 2027 (the NYC public school winter recess; yeshiva and school breaks vary).', until: '2027-01-02' },
         { k: 'chanukah', text: 'Chanukah: first candle Friday, Dec 4 (before Shabbos), through Saturday, Dec 12, 2026.', until: '2026-12-12' }
       ],
-      holidayNote: 'Dec 25 and Jan 1: many places close or keep short holiday hours. The guide doesn\u2019t list holiday hours, so call or check the website before you go.',
-      hoursNote: 'Prices come from the Sukkos guide. Winter hours are from each place\u2019s own website where we could confirm them; call before you go.',
+      holidayNote: 'Dec 25 and Jan 1: many places close or keep short holiday hours, so call or check the website before you go.',
+      hoursNote: 'Winter hours are from each place\u2019s own website where we could confirm them; call before you go.',
       // Chanukah events, when someone sends them in: { name, date, place, address, link, note }
       events: [],
-      // Places the guide describes as skating, skiing, snow tubing or snow play (by place number).
-      snowIds: [122, 143, 134, 370, 152, 338, 349, 351, 593, 474, 475, 491, 511],
+      // Places with skating, skiing, snow tubing or snow play (by place number in data/core.json).
+      snowIds: [118, 139, 130, 366, 148, 334, 345, 347, 588, 469, 470, 486, 506],
       // Trip destinations shown first in winter: warm-weather trips, then snow country.
       tripFirst: ['North Miami', 'West Palm Beach', 'Tampa', 'Palm Springs', 'Tucson', 'Grand Canyon & Arizona', 'Poconos', 'Hunter Mountain'],
       addPlaces: [],
@@ -33,7 +33,7 @@
         ['Zoos & Aquariums', 'img/cat/zoos-aquariums.webp', 'Zoos & Aquariums', 'Meet the wild ones'],
         ['Malls', '', 'Malls', 'Rides and play under one roof']
       ],
-      quick: [['open', 'Open today'], ['snow', '\u2744 Snow & ice'], ['rain', 'Indoors'], ['little', 'Good for little kids'], ['free', 'Free'], ['close', 'Within 30 min']],
+      quick: [['open', 'Open today'], ['snow', '\u2744 Snow & ice'], ['rain', 'Indoors'], ['free', 'Free'], ['close', 'Within 30 min']],
       copyTitle: 'My winter vacation list'
     },
     {
@@ -42,9 +42,9 @@
       title: 'Chol Hamoed Pesach Outing Finder', brandYi: 'חול המועד',
       eyebrow: 'Chol Hamoed Pesach · Apr 25\u201327, 2027', eyebrowYi: 'חול המועד פסח תשפ״ז',
       h1: 'A day to <em>remember.</em>', sub: 'Find your Chol Hamoed Pesach outing.',
-      lede: 'places from the Navigation guide, with photos, family reviews, hours, prices and drive times from your community.',
+      lede: 'family outing places, with hours, phone numbers and drive times from your community.',
       dates: [{ k: 'pesach', text: 'Chol Hamoed Pesach 5787: Shabbos Chol Hamoed is Apr 24; outing days are Sunday, Apr 25 \u2013 Tuesday, Apr 27, 2027 (outside Eretz Yisroel).', until: '2027-04-27' }],
-      hoursNote: 'Listings, hours and prices come from the Sukkos guide. Pesach hours can be different, so check before you go.',
+      hoursNote: 'Regular hours are from each place\u2019s Google business listing. Pesach hours can be different, so check before you go.',
       copyTitle: 'My Chol Hamoed Pesach list'
     },
     {
@@ -53,7 +53,7 @@
       title: 'Chol Hamoed Outing Finder', brandYi: 'חול המועד',
       eyebrow: 'Your Chol Hamoed starts here', eyebrowYi: 'חול המועד סוכות תשפ״ז',
       h1: 'A day to <em>remember.</em>', sub: 'Find your next family adventure.',
-      lede: 'places from the Navigation guide, with photos, family reviews, hours, prices and drive times from your community.',
+      lede: 'family outing places, with hours, phone numbers and drive times from your community.',
       copyTitle: 'My Chol Hamoed list', base: true
     }
   ];

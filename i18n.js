@@ -1,6 +1,6 @@
 /* Language: English or Yiddish (יידיש). The choice is kept on this device (localStorage "of-lang").
    Yiddish switches the page to right-to-left. Words live in yi.js as English → Yiddish pairs, plus a few patterns
-   for text with numbers in it. Place names, addresses and the guide's own text stay as they are. */
+   for text with numbers in it. Place names, addresses and place descriptions stay as they are. */
 (function () {
   var KEY = 'of-lang', lang = 'en';
   try { lang = localStorage.getItem(KEY) === 'yi' ? 'yi' : 'en'; } catch (e) {}

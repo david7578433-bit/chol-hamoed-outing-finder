@@ -1,8 +1,9 @@
-"""Daily hours-and-prices checker.
+"""Daily hours-and-prices checker (also notes when a website is down or its price changed).
 
 Runs on GitHub Actions (see .github/workflows/daily-check.yml). For every place with a website it
 downloads the site plus its hours/visit/tickets pages, keeps the lines about hours and prices,
-asks Google Gemini (free tier) to compare them with the printed guide, and saves the results to
+asks Google Gemini (free tier) to compare them with the hours listed on this site (data/places.json),
+and saves the results to
 data/checks.json, which the website reads. The workflow commits that file back to the repository.
 
 Needs one GitHub repository secret:
@@ -95,18 +96,18 @@ SCHEMA = {
         'note': {'type': 'STRING'}},
         'required': ['id', 'siteHours', 'sitePrice', 'hours', 'price', 'note']}}
 
-PROMPT = """You compare a family outing guide with each place's own website. For EVERY item decide:
+PROMPT = """You compare the hours listed on a family outing website with each place's own website. For EVERY item decide:
 - siteHours: the regular opening hours the website text shows (max 160 chars), or "" if not shown.
 - sitePrice: admission/entry prices the website text shows (max 160 chars), or "".
-- hours: "same" if siteHours agree with guide_hours closely enough (ignore holiday notes), "different" if they clearly differ, "not_found" if the text shows no usable hours.
-- price: "same" / "different" / "not_found" the same way.
+- hours: "same" if siteHours agree with listed_hours closely enough (ignore holiday notes), "different" if they clearly differ, "not_found" if the text shows no usable hours.
+- price: "same" / "different" / "not_found" comparing sitePrice with listed_price; use "not_found" when listed_price is empty.
 - note: max 100 chars, only if important (e.g. "Website says closed for the season", "Hours vary by date"), else "".
 Use only the website text given. Never guess. Ignore party packages, cookie banners and other locations' hours.
 Items:
 """
 
 def judge(batch):
-    items = [{'id': g['id'], 'name': p['name'], 'guide_hours': p['guide_hours'], 'guide_price': p['guide_price'], 'website_text': g['text']} for g, p in batch]
+    items = [{'id': g['id'], 'name': p['name'], 'listed_hours': p.get('listed_hours', ''), 'listed_price': p.get('listed_price', ''), 'website_text': g['text']} for g, p in batch]
     body = {'contents': [{'role': 'user', 'parts': [{'text': PROMPT + json.dumps(items, ensure_ascii=False)}]}],
             'generationConfig': {'temperature': 0.1, 'responseMimeType': 'application/json', 'responseSchema': SCHEMA}}
     for attempt in range(5):
@@ -126,17 +127,23 @@ def save(rows):
     old = json.load(open(PATH, encoding='utf-8')) if os.path.exists(PATH) else {}
     for x in rows:
         prev = old.get(str(x['place_id']))
-        # keep the last good finding when today's page simply failed to load
-        if prev and x['hours'] == 'not_found' and x['price'] == 'not_found' and ('could not be loaded' in x['note'] or 'too long' in x['note']) and (prev.get('siteHours') or prev.get('sitePrice')):
+        down = 'could not be loaded' in x['note'] or 'too long' in x['note']
+        # keep the last good finding when today's page simply failed to load, but say the site was down
+        if prev and down and x['hours'] == 'not_found' and x['price'] == 'not_found' and (prev.get('siteHours') or prev.get('sitePrice')):
+            prev['siteUp'] = False; prev['downAt'] = x['checked_at']
             continue
         old[str(x['place_id'])] = {'checkedAt': x['checked_at'], 'url': x['url'], 'siteHours': x['site_hours'], 'sitePrice': x['site_price'],
-                                   'hours': x['hours'], 'price': x['price'], 'note': x['note']}
+                                   'hours': x['hours'], 'price': x['price'], 'note': x['note'], 'siteUp': not down,
+                                   # the price on their website no longer matches the price listed on this site
+                                   'priceChanged': x['price'] == 'different'}
     json.dump(old, open(PATH, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
 
 def main():
     if not GEMINI_KEY:
         sys.exit('Missing GEMINI_API_KEY (add it under Settings -> Secrets and variables -> Actions)')
     by_id = {p['id']: p for p in PLACES if p.get('website')}
+    limit = int(os.environ.get('CHECK_LIMIT') or 0)   # for a quick test run: only the first N places
+    if limit: by_id = dict(list(by_id.items())[:limit])
     log(f'downloading {len(by_id)} websites')
     ex = cf.ThreadPoolExecutor(24)
     futs = {ex.submit(gather, p): pid for pid, p in by_id.items()}

@@ -1,9 +1,9 @@
-/* Outing Finder app. Data: data/core.json + data/details.json; season settings: seasons.js; website checks: data/checks.json. */
+/* Outing Finder app. Data: data/core.json; season settings: seasons.js; website checks: data/checks.json. */
 (async function () {
   const SEASON = window.SEASON || { id: 'sukkos', base: true, copyTitle: 'My Chol Hamoed list' };
   const WINTER = SEASON.id === 'winter' || SEASON.look === 'winter';
-  // Data lives in two files so the first screen is quick: data/core.json (what lists and cards need) and
-  // data/details.json (Yiddish descriptions and family reviews), which loads right after.
+  // Place data: data/core.json. Addresses, phones and regular hours come from each place's Google business listing
+  // or its own website; descriptions are written for this site.
   async function getJSON(u) { const r = await fetch(u); if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); }
   const T = window.T || ((s, v) => v ? String(s).replace(/\{(\w+)\}/g, (m, k) => v[k] != null ? v[k] : m) : s);
   const YI = window.LANG === 'yi';
@@ -32,7 +32,7 @@
   const TRIP_COLORS = ['#0ea5e9', '#f97316', '#14b8a6', '#e11d48', '#7c3aed', '#ca8a04', '#059669', '#2563eb', '#db2777', '#0891b2', '#65a30d', '#ea580c', '#4f46e5'];
   const ORIG_NAME = Object.fromEntries(ORIG.map(o => [o.k, o.n]));
   const DEFAULT_ORIGIN = ORIG.length ? ORIG[0].k : 'monsey';
-  const key = p => p.s + '|' + p.n + '|' + p.a.slice(0, 24);
+  const key = p => p.ka ? p.s + '|' + p.ka : p.s + '|' + p.n + '|' + p.a.slice(0, 24);
   const $ = id => document.getElementById(id);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fmt = m => m == null ? '' : m < 60 ? m + ' min' : Math.floor(m / 60) + ' hr' + (m % 60 ? ' ' + (m % 60) + ' min' : '');
@@ -59,15 +59,9 @@
   });
   const wClosed = p => WINTER && (p.closedSeason || (CHECKS[p.i] && !p.snow && CLOSED_RX.test(CHECKS[p.i].siteHours || '')));
   const wOutdoor = p => WINTER && p.io !== 'in' && !p.snow;
-  let detailsReady = null, detailsLoaded = false;
-  function loadDetails() {
-    if (!detailsReady) detailsReady = getJSON('data/details.json').then(j => {
-      (j.details || []).forEach((x, k) => { const p = P[k]; if (!p || p.src === 'new') return; p.d = x.d || ''; p.rv = x.rv || []; buildHay(p); });
-      detailsLoaded = true;
-      if (state.q.length && curView === 'search') render();
-    }).catch(() => { detailsReady = null; });
-    return detailsReady;
-  }
+  // Everything a place needs is in core.json now; there is no second file to load.
+  let detailsReady = Promise.resolve(), detailsLoaded = true;
+  function loadDetails() { return detailsReady; }
   const DEST_REV = DATA.destReviews || {};
   let CHECKS = DATA.checks || {};
 
@@ -207,26 +201,18 @@
     savePrefs();
   }
 
-  // photos: index 0 is the booklet photo, then website photos
+  // photos: photos from the place's own website, when we have any; otherwise a colored tile
   const NOPHOTO_ICON = encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" opacity=".85"><path d="M6 50 24 26l10 13 8-9 16 20Z"/><circle cx="44" cy="17" r="6"/></svg>');
   function photoList(p) {
-    if (p.src === 'new') return [{ kind: 'none', c: secColor(p.s), cap: 'No photo yet' }];
-    if (p.src === 'mv') return [p.img ? { kind: 'mv', src: p.img, cap: 'Photo from The Monsey View' } : { kind: 'none', c: secColor(p.s), cap: '' }];
-    const list = [{ kind: 'book', idx: p.ph, sheet: Math.floor(p.ph / 56), pos: p.ph % 56, cap: 'Photo from the Navigation guide' }];
-    p.gal.forEach((g, k) => list.push({ kind: 'web', gid: (p.gg || [])[k], sheet: g[0], pos: g[1], cap: 'Photo from ' + host(p.w) }));
-    return list;
+    const list = (p.gal || []).map((g, k) => ({ kind: 'web', gid: (p.gg || [])[k], sheet: g[0], pos: g[1], cap: 'Photo from ' + host(p.w) }));
+    return list.length ? list : [{ kind: 'none', c: secColor(p.s), cap: '' }];
   }
   const HD = !!(window.SITE_CONFIG && window.SITE_CONFIG.hd);
   function bgStyle(ph) {
-    if (ph.kind === 'mv') return `background-image:url(${ph.src});background-size:cover;background-position:center`;
     if (ph.kind === 'none') return `background-image:url('data:image/svg+xml,${NOPHOTO_ICON}'),linear-gradient(135deg,${ph.c},${ph.c}a6);background-size:56px 56px,cover;background-position:center;background-repeat:no-repeat`;
     if (HD) {
-      const u = ph.kind === 'book' ? `img/book/${ph.idx}.webp` : (ph.gid != null ? `img/gal/${ph.gid}.webp` : null);
+      const u = ph.gid != null ? `img/gal/${ph.gid}.webp` : null;
       if (u) return `background-image:url(${u});background-size:cover;background-position:center`;
-    }
-    if (ph.kind === 'book') {
-      const x = (ph.pos % 8) * 100 / 7, y = Math.floor(ph.pos / 8) * 100 / 6;
-      return `background-image:url(photos/photos-${ph.sheet}.webp);background-size:800% 700%;background-position:${x.toFixed(4)}% ${y.toFixed(4)}%`;
     }
     const x = (ph.pos % G.cols) * 100 / (G.cols - 1), y = Math.floor(ph.pos / G.cols) * 100 / (G.rows - 1);
     return `background-image:url(gallery/g-${ph.sheet}.webp);background-size:${G.cols * 100}% ${G.rows * 100}%;background-position:${x.toFixed(4)}% ${y.toFixed(4)}%`;
@@ -239,6 +225,9 @@
   new MutationObserver(ms => { for (const m of ms) m.addedNodes.forEach(n => { if (n.nodeType !== 1) return; if (n.hasAttribute('data-bg')) lazyWatch(n); n.querySelectorAll('[data-bg]').forEach(lazyWatch); }); }).observe(document.body, { childList: true, subtree: true });
   const mapsQ = p => encodeURIComponent(p.n + (p.a ? ', ' + p.a : ''));
   const mapsUrl = p => 'https://www.google.com/maps/search/?api=1&query=' + mapsQ(p);
+  // Optional Google map of the place (Maps Embed API, place mode) when config.js has MAPS_EMBED_KEY; otherwise nothing.
+  const EMBED_KEY = (window.SITE_CONFIG && window.SITE_CONFIG.MAPS_EMBED_KEY) || '';
+  const mapEmbed = p => EMBED_KEY ? `<iframe class="gmap" title="Map of ${esc(p.n)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=${encodeURIComponent(EMBED_KEY)}&q=${mapsQ(p)}" allowfullscreen></iframe>` : '';
   const dirUrl = p => 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent((p.locs && p.locs[0]) || p.a || (p.n + ' ' + p.s));
   const searchUrl = p => {
     const town = (p.a.match(/([A-Za-z .'-]+),?\s+(NY|NJ|CT|PA|MA|RI|DC|MD|DE|CA|AZ|FL|SC|VT)\b/) || [])[0] || (p.k === 'trip' ? p.s : '');
@@ -252,8 +241,8 @@
   function checkLine(p) {
     const c = CHECKS[p.i]; if (!c || !c.checkedAt) return '';
     const d = fmtDate(c.checkedAt);
-    if (c.hours === 'different' || c.price === 'different') return `<div class="check diff"><b>Website shows different ${c.hours === 'different' && c.price === 'different' ? 'hours and prices' : c.hours === 'different' ? 'hours' : 'prices'}</b> · checked ${esc(d)}. Open details to compare.</div>`;
-    if (c.hours === 'same' || c.price === 'same') return `<div class="check"><b>Matches their website</b> · checked ${esc(d)}</div>`;
+    if (c.hours === 'different') return `<div class="check diff"><b>Website shows different hours</b> · checked ${esc(d)}. Open details to compare.</div>`;
+    if (c.hours === 'same') return `<div class="check"><b>Hours match their website</b> · checked ${esc(d)}</div>`;
     return '';
   }
   const STAR = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>';
@@ -266,26 +255,21 @@
     : p.a ? `<p class="addr"><a href="${mapsUrl(p)}" target="_blank" rel="noopener">${esc(p.a)}</a>${p.mall ? ` <span class="mall">· inside ${esc(p.mall)}</span>` : ''}</p>` : '';
 
   const priceBadge = p => p.fp == null ? '' : `<span class="badge price">${p.fp === 0 ? 'Free' : 'from $' + (Number.isInteger(p.fp) ? p.fp : p.fp.toFixed(2))}</span>`;
-  const revSnip = p => {
-    if (!p.rv.length) return '';
-    const r = p.rv[0];
-    return `<div class="revsnip"><p class="${r.l === 'yi' ? 'yi' : ''}" dir="auto">“${esc(r.t)}”</p><button type="button" data-open="${p.i}" data-rev="1">${p.rv.length === 1 ? 'Read the family review' : `Read ${p.rv.length} family reviews`} ›</button></div>`;
-  };
   function secColor(s) { if (SEC_COLOR[s]) return SEC_COLOR[s]; const k = [...new Set(P.filter(p => p.k === 'trip').map(p => p.s))].indexOf(s); return TRIP_COLORS[Math.max(0, k) % TRIP_COLORS.length]; }
-  function cardPh(p) { return photoList(p)[p.gal.length ? 1 : 0]; }
+  function cardPh(p) { return photoList(p)[0]; }
   function card(p) {
     const isSaved = saved.has(p.key);
-    const n = p.gal.length + 1;
+    const n = p.gal.length;
     const m = tm(p);
     const bits = [];
     if (m != null) bits.push(`<b>${esc(fmt(m))}</b> from ${esc(ORIG_NAME[state.origin] || '')}`);
     if (p.fp != null) bits.push(p.fp === 0 ? 'Free' : 'from $' + esc(Number.isInteger(p.fp) ? p.fp : p.fp.toFixed(2)));
     if (p.g) bits.push(esc(p.g));
     const extra = [];
-    if (p.rv.length) extra.push(`${p.rv.length} family ${p.rv.length === 1 ? 'review' : 'reviews'}`);
     if (isChm(p)) extra.push('Chol Hamoed hours');
     const c = CHECKS[p.i];
-    if (c && (c.hours === 'different' || c.price === 'different')) extra.push('Website shows changes');
+    if (c && c.priceChanged) extra.push(T('Price may have changed, check their website.'));
+    else if (c && c.hours === 'different') extra.push('Website shows changes');
     return `<article class="card">
       <div class="ph-wrap">
         <button class="photo" type="button" data-open="${p.i}" aria-label="See photos and details: ${esc(p.n)}" ${lazyAttr(cardPh(p))}>${n > 1 ? `<span class="more">${n} photos</span>` : ''}</button>
@@ -299,13 +283,14 @@
         ${winterTag(p)}
         ${state.open || p.winterHours ? hoursLine(p, null, true) : ''}
       </button>
+      <a class="cg" href="${mapsUrl(p)}" target="_blank" rel="noopener">⭐ ${esc(T('Reviews & photos on Google'))}</a>
     </article>`;
   }
 
   function winterTag(p) {
-    if (p.src === 'new') return '<span class="wtag new">New for winter, not from the guide · verify before visiting</span>';
+    if (p.src === 'new') return '<span class="wtag new">New for winter · verify before visiting</span>';
     if (!WINTER) return '';
-    if (wClosed(p)) return '<span class="wtag closed">The guide says closed for the season</span>';
+    if (wClosed(p)) return '<span class="wtag closed">May be closed for the season</span>';
     if (wOutdoor(p)) return '<span class="wtag out">Outdoors · may be closed in winter</span>';
     return '';
   }
@@ -323,20 +308,20 @@
     if (!SEASON.base) blocks.unshift(seasonNotes('search'));
     if (WINTER && !state.showclosed && state.area !== 'saved') {
       const hid = P.filter(p => inArea(p) && wClosed(p)).length;
-      if (hid) blocks.push(`<p class="wnote">${hid} ${hid === 1 ? 'place is' : 'places are'} hidden because the guide says ${hid === 1 ? 'it is' : 'they are'} closed for the season (summer parks, rides and farms). <button class="linkbtn" type="button" data-wshow="1">Show them anyway</button></p>`);
+      if (hid) blocks.push(`<p class="wnote">${hid} ${hid === 1 ? 'place is' : 'places are'} hidden because ${hid === 1 ? 'it may be' : 'they may be'} closed for the season (summer parks, rides and farms). <button class="linkbtn" type="button" data-wshow="1">Show them anyway</button></p>`);
     }
     if (state.open) {
       const unk = P.filter(p => inArea(p) && hoursOn(p, dayISO()).s === 'unknown').length;
       blocks.push(`<p class="wnote">${esc(T('Showing places open {when}, by the hours on their own websites.', { when: dayWord(dayISO()) }))} ${!state.openunk && unk ? `${esc(T('{n} places whose hours we couldn\u2019t confirm are hidden.', { n: unk }))} <button class="linkbtn" type="button" data-openunk="1">${esc(T('Show them too'))}</button>` : ''}</p>`);
     }
-    if (state.area === 'trip' && !secs.length) blocks.push('<p class="hint" style="margin:0 0 14px">Pick a destination to see the shuls, mikvahs and kosher food the guide lists there.</p>');
+    if (state.area === 'trip' && !secs.length) blocks.push('<p class="hint" style="margin:0 0 14px">Pick a destination to see its places. For shuls and mikvaos, see Davening &amp; Mikvah.</p>');
     $('info').innerHTML = blocks.join('');
   }
   function render() {
     renderFilters(); renderInfo();
     const list = P.filter(p => passes(p)), o = state.origin;
     if (state.sort === 'az') list.sort((a, b) => a.n.localeCompare(b.n));
-    else if (state.sort === 'reviews') list.sort((a, b) => b.rv.length - a.rv.length || a.i - b.i);
+    else if (state.sort === 'reviews') list.sort((a, b) => a.i - b.i);
     else if (state.sort === 'near') { const wr = p => WINTER && !(p.snow || p.io === 'in') ? 1 : 0; list.sort((a, b) => wr(a) - wr(b) || (tm(a) == null ? 1e6 : tm(a)) - (tm(b) == null ? 1e6 : tm(b)) || a.i - b.i); }
     else list.sort((a, b) => a.i - b.i);
     const total = P.filter(inArea).length;
@@ -400,32 +385,30 @@
   function siteBox(p) {
     const c = CHECKS[p.i];
     if (!p.w || p.src === 'new') return '';
-    if (!c || !c.checkedAt) return `<div class="sitebox"><h4>Checked on their website</h4><span class="muted">Not checked yet. Hours and prices above are from the printed guide.</span></div>`;
-    const lab = v => v === 'same' ? 'same as the guide' : v === 'different' ? 'different from the guide' : 'the automatic check did not find them. Please look on their website';
+    if (!c || !c.checkedAt || (!c.siteHours && !c.sitePrice)) return '';
+    const lab = v => v === 'same' ? 'same as above' : v === 'different' ? 'different from above' : '';
     return `<div class="sitebox"><h4>Checked on their website · ${esc(fmtDate(c.checkedAt))}</h4>
-      <div><b>Hours:</b> ${esc(lab(c.hours))}${c.siteHours ? ` — <span>${esc(c.siteHours)}</span>` : ''}</div>
-      <div><b>Prices:</b> ${esc(lab(c.price))}${c.sitePrice ? ` — <span>${esc(c.sitePrice)}</span>` : ''}</div>
-      ${c.note ? `<div class="muted">${esc(c.note)}</div>` : ''}</div>`;
+      ${c.siteHours ? `<div><b>Hours:</b> ${lab(c.hours) ? esc(lab(c.hours)) + ' — ' : ''}<span>${esc(c.siteHours)}</span></div>` : ''}
+      ${c.sitePrice ? `<div><b>Prices:</b> <span>${esc(c.sitePrice)}</span></div>` : ''}
+      <div class="muted">Read automatically from their website. Always call before you go.</div></div>`;
   }
   function etaList(p) {
     if (!p.t) return '';
     const rows = ORIG.filter(o => p.t[o.k] != null).map(o => `<li>${esc(o.n)}: <b>${esc(fmt(p.t[o.k]))}</b></li>`);
     return rows.length ? `<details class="etas"><summary>Drive times from every community</summary><ul>${rows.join('')}</ul></details>` : '';
   }
-  function reviewsHTML(p) {
-    if (p.rv.some(r => !r)) return `<div class="reviews" id="d-reviews"><h4>Family reviews</h4><p class="src">Loading the family reviews…</p></div>`;
-    if (p.src === 'new') return '';
-    if (!p.rv.length) return `<div class="reviews" id="d-reviews"><h4>Family reviews</h4><p class="src">${p.src === 'mv' ? 'No family reviews for this place yet.' : 'The guide has no family reviews for this place yet.'} Google's reviews open on Google Maps.</p></div>`;
-    return `<div class="reviews" id="d-reviews"><h4>What families said · ${p.rv.length} ${p.rv.length === 1 ? 'review' : 'reviews'}</h4>
-      <p class="src">From the reviews pages of the Navigation guide. Google's reviews open on Google Maps.</p>
-      ${p.rv.map(r => `<p class="rev${r.l === 'yi' ? ' yi' : ''}" dir="auto">${r.about ? `<span class="about" dir="ltr">About: ${esc(r.about)}</span>` : ''}${esc(r.t)}</p>`).join('')}</div>`;
+  function reviewsHTML(p) { return ''; }
+  function priceHTML(p) {
+    if (!p.pr) return '';
+    const c = CHECKS[p.i], changed = c && c.priceChanged;
+    return `<dl><div><dt>${esc(T('Price'))}</dt><dd dir="auto">${esc(p.pr)}</dd></div></dl><p class="hsrc">${esc(T('From their website'))}${p.prs ? ` · <a href="${esc(p.prs)}" target="_blank" rel="noopener">${esc(host(p.prs).split('/')[0])}</a>` : ''}${p.prd ? ' · ' + esc(T('checked {date}', { date: fmtDate(p.prd + 'T12:00:00') })) : ''}</p>${changed ? `<p class="pchg"><b>${esc(T('Price may have changed, check their website.'))}</b></p>` : ''}`;
   }
   function placeSeasonBox(p) {
     const rows = [];
-    if (p.src === 'new') rows.push(`<p><b>Added for winter, not from the guide.</b> The name, address and website were checked on the official site on Oct 27, 2026${p.src2 ? ` (<a href="${esc(p.src2)}" target="_blank" rel="noopener">source</a>)` : ''}. Hours and prices aren't listed here, so check their website before visiting.</p>`);
-    if (WINTER && wClosed(p)) rows.push('<p><b>The guide says this place was closed for the season</b> at Sukkos time, so it is probably closed in winter too. Check before you go.</p>');
+    if (p.src === 'new') rows.push(`<p><b>Added for winter.</b> The name, address and website were checked on the official site on Oct 27, 2026${p.src2 ? ` (<a href="${esc(p.src2)}" target="_blank" rel="noopener">source</a>)` : ''}. Hours and prices aren't listed here, so check their website before visiting.</p>`);
+    if (WINTER && wClosed(p)) rows.push('<p><b>This place may be closed for the season.</b> Check before you go.</p>');
     else if (WINTER && wOutdoor(p)) rows.push('<p><b>Outdoors.</b> It may be closed or have short hours in winter. Check before you go.</p>');
-    if (WINTER && p.snow && p.src !== 'new') rows.push('<p><b>Snow &amp; ice.</b> Skating or snow activities, as the guide describes them. Winter hours usually differ from the Sukkos hours above.</p>');
+    if (WINTER && p.snow && p.src !== 'new') rows.push('<p><b>Snow &amp; ice.</b> Skating or snow activities. Winter hours can differ from the regular hours above.</p>');
     if (SEASON.holidayNote) rows.push(`<p>${esc(SEASON.holidayNote)}</p>`);
     else if (SEASON.hoursNote && !SEASON.base) rows.push(`<p>${esc(SEASON.hoursNote)}</p>`);
     return rows.length ? `<div class="sbox">${rows.join('')}</div>` : '';
@@ -448,7 +431,6 @@
   function openPlace(i, toReviews) {
     const p = P[i]; if (!p) return;
     cur = p; curPhotos = photoList(p);
-    if (p.src !== 'new' && !detailsLoaded) loadDetails().then(() => { if (cur === p && openSheet === $('detail')) { const keep = curIdx; openPlace(i, toReviews); showPhoto(keep); } });
     $('d-title').textContent = p.n;
     const isSaved = saved.has(p.key);
     $('d-body').innerHTML = `
@@ -458,13 +440,16 @@
         </div>
         <p class="gal-cap" id="g-cap"></p>
         ${curPhotos.length > 1 ? `<div class="thumbs">${curPhotos.map((ph, k) => `<button class="thumb" type="button" data-k="${k}" aria-label="Photo ${k + 1}" style="${bgStyle(ph)}"></button>`).join('')}</div>` : ''}
-        <p class="hint"><a href="${mapsUrl(p)}" target="_blank" rel="noopener">Google reviews and more photos on Google Maps</a></p>
+        <p class="hint"><a class="greviews" href="${mapsUrl(p)}" target="_blank" rel="noopener">⭐ ${esc(T('Reviews & photos on Google'))}</a></p>
+        ${mapEmbed(p)}
       </div>
       <div class="dinfo">
         <div class="card-top"><div class="sec${p.k === 'trip' ? ' trip' : ''}">${esc(p.s)}</div>
           <button class="save" type="button" data-key="${esc(p.key)}" aria-pressed="${isSaved}" aria-label="${isSaved ? 'Remove from my list' : 'Save to my list'}">${STAR}</button></div>
         <div class="badges">${p.g ? `<span class="badge age">${esc(p.g)}</span>` : ''}${drives(p)}${isChm(p) ? '<span class="badge ch">Chol Hamoed hours</span>' : ''}</div>
-        ${(p.h || p.pr) ? `<dl>${p.h ? `<div><dt>${SEASON.base ? 'Hours' : 'Hours <small>(Sukkos guide)</small>'}</dt><dd dir="auto">${esc(p.h)}</dd></div>` : ''}${p.pr ? `<div><dt>Price</dt><dd dir="auto">${esc(p.pr)}</dd></div>` : ''}</dl>` : ''}
+        ${p.de ? `<p class="desc-en">${esc(p.de)}</p>` : ''}
+        ${p.h ? `<dl><div><dt>${esc(T('Regular hours'))}</dt><dd dir="ltr">${esc(p.h)}</dd></div></dl><p class="hsrc">${esc(T('From their Google business listing, checked Oct 30, 2026. Hours change for holidays and seasons, so call before you go.'))}</p>` : ''}
+        ${p.pr && !/^\s*free\s*$/i.test(p.pr) || p.prs ? priceHTML(p) : ''}
         ${hoursBox(p)}
         ${placeSeasonBox(p)}
         ${etaList(p)}
@@ -474,13 +459,9 @@
         ${addrHTML(p)}
         ${phonesHTML(p)}
         ${p.w ? `<p class="webline"><a href="${esc(p.w)}" target="_blank" rel="noopener">${esc(host(p.w))}</a></p>` : ''}
-        ${p.d ? `<p class="desc" dir="rtl" lang="yi">${esc(p.d)}</p>` : ''}
-        ${p.de ? `<p class="desc-en">${esc(p.de)}</p>` : ''}
-        ${p.src === 'mv' ? `<p class="srcline">From The Monsey View's Excursions trip guide (issue 567, page ${p.pg}).</p>` : ''}
-        ${reviewsHTML(p)}
         <div class="actions">
           ${p.w ? `<a class="btn" href="${esc(p.w)}" target="_blank" rel="noopener">Website</a>` : `<span class="noweb">No website found · <a href="${searchUrl(p)}" target="_blank" rel="noopener">search</a></span>`}
-          <a class="btn ghost" href="${mapsUrl(p)}" target="_blank" rel="noopener">Google reviews</a>
+          <a class="btn ghost" href="${mapsUrl(p)}" target="_blank" rel="noopener">⭐ ${esc(T('Reviews & photos on Google'))}</a>
         </div>
         <div class="navapps"><span>Directions:</span>
           <a class="btn ghost" href="${wazeUrl(p)}" target="_blank" rel="noopener">Waze</a>
@@ -591,8 +572,8 @@
   // ----- views: home, explore, my trips -----
   const VIEWS = ['home', 'search', 'explore', 'trips', 'map', 'daven'];
   let curView = 'home';
-  const heroPh = p => photoList(p)[p.gal.length ? 1 : 0];
-  const miniMeta = p => [tm(p) != null ? fmt(tm(p)) + ' from ' + (ORIG_NAME[state.origin] || '') : '', p.fp === 0 ? 'Free' : (p.fp != null ? 'from $' + (Number.isInteger(p.fp) ? p.fp : p.fp.toFixed(2)) : ''), p.rv.length ? p.rv.length + (p.rv.length === 1 ? ' review' : ' reviews') : ''].filter(Boolean).join(' · ');
+  const heroPh = p => photoList(p)[0];
+  const miniMeta = p => [tm(p) != null ? fmt(tm(p)) + ' from ' + (ORIG_NAME[state.origin] || '') : '', p.fp === 0 ? 'Free' : (p.fp != null ? 'from $' + (Number.isInteger(p.fp) ? p.fp : p.fp.toFixed(2)) : '')].filter(Boolean).join(' · ');
   const mini = p => `<button class="mini" type="button" data-open="${p.i}"><span class="mini-ph" ${lazyAttr(heroPh(p))}></span><span class="mini-b"><span class="sec" style="--c:${secColor(p.s)}">${esc(p.s)}</span><b>${esc(p.n)}</b><span class="mini-m">${esc(miniMeta(p))}</span></span></button>`;
   const uniqName = list => { const seen = new Set(); return list.filter(p => { const k = p.n.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; }); };
   const median = a => { const s = a.slice().sort((x, y) => x - y); return s.length ? s[Math.floor(s.length / 2)] : null; };
@@ -600,7 +581,7 @@
   function coverFor(list) {
     const want = list.length && COVER[list[0].s] ? list.find(p => p.n === COVER[list[0].s]) : null;
     if (want) return bgStyle(heroPh(want));
-    const best = list.filter(p => p.gal.length).sort((a, b) => b.rv.length - a.rv.length)[0] || list[0];
+    const best = list.filter(p => p.gal.length)[0] || list[0];
     return best ? bgStyle(heroPh(best)) : '';
   }
   function catCover(sec, kind, list) {
@@ -618,12 +599,12 @@
     ['Zoos & Aquariums', 'zoos-aquariums', 'Meet the wild ones'], ['Museums', 'museums', 'Feed their curiosity'], ['Parks & Farms', 'parks-farms', 'Room to roam']];
   const secCount = sec => P.filter(p => p.s === sec && p.k === 'local').length;
   const funCard = ([sec, slug, tag]) => `<button class="fun" type="button" data-sec="${esc(sec)}" data-kind="local" style="--c:${secColor(sec)}"><img src="img/cat/${slug}.webp" alt="" width="800" height="500" loading="lazy" decoding="async"><span class="fun-n">${secCount(sec)} places</span><span class="fun-t"><b>${esc(sec)}</b><small>${esc(tag)}</small></span><span class="fun-go" aria-hidden="true">→</span></button>`;
-  const phUrl = ph => ph.kind === 'mv' ? ph.src : ph.kind === 'book' ? `img/book/${ph.idx}.webp` : (ph.gid != null ? `img/gal/${ph.gid}.webp` : '');
+  const phUrl = ph => ph.gid != null ? `img/gal/${ph.gid}.webp` : '';
   const vcatList = v => P.filter(p => p.k === 'local' && p[v] && !wClosed(p));
   function seasonFunCard([key, img, title, tag]) {
     const v = key[0] === '@' ? key.slice(1) : null;
     const list = v ? vcatList(v) : P.filter(p => p.s === key && p.k === 'local');
-    if (!img) { const best = list.filter(p => p.gal.length).sort((a, b) => b.rv.length - a.rv.length)[0] || list[0]; img = best ? phUrl(heroPh(best)) : ''; }
+    if (!img) { const best = list.filter(p => p.gal.length)[0] || list[0]; img = best ? phUrl(heroPh(best)) : ''; }
     return `<button class="fun" type="button" ${v ? `data-vcat="${v}"` : `data-sec="${esc(key)}"`} data-kind="local" style="--c:${v === 'snow' ? '#2b7bd8' : secColor(key)}">${img ? `<img src="${esc(img)}" alt="" width="800" height="500" loading="lazy" decoding="async">` : ''}<span class="fun-n">${list.length} places</span><span class="fun-t"><b>${esc(title)}</b><small>${esc(tag)}</small></span><span class="fun-go" aria-hidden="true">→</span></button>`;
   }
   function funMore() {
@@ -636,7 +617,7 @@
   function renderHome() {
     if (!$('herofrom').options.length) $('herofrom').innerHTML = ORIG.map(o => `<option value="${esc(o.k)}">From ${esc(o.n)}</option>`).join('');
     $('herofrom').value = state.origin;
-    $('herolede').textContent = `${P.filter(p => p.src !== 'new').length} ${SEASON.lede || 'places from the Navigation guide, with photos, family reviews, hours, prices and drive times from your community.'}`;
+    $('herolede').textContent = `${P.filter(p => p.src !== 'new').length} ${SEASON.lede || 'family outing places, with hours, phone numbers and drive times from your community.'}`;
     $('home-notes').innerHTML = SEASON.base ? '' : seasonNotes('home') + eventsHTML();
     $('fun-grid').innerHTML = SEASON.fun ? SEASON.fun.map(seasonFunCard).join('') : FUN.map(funCard).join('');
     $('fun-more').innerHTML = funMore();
@@ -645,11 +626,12 @@
     if (WINTER) {
       $('rail1-t').textContent = 'Snow & ice'; $('rail1-s').textContent = `Skating rinks, ski slopes and snow tubing, closest to ${ORIG_NAME[state.origin] || 'you'} first.`; $('rail1-a').dataset.go = 'snow';
       $('rail-fav').innerHTML = uniqName(P.filter(p => p.k === 'local' && p.snow).sort(near)).slice(0, 14).map(mini).join('');
-      $('rail2-t').textContent = 'Warm indoor favorites'; $('free-sub').textContent = 'Indoor places with the most family reviews in the guide.'; $('rail2-a').dataset.go = 'indoorfav';
-      $('rail-free').innerHTML = uniqName(P.filter(p => p.k === 'local' && p.io === 'in' && p.rv.length && !wClosed(p)).sort((a, b) => b.rv.length - a.rv.length || near(a, b))).slice(0, 14).map(mini).join('');
+      $('rail2-t').textContent = 'Warm indoor fun'; $('free-sub').textContent = `Indoor places, closest to ${ORIG_NAME[state.origin] || 'you'} first.`; $('rail2-a').dataset.go = 'indoorfav';
+      $('rail-free').innerHTML = uniqName(P.filter(p => p.k === 'local' && p.io === 'in' && !wClosed(p)).sort(near)).slice(0, 14).map(mini).join('');
     } else {
-      $('rail-fav').innerHTML = uniqName(P.filter(p => p.k === 'local' && p.rv.length).sort((a, b) => b.rv.length - a.rv.length || a.i - b.i)).slice(0, 14).map(mini).join('');
-      const free = uniqName(P.filter(p => p.k === 'local' && (p.fp === 0 || isFree(p)) && tm(p) != null && (p.src !== 'mv' || p.img)).sort((a, b) => tm(a) - tm(b))).slice(0, 14);
+      $('rail1-t').textContent = 'Indoor fun near you'; $('rail1-s').textContent = `Indoor places, closest to ${ORIG_NAME[state.origin] || 'you'} first.`; $('rail1-a').dataset.go = 'indoorfav';
+      $('rail-fav').innerHTML = uniqName(P.filter(p => p.k === 'local' && p.io === 'in').sort(near)).slice(0, 14).map(mini).join('');
+      const free = uniqName(P.filter(p => p.k === 'local' && (p.fp === 0 || isFree(p)) && tm(p) != null).sort((a, b) => tm(a) - tm(b))).slice(0, 14);
       $('rail-free').innerHTML = free.map(mini).join('');
       $('free-sub').textContent = `Free places, closest to ${ORIG_NAME[state.origin] || 'you'} first.`;
     }
@@ -734,10 +716,9 @@
   });
   $('herofrom').addEventListener('change', e => { state.origin = e.target.value; savePrefs(); renderHome(); });
   document.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', () => {
-    if (a.dataset.go === 'reviews') { applyQuick('rev'); state.sort = 'reviews'; }
     if (a.dataset.go === 'free') { applyQuick('free'); state.sort = 'near'; }
     if (a.dataset.go === 'snow') { applyQuick('snow'); state.sort = 'near'; }
-    if (a.dataset.go === 'indoorfav') { applyQuick('rain'); state.sort = 'reviews'; }
+    if (a.dataset.go === 'indoorfav') { applyQuick('rain'); state.sort = 'near'; }
     if (a.dataset.go === 'stay') setTimeout(() => { const s = $('stay'); if (s) s.scrollIntoView({ block: 'start' }); }, 80);
   }));
   $('askpromo-btn').addEventListener('click', () => $('askbtn').click());
@@ -749,7 +730,7 @@
   if (WINTER) {
     $('indoor').parentNode.lastChild.textContent = ' Indoors (out of the cold)';
     document.querySelectorAll('[data-winter]').forEach(el => { el.hidden = false; });
-    const st = SEASON.id === 'winter' ? 'Guest rentals, vans and rides, and kosher pizza from the guide.' : '';
+    const st = '';
     document.querySelectorAll('.stay-sub').forEach(el => { el.textContent = st; });
   }
   if (window.renderSeasonSwitch) window.renderSeasonSwitch();
