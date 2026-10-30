@@ -5,8 +5,11 @@
   // Data lives in two files so the first screen is quick: data/core.json (what lists and cards need) and
   // data/details.json (Yiddish descriptions and family reviews), which loads right after.
   async function getJSON(u) { const r = await fetch(u); if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); }
+  const T = window.T || ((s, v) => v ? String(s).replace(/\{(\w+)\}/g, (m, k) => v[k] != null ? v[k] : m) : s);
+  const YI = window.LANG === 'yi';
   let DATA;
-  try { DATA = await getJSON('data/core.json'); }
+  const langReady = window.I18N_READY || Promise.resolve();
+  try { [DATA] = await Promise.all([getJSON('data/core.json'), langReady]); }
   catch (e) { const g = document.getElementById('grid'); document.querySelectorAll('#fun-grid, #grid').forEach(el => { el.innerHTML = '<div class="empty">The places could not load. Check your internet connection and reload the page.</div>'; }); return; }
   (function expand() {
     const ok = (DATA.origins || []).map(o => o.k);
@@ -73,12 +76,12 @@
   try { saved = new Set(JSON.parse(localStorage.getItem(STORE) || '[]')); } catch (e) {}
   const persist = () => { try { localStorage.setItem(STORE, JSON.stringify([...saved])); } catch (e) {} };
 
-  const state = { area: 'local', sections: new Set(), ages: new Set(), states: new Set(), origin: DEFAULT_ORIGIN, max: Infinity, free: false, chm: false, web: false, indoor: false, rev: false, budget: 'any', q: [], sort: 'near', snow: false, iwater: false, noout: false, showclosed: false };
+  const state = { area: 'local', sections: new Set(), ages: new Set(), states: new Set(), origin: DEFAULT_ORIGIN, max: Infinity, free: false, chm: false, web: false, indoor: false, rev: false, budget: 'any', q: [], sort: 'near', snow: false, iwater: false, noout: false, showclosed: false, open: false, openunk: false, day: '' };
   const PREFS = 'chm-outings-filters-v1';
   try {
     const s = JSON.parse(localStorage.getItem(PREFS) || 'null');
     if (s) {
-      ['area', 'origin', 'free', 'chm', 'web', 'indoor', 'rev', 'budget', 'sort', 'noout', 'showclosed'].forEach(k => { if (s[k] !== undefined) state[k] = s[k]; });
+      ['area', 'origin', 'free', 'chm', 'web', 'indoor', 'rev', 'budget', 'sort', 'noout', 'showclosed', 'open', 'openunk'].forEach(k => { if (s[k] !== undefined) state[k] = s[k]; });
       if (typeof s.max === 'number') state.max = s.max;
       if (state.origin === 'm1') state.origin = 'monsey';
       if (state.origin === 'm2') state.origin = 'monroe';
@@ -87,10 +90,52 @@
     }
   } catch (e) {}
   function savePrefs() {
-    try { localStorage.setItem(PREFS, JSON.stringify({ area: state.area, origin: state.origin, free: state.free, chm: state.chm, web: state.web, indoor: state.indoor, rev: state.rev, budget: state.budget, sort: state.sort, noout: state.noout, showclosed: state.showclosed, max: state.max === Infinity ? null : state.max, sections: [...state.sections], ages: [...state.ages], states: [...state.states] })); } catch (e) {}
+    try { localStorage.setItem(PREFS, JSON.stringify({ area: state.area, origin: state.origin, free: state.free, chm: state.chm, web: state.web, indoor: state.indoor, rev: state.rev, budget: state.budget, sort: state.sort, noout: state.noout, showclosed: state.showclosed, open: state.open, openunk: state.openunk, max: state.max === Infinity ? null : state.max, sections: [...state.sections], ages: [...state.ages], states: [...state.states] })); } catch (e) {}
   }
 
   const tm = (p, k) => (p.t && p.t[k || state.origin] != null) ? p.t[k || state.origin] : null;
+  // ----- opening hours: winterHours (read from each place's own website, with the page and the date checked) -----
+  const pad2 = n => ('0' + n).slice(-2);
+  const isoOf = d => d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+  const TODAY = isoOf(new Date());
+  const DOW = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+  const dateOf = iso => new Date(iso + 'T12:00:00');
+  const dayISO = () => state.day && state.day >= TODAY ? state.day : TODAY;
+  const hm12 = s => { const [h, m] = s.split(':').map(Number); const hh = h % 24; const ap = hh < 12 ? 'AM' : 'PM'; const h12 = hh % 12 || 12; return h12 + (m ? ':' + pad2(m) : '') + ' ' + ap; };
+  const rangeTxt = v => v.split(',').map(r => { const [a, b] = r.split('-'); return b ? hm12(a) + '–' + hm12(b) : hm12(a); }).join(', ');
+  function hoursOn(p, iso) {
+    const wh = p.winterHours;
+    if (!wh || wh.status === 'unconfirmed') return { s: 'unknown' };
+    if (wh.status === 'closed_season') return { s: 'closed', season: true };
+    let v = wh.dates && wh.dates[iso];
+    const special = v != null;
+    if (v == null && wh.week) v = wh.week[DOW[dateOf(iso).getDay()]];
+    if (v == null || v === '') return { s: 'unknown', partial: true };
+    if (/^closed$/i.test(v)) return { s: 'closed', special };
+    if (!/^\d{1,2}:\d{2}-\d{1,2}:\d{2}/.test(v)) return { s: 'unknown', partial: true };
+    return { s: 'open', text: rangeTxt(v), special };
+  }
+  const dayWord = iso => iso === TODAY ? T('today') : T('on {day}', { day: dayName(iso) });
+  function dayName(iso) {
+    const d = dateOf(iso), t = new Date(dateOf(TODAY).getTime() + 864e5);
+    if (iso === TODAY) return T('Today');
+    if (iso === isoOf(t)) return T('Tomorrow');
+    return T(['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][d.getDay()]) + ', ' + T(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()]) + ' ' + d.getDate();
+  }
+  // the days you can pick: the next week, plus the winter break days
+  function dayChoices() {
+    const out = [], base = dateOf(TODAY);
+    for (let k = 0; k < 8; k++) out.push(isoOf(new Date(base.getTime() + k * 864e5)));
+    if (WINTER) for (let d = dateOf('2026-12-24'); isoOf(d) <= '2027-01-01'; d = new Date(d.getTime() + 864e5)) { const s = isoOf(d); if (s > out[out.length - 1]) out.push(s); }
+    return out;
+  }
+  function hoursLine(p, iso, short) {
+    const h = hoursOn(p, iso || dayISO());
+    const when = dayWord(iso || dayISO());
+    if (h.s === 'open') return `<span class="hrs open">${esc(T('Open {when}', { when }))} · <bdi dir="ltr">${esc(h.text)}</bdi></span>`;
+    if (h.s === 'closed') return `<span class="hrs closed">${esc(h.season ? T('Closed for the winter season') : T('Closed {when}', { when }))}</span>`;
+    return short ? `<span class="hrs unk">${esc(T('Hours not confirmed, call first'))}</span>` : `<span class="hrs unk">${esc(T('Hours not confirmed, call first'))}</span>`;
+  }
   function inArea(p) { return state.area === 'saved' ? saved.has(p.key) : p.k === state.area; }
   function passes(p, skip) {
     if (!inArea(p)) return false;
@@ -107,6 +152,7 @@
     if (state.iwater && !p.iwater) return false;
     if (WINTER && state.noout && wOutdoor(p)) return false;
     if (WINTER && !state.showclosed && wClosed(p) && state.area !== 'saved') return false;
+    if (state.open) { const h = hoursOn(p, dayISO()).s; if (h === 'closed' || (h === 'unknown' && !state.openunk)) return false; }
     if (state.budget !== 'any') {
       const b = Number(state.budget);
       if (b === 0) { if (!(isFree(p) || p.fp === 0)) return false; }
@@ -138,14 +184,20 @@
     if (!$('origin').options.length) $('origin').innerHTML = ORIG.map(o => `<option value="${esc(o.k)}">${esc(o.n)}</option>`).join('');
     $('origin').value = state.origin;
     $('maxout').textContent = state.max === Infinity ? 'any distance' : fmt(state.max) + ' from ' + (ORIG_NAME[state.origin] || '');
-    const n = state.sections.size + state.ages.size + state.states.size + (state.max < Infinity) + state.free + state.chm + state.web + state.indoor + state.rev + (state.budget !== 'any') + state.snow + state.iwater + (WINTER && state.noout);
+    const n = state.sections.size + state.ages.size + state.states.size + (state.max < Infinity) + state.free + state.chm + state.web + state.indoor + state.rev + (state.budget !== 'any') + state.snow + state.iwater + (WINTER && state.noout) + state.open;
     $('fcount').textContent = n; $('fcount').hidden = !n;
     $('maxmin').value = state.max === Infinity ? 135 : state.max;
     $('free').checked = state.free; $('chm').checked = state.chm; $('hasweb').checked = state.web;
     $('indoor').checked = state.indoor; $('hasrev').checked = state.rev;
     if ($('snow')) { $('snow').checked = state.snow; $('iwater').checked = state.iwater; $('noout').checked = state.noout; $('showclosed').checked = state.showclosed; } $('budget').value = String(state.budget); $('sort').value = state.sort;
+    if ($('openday')) {
+      $('openday').checked = state.open; $('openunk').checked = state.openunk;
+      const opts = dayChoices().map(d => `<option value="${d === TODAY ? '' : d}">${esc(dayName(d))}</option>`).join('');
+      if ($('day').dataset.built !== opts) { $('day').innerHTML = opts; $('day').dataset.built = opts; }
+      $('day').value = state.day && state.day >= TODAY ? state.day : '';
+    }
     const little = state.ages.size === 2 && state.ages.has('Toddler+') && state.ages.has('Entire Family');
-    const qs = { rain: state.indoor, little, free: state.free, close: state.max === 30, rev: state.rev, snow: state.snow };
+    const qs = { rain: state.indoor, little, free: state.free, close: state.max === 30, rev: state.rev, snow: state.snow, open: state.open && !state.day };
     document.querySelectorAll('#quick .chip').forEach(b => b.setAttribute('aria-pressed', !!qs[b.dataset.q]));
     $('copylist').hidden = !(state.area === 'saved' && saved.size);
     savePrefs();
@@ -236,11 +288,12 @@
         <button class="save" type="button" data-key="${esc(p.key)}" aria-pressed="${isSaved}" aria-label="${isSaved ? 'Remove from My Trips' : 'Save to My Trips'}: ${esc(p.n)}" title="${isSaved ? 'Remove from My Trips' : 'Save to My Trips'}">${STAR}</button>
       </div>
       <button class="card-body" type="button" data-open="${p.i}">
-        <span class="ctag" style="--c:${secColor(p.s)}">${esc(p.s)}${p.io === 'in' ? ' · Indoors' : ''}${WINTER && p.snow ? ' · <b class="snowtag">❄ Snow &amp; ice</b>' : ''}</span>
+        <span class="ctag" style="--c:${secColor(p.s)}">${esc(T(p.s))}${p.io === 'in' ? ' · ' + esc(T('Indoors')) : ''}${WINTER && p.snow ? ` · <b class="snowtag">❄ ${esc(T('Snow & ice'))}</b>` : ''}</span>
         <span class="ctitle">${esc(p.n)}</span>
         ${bits.length ? `<span class="cmeta">${bits.join(' · ')}</span>` : ''}
         ${extra.length ? `<span class="cextra">${esc(extra.join(' · '))}</span>` : ''}
         ${winterTag(p)}
+        ${state.open || p.winterHours ? hoursLine(p, null, true) : ''}
       </button>
     </article>`;
   }
@@ -267,6 +320,10 @@
     if (WINTER && !state.showclosed && state.area !== 'saved') {
       const hid = P.filter(p => inArea(p) && wClosed(p)).length;
       if (hid) blocks.push(`<p class="wnote">${hid} ${hid === 1 ? 'place is' : 'places are'} hidden because the guide says ${hid === 1 ? 'it is' : 'they are'} closed for the season (summer parks, rides and farms). <button class="linkbtn" type="button" data-wshow="1">Show them anyway</button></p>`);
+    }
+    if (state.open) {
+      const unk = P.filter(p => inArea(p) && hoursOn(p, dayISO()).s === 'unknown').length;
+      blocks.push(`<p class="wnote">${esc(T('Showing places open {when}, by the hours on their own websites.', { when: dayWord(dayISO()) }))} ${!state.openunk && unk ? `${esc(T('{n} places whose hours we couldn\u2019t confirm are hidden.', { n: unk }))} <button class="linkbtn" type="button" data-openunk="1">${esc(T('Show them too'))}</button>` : ''}</p>`);
     }
     if (state.area === 'trip' && !secs.length) blocks.push('<p class="hint" style="margin:0 0 14px">Pick a destination to see the shuls, mikvahs and kosher food the guide lists there.</p>');
     $('info').innerHTML = blocks.join('');
@@ -369,6 +426,21 @@
     else if (SEASON.hoursNote && !SEASON.base) rows.push(`<p>${esc(SEASON.hoursNote)}</p>`);
     return rows.length ? `<div class="sbox">${rows.join('')}</div>` : '';
   }
+  function hoursBox(p) {
+    if (p.src === 'new') return '';
+    const wh = p.winterHours;
+    const head = `<h4>${esc(T('Winter hours'))}</h4>`;
+    if (!wh || wh.status === 'unconfirmed') return `<div class="hbox unk">${head}<p><b>${esc(T('Hours not confirmed, call first.'))}</b> ${esc(T('We couldn\u2019t find winter or holiday hours on their official website.'))}</p></div>`;
+    const day = dayISO(), rows = [];
+    rows.push(`<p class="hnow">${hoursLine(p, day)}</p>`);
+    if (wh.text) rows.push(`<p dir="auto">${esc(wh.text)}</p>`);
+    const ds = Object.keys(wh.dates || {}).sort();
+    if (ds.length) rows.push(`<ul class="hdates">${ds.map(d => `<li><b>${esc(dayName(d))}:</b> <bdi dir="ltr">${esc(/^closed$/i.test(wh.dates[d]) ? T('Closed') : rangeTxt(wh.dates[d]))}</bdi></li>`).join('')}</ul>`);
+    if (wh.week && Object.keys(wh.week).length) rows.push(`<details class="hweek"><summary>${esc(T('Every day of the week'))}</summary><ul>${DOW.filter(d => wh.week[d]).map(d => `<li><span>${esc(T({ sun: 'Sunday', mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday', sat: 'Saturday' }[d]))}</span> <bdi dir="ltr">${esc(/^closed$/i.test(wh.week[d]) ? T('Closed') : /^\d/.test(wh.week[d]) ? rangeTxt(wh.week[d]) : wh.week[d])}</bdi></li>`).join('')}</ul></details>`);
+    if (wh.status === 'regular') rows.push(`<p class="muted">${esc(T('Their website doesn\u2019t list special hours for Dec 25 or Jan 1 yet, so call before a holiday.'))}</p>`);
+    rows.push(`<p class="hsrc">${esc(T('From their official website'))}${wh.source ? ` · <a href="${esc(wh.source)}" target="_blank" rel="noopener">${esc(host(wh.source).split('/')[0])}</a>` : ''} · ${esc(T('checked {date}', { date: fmtDate(wh.checked + 'T12:00:00') }))}</p>`);
+    return `<div class="hbox ${wh.status === 'closed_season' ? 'closed' : ''}">${head}${rows.join('')}</div>`;
+  }
   function openPlace(i, toReviews) {
     const p = P[i]; if (!p) return;
     cur = p; curPhotos = photoList(p);
@@ -388,9 +460,11 @@
         <div class="card-top"><div class="sec${p.k === 'trip' ? ' trip' : ''}">${esc(p.s)}</div>
           <button class="save" type="button" data-key="${esc(p.key)}" aria-pressed="${isSaved}" aria-label="${isSaved ? 'Remove from my list' : 'Save to my list'}">${STAR}</button></div>
         <div class="badges">${p.g ? `<span class="badge age">${esc(p.g)}</span>` : ''}${drives(p)}${isChm(p) ? '<span class="badge ch">Chol Hamoed hours</span>' : ''}</div>
-        ${(p.h || p.pr) ? `<dl>${p.h ? `<div><dt>${SEASON.base ? 'Hours' : 'Hours <small>(Sukkos guide)</small>'}</dt><dd>${esc(p.h)}</dd></div>` : ''}${p.pr ? `<div><dt>Price</dt><dd>${esc(p.pr)}</dd></div>` : ''}</dl>` : ''}
+        ${(p.h || p.pr) ? `<dl>${p.h ? `<div><dt>${SEASON.base ? 'Hours' : 'Hours <small>(Sukkos guide)</small>'}</dt><dd dir="auto">${esc(p.h)}</dd></div>` : ''}${p.pr ? `<div><dt>Price</dt><dd dir="auto">${esc(p.pr)}</dd></div>` : ''}</dl>` : ''}
+        ${hoursBox(p)}
         ${placeSeasonBox(p)}
         ${etaList(p)}
+        <div id="d-daven"></div>
         <div id="d-weather"></div>
         ${siteBox(p)}
         ${addrHTML(p)}
@@ -467,7 +541,12 @@
     $('noout').addEventListener('change', e => { state.noout = e.target.checked; render(); });
     $('showclosed').addEventListener('change', e => { state.showclosed = e.target.checked; render(); });
   }
-  $('info').addEventListener('click', e => { if (e.target.closest('[data-wshow]')) { state.showclosed = true; render(); } });
+  $('info').addEventListener('click', e => { if (e.target.closest('[data-wshow]')) { state.showclosed = true; render(); } if (e.target.closest('[data-openunk]')) { state.openunk = true; render(); } });
+  if ($('openday')) {
+    $('openday').addEventListener('change', e => { state.open = e.target.checked; render(); });
+    $('openunk').addEventListener('change', e => { state.openunk = e.target.checked; render(); });
+    $('day').addEventListener('change', e => { state.day = e.target.value; if (!state.open) state.open = true; render(); document.dispatchEvent(new CustomEvent('of:day')); });
+  }
   $('budget').addEventListener('change', e => { state.budget = e.target.value === 'any' ? 'any' : Number(e.target.value); render(); });
   $('quick').addEventListener('click', e => {
     const b = e.target.closest('.chip'); if (!b) return;
@@ -477,6 +556,7 @@
     if (q === 'free') state.free = on;
     if (q === 'rev') state.rev = on;
     if (q === 'snow') state.snow = on;
+    if (q === 'open') { state.open = on; state.day = ''; }
     if (q === 'close') state.max = on ? 30 : Infinity;
     if (q === 'little') { state.ages.clear(); if (on) { state.ages.add('Toddler+'); state.ages.add('Entire Family'); } }
     render();
@@ -498,14 +578,14 @@
   let t;
   $('q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { state.q = norm(e.target.value.trim()).split(/\s+/).filter(Boolean); render(); }, 120); });
   $('clear').addEventListener('click', () => {
-    state.sections.clear(); state.ages.clear(); state.states.clear(); state.max = Infinity; state.free = state.chm = state.web = state.indoor = state.rev = state.snow = state.iwater = state.noout = false; state.budget = 'any'; state.q = [];
+    state.sections.clear(); state.ages.clear(); state.states.clear(); state.max = Infinity; state.free = state.chm = state.web = state.indoor = state.rev = state.snow = state.iwater = state.noout = state.open = false; state.budget = 'any'; state.q = [];
     $('q').value = ''; render();
   });
   $('ftoggle').addEventListener('click', () => { const open = $('panel').dataset.open !== 'true'; $('panel').dataset.open = open; $('ftoggle').setAttribute('aria-expanded', open); });
   $('grid').addEventListener('click', e => { if (e.target.closest('.moregrid')) return moreGrid($('grid')); handleCommon(e); });
 
   // ----- views: home, explore, my trips -----
-  const VIEWS = ['home', 'search', 'explore', 'trips', 'map'];
+  const VIEWS = ['home', 'search', 'explore', 'trips', 'map', 'daven'];
   let curView = 'home';
   const heroPh = p => photoList(p)[p.gal.length ? 1 : 0];
   const miniMeta = p => [tm(p) != null ? fmt(tm(p)) + ' from ' + (ORIG_NAME[state.origin] || '') : '', p.fp === 0 ? 'Free' : (p.fp != null ? 'from $' + (Number.isInteger(p.fp) ? p.fp : p.fp.toFixed(2)) : ''), p.rv.length ? p.rv.length + (p.rv.length === 1 ? ' review' : ' reviews') : ''].filter(Boolean).join(' · ');
@@ -606,6 +686,7 @@
     $('trips-sum').innerHTML = list.length ? `<strong>${list.length}</strong> saved ${list.length === 1 ? 'place' : 'places'}, closest first` : '';
     $('copylist2').hidden = !list.length;
     $('trips-grid').innerHTML = list.length ? list.map(card).join('') : '<div class="empty">Nothing saved yet. Tap the star on any place to add it to My Trips. <a href="#search">Find places</a></div>';
+    if (window.onTripsView) window.onTripsView();
   }
   function showView(v) {
     if (!VIEWS.includes(v) || (v === 'map' && !window.renderMap)) v = 'home';
@@ -618,6 +699,7 @@
     else if (v === 'explore') renderExplore();
     else if (v === 'trips') renderTrips();
     else if (v === 'map') window.renderMap();
+    else if (v === 'daven') { if (window.renderDaven) window.renderDaven(); }
     else render();
     window.scrollTo(0, 0);
     navSolid();
@@ -625,7 +707,7 @@
   function go(v) { if (location.hash.slice(1) === v) showView(v); else location.hash = v; }
   window.addEventListener('hashchange', () => showView(location.hash.slice(1)));
   function applyQuick(q) {
-    state.indoor = q === 'rain'; state.free = q === 'free'; state.rev = q === 'rev'; state.snow = q === 'snow'; state.iwater = false;
+    state.indoor = q === 'rain'; state.free = q === 'free'; state.rev = q === 'rev'; state.snow = q === 'snow'; state.iwater = false; state.open = q === 'open'; if (q === 'open') state.day = '';
     state.max = q === 'close' ? 30 : Infinity;
     state.ages.clear(); if (q === 'little') { state.ages.add('Toddler+'); state.ages.add('Entire Family'); }
     state.area = 'local'; state.sections.clear(); state.states.clear();
@@ -638,7 +720,7 @@
   }
   ['view-home', 'view-explore', 'view-trips'].forEach(id => $(id).addEventListener('click', e => { if (!onCat(e)) handleCommon(e); }));
   $('home-extras').addEventListener('click', e => { if (e.target.closest('[data-go="stay"]')) setTimeout(() => { const s = $('stay'); if (s) s.scrollIntoView({ block: 'start' }); }, 80); });
-  $('heroquick').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; applyQuick(b.dataset.q); go('search'); });
+  $('heroquick').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b || !b.dataset.q) return; applyQuick(b.dataset.q); go('search'); });
   $('heroform').addEventListener('submit', e => {
     e.preventDefault();
     const v = $('heroq').value.trim();
@@ -667,6 +749,10 @@
     document.querySelectorAll('.stay-sub').forEach(el => { el.textContent = st; });
   }
   if (window.renderSeasonSwitch) window.renderSeasonSwitch();
+  // what the extra features (features.js: day planner, sharing, rainy day, davening) need from here
+  window.OF = { P, DATA, ORIG, ORIG_NAME, SEASON, WINTER, state, saved, tm, fmt, esc, T, YI, host, tel, secColor, hoursOn, hoursLine, dayISO, dayName, dayChoices, TODAY, isoOf, dateOf,
+    render, openPlace, go, showView, savePrefs, persist, mini, card, handleCommon, onCat, applyQuick, rangeTxt, get curView() { return curView; } };
+  document.dispatchEvent(new CustomEvent('of:ready'));
   showView(location.hash.slice(1) || 'home');
   (window.requestIdleCallback || (f => setTimeout(f, 1200)))(() => loadDetails());
 
@@ -681,6 +767,17 @@
       const next = await r.json();
       if (!next || typeof next !== 'object' || !Object.keys(next).length) return;
       CHECKS = next; render();
+      if (cur && openSheet === $('detail')) { const keep = curIdx; openPlace(cur.i); showPhoto(keep); }
+    } catch (e) {}
+  })();
+
+  // ----- winter hours (data/hours.json: read from each place's own website, loads after the first screen) -----
+  (async () => {
+    try {
+      const j = await getJSON('data/hours.json');
+      Object.entries(j.hours || {}).forEach(([k, v]) => { const p = P[+k]; if (p && p.src !== 'new') p.winterHours = v; });
+      window.HOURS_READY = true;
+      if (curView === 'search') render(); else if (curView === 'trips') renderTrips();
       if (cur && openSheet === $('detail')) { const keep = curIdx; openPlace(cur.i); showPhoto(keep); }
     } catch (e) {}
   })();
@@ -912,7 +1009,8 @@
       }).join('')}</div><p class="hint" style="margin:6px 0 0">Highs and lows in °F, with the chance of rain. Live forecast from Open-Meteo.</p></div>`;
     } catch (e) { if ($('d-weather')) $('d-weather').innerHTML = ''; }
   }
-  window.onPlaceOpen = p => { loadWeather(p); };
+  const featuresOpen = window.onPlaceOpen;
+  window.onPlaceOpen = p => { loadWeather(p); if (featuresOpen) featuresOpen(p); };
 
   // ----- map (Leaflet + OpenStreetMap, free) -----
   let mapObj = null, mapLayer = null;
@@ -941,6 +1039,7 @@
         mapLayer.addLayer(m);
       });
       mapObj.addLayer(mapLayer);
+      if (window.mapExtras) window.mapExtras(mapObj);
       const filtered = state.sections.size || state.ages.size || state.states.size || state.q.length || state.free || state.indoor || state.rev || state.snow || state.iwater || state.max < Infinity || state.budget !== 'any';
       $('map-sum').textContent = `${list.length} ${state.area === 'trip' ? 'trip' : state.area === 'saved' ? 'saved' : 'near-home'} places${filtered ? ' matching your search' : ''}. Tap a dot to see the place. Use Search to change what's shown.`;
       setTimeout(() => { mapObj.invalidateSize(); if (list.length) mapObj.fitBounds(L.latLngBounds(list.map(p => p.ll)), { padding: [30, 30], maxZoom: 13 }); }, 60);

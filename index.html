@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Family outings for Chol Hamoed and winter vacation: every place from the Navigation Sukkos guide with photos, family reviews, drive times, hours and prices.">
+<script src="i18n.js"></script>
 <script src="seasons.js"></script>
 <link rel="preload" href="data/core.json" as="fetch" crossorigin="anonymous">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -808,6 +809,145 @@ dt small { font-weight: 400; color: var(--muted); }
   .seasonswitch:not(.foot) .ss-short { display: inline; }
   :root[data-season="winter"] { --coast-tint: linear-gradient(180deg, rgb(236 244 252 / 0.55) 0%, rgb(236 244 252 / 0) 42%); }
 }
+
+/* ===== added: language switch, open-today hours, rainy day, day planner, sharing, davening ===== */
+.langbtn { font-family: var(--font-yi); font-weight: 700; }
+html[lang="yi"] .langbtn { font-family: var(--font-ui); }
+.nl-short { display: none; }
+.langfoot { display: flex; gap: 8px; justify-content: center; align-items: center; }
+.hrs { display: block; margin-top: 6px; font-size: 12.5px; font-weight: 600; }
+.hrs.open { color: #0f7a55; }
+.hrs.closed { color: #b42318; }
+.hrs.unk { color: var(--warn); font-weight: 500; }
+.hbox { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin: 12px 0; background: #fbfdfc; }
+.hbox h4 { margin: 0 0 6px; font-size: 14px; }
+.hbox p { margin: 4px 0; font-size: 14px; }
+.hbox.unk { background: var(--warn-soft); border-color: #f6d6ae; }
+.hbox .hnow .hrs { font-size: 14px; margin: 0; }
+.hbox .hdates, .hbox .hweek ul { margin: 6px 0; padding-inline-start: 18px; font-size: 13.5px; }
+.hbox .hweek summary { cursor: pointer; font-size: 13.5px; color: var(--schach); font-weight: 600; margin-top: 4px; }
+.hbox .hweek li span { display: inline-block; min-width: 92px; color: var(--muted); }
+.hbox .hsrc { font-size: 12.5px; color: var(--muted); }
+#day { width: 100%; margin: 4px 0 8px; }
+.rainchip { border-color: #93c5fd !important; }
+#rainbox:empty { display: none; }
+.rain { border-radius: 18px; padding: 16px 18px; margin: 18px 0 6px; }
+.rain.wet { background: linear-gradient(135deg, #e0f2fe, #eef2ff); border: 1px solid #bfdbfe; }
+.rain.dry { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.rain.dry p { margin: 2px 0; }
+.rain-h { display: flex; gap: 12px; align-items: flex-start; }
+.rain-i { font-size: 30px; line-height: 1; }
+.rain h2 { margin: 0 0 2px; font-size: 19px; }
+.rain-h p { margin: 0; color: var(--muted); font-size: 14px; }
+.rain .rail { margin-top: 12px; }
+.rain-f { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 10px 0 0; }
+.planner { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 16px; margin: 4px 0 20px; box-shadow: var(--shadow); }
+.planner h2 { margin: 0 0 2px; font-size: 20px; }
+.pl-head .hint { margin: 0 0 10px; }
+.pl-picks { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.pl-pick { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 14px; cursor: pointer; max-width: 100%; }
+.pl-pick span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pl-pick.on { border-color: var(--schach); background: var(--schach-soft); font-weight: 600; }
+.pl-pick input:disabled + span { opacity: .45; }
+.pl-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: end; margin-bottom: 8px; }
+.pl-row label { min-width: 0; max-width: 100%; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.pl-row select, .pl-row input { font: inherit; font-size: 15px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); min-height: 40px; }
+.timeline { list-style: none; margin: 14px 0 6px; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline-start: 11px; top: 8px; bottom: 8px; width: 2px; background: #d7e5dd; }
+.timeline li { position: relative; padding-inline-start: 34px; margin: 0 0 10px; font-size: 14.5px; }
+.timeline li::before { content: ""; position: absolute; inset-inline-start: 5px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 2px solid var(--schach); }
+.timeline .tl-drive { color: var(--muted); font-size: 13.5px; }
+.timeline .tl-drive::before { width: 8px; height: 8px; inset-inline-start: 8px; top: 7px; border-color: #b9cdc2; }
+.timeline .tl-home::before { background: var(--schach); }
+.tl-stop { background: #f6faf8; border-radius: 12px; padding-block: 8px; padding-inline-end: 10px; }
+.tl-stop::before { top: 12px !important; }
+.tl-stop.warn { background: var(--warn-soft); }
+.tl-time b { font-size: 14px; color: var(--schach); }
+.tl-body { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.tl-name { all: unset; cursor: pointer; font-weight: 700; font-size: 16px; color: var(--ink); text-decoration: underline; text-decoration-color: #c9d6cf; text-underline-offset: 3px; }
+.tl-sec { font-size: 12px; font-weight: 700; color: var(--c); }
+.tl-note { font-size: 13px; font-weight: 600; color: #b42318; width: 100%; }
+.tl-note.unk { color: var(--warn); font-weight: 500; }
+.tl-stay { font-size: 12.5px; color: var(--muted); display: inline-flex; gap: 6px; align-items: center; }
+.tl-stay select { font: inherit; font-size: 13px; padding: 3px 6px; border-radius: 8px; border: 1px solid var(--line); background: #fff; }
+.pl-sum { font-size: 13.5px; color: var(--muted); margin: 6px 0 10px; }
+.pl-wx { background: #e0f2fe; border-radius: 10px; padding: 8px 12px; font-size: 14px; margin: 0 0 10px; }
+.pl-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+#sharebar { display: flex; flex-wrap: wrap; gap: 8px; }
+#sharebar[hidden] { display: none; }
+#printview { display: none; }
+@media print {
+  body.printing > *:not(#printview) { display: none !important; }
+  body.printing #printview { display: block !important; font-family: var(--font-ui); color: #000; padding: 0 8px; }
+  html[lang="yi"] body.printing #printview { font-family: var(--font-yi); }
+  #printview h1 { font-size: 24pt; margin: 0 0 4pt; }
+  #printview .pv-sub { color: #444; margin: 0 0 14pt; }
+  #printview .pv-stop { break-inside: avoid; border-top: 1px solid #ccc; padding: 8pt 0; }
+  #printview .pv-stop h2 { font-size: 15pt; margin: 2pt 0; }
+  #printview .pv-stop p { margin: 2pt 0; font-size: 11pt; }
+  #printview .pv-time, #printview .pv-line { font-weight: 700; color: #0f7a55; }
+  #printview .pv-drive { color: #555; font-size: 10.5pt; margin: 4pt 0; }
+  #printview .pv-foot { margin-top: 16pt; color: #555; font-size: 10pt; }
+}
+/* davening & mikvah */
+.pagehead h1 .yi { font-family: var(--font-yi); font-size: .6em; color: var(--etrog); margin-inline-start: 8px; font-weight: 700; }
+.dv-bar { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; margin: 6px 0 14px; }
+.dv-bar label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.dv-bar select, .dv-bar input { font: inherit; font-size: 15px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); min-height: 42px; max-width: 100%; }
+.dv-bar > label { flex: 1 1 150px; min-width: 0; }
+.dv-bar select, .dv-bar input { width: 100%; }
+.dv-bar .dv-search { flex: 2 1 180px; }
+.zm { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; margin-bottom: 16px; box-shadow: var(--shadow); }
+.zm-h { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.zm-h h2 { margin: 0; font-size: 19px; }
+.zm-h p { margin: 0; color: var(--muted); font-size: 14px; }
+.zm-list { list-style: none; padding: 0; margin: 10px 0 6px; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0 24px; }
+.zm-list li { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 14.5px; }
+.zm-list b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.zm-he { font-family: var(--font-yi); color: var(--muted); font-size: 13px; }
+.zm-list small { color: var(--muted); font-size: 11.5px; }
+.dv-tabs { margin-bottom: 10px; flex-wrap: wrap; }
+.dv-warn { background: var(--warn-soft); border: 1px solid #f6d6ae; border-radius: 12px; padding: 9px 12px; font-size: 14px; margin: 0 0 12px; }
+.dv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+.dv-card { background: #fff; border: 1px solid var(--line); border-inline-start: 4px solid #1d4ed8; border-radius: 14px; padding: 12px 14px; }
+.dv-card.m { border-inline-start-color: #0f766e; }
+.dv-card.w { border-inline-start-color: #a855f7; }
+.dv-card h3 { margin: 0 0 2px; font-size: 16px; }
+.dv-card p { margin: 3px 0; font-size: 14px; }
+.dv-nus { font-size: 12px; color: var(--muted); font-weight: 600; }
+.dv-where a { color: var(--ink); }
+.dv-ph { font-weight: 600; }
+.dv-times { margin: 8px 0 4px; display: grid; gap: 3px; }
+.dv-t { display: flex; gap: 10px; font-size: 14px; }
+.dv-t span { min-width: 78px; color: var(--muted); font-weight: 600; }
+.dv-t b { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dv-more { display: inline; }
+.dv-more summary { display: inline; cursor: pointer; color: var(--schach); font-weight: 700; }
+.dv-more[open] summary { display: none; }
+html[dir="rtl"] .dv-t b { text-align: right; }
+.dv-tn, .dv-note2 { color: var(--muted); font-size: 13px !important; }
+.dv-src { font-size: 12px !important; color: var(--muted); margin-top: 6px !important; }
+.dv-foot { margin-top: 18px; }
+.dvnear { border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; margin: 12px 0; }
+.dvnear h4 { margin: 0 0 4px; font-size: 14px; }
+.dvnear ul { margin: 0; padding-inline-start: 18px; font-size: 13.5px; }
+.dvnear li { margin: 2px 0; }
+.mapdv { display: inline-flex; margin-top: 4px; }
+.dvpin { display: flex !important; align-items: center; justify-content: center; border-radius: 50%; color: #fff; font-size: 13px; font-weight: 700; border: 2px solid #fff; box-shadow: 0 1px 4px rgb(0 0 0 / .35); }
+.dvpin.shul { background: #1d4ed8; }
+.dvpin.mik { background: #0f766e; }
+@media (max-width: 760px) {
+  .nl-long { display: none; }
+  .nl-short { display: inline; }
+}
+/* right-to-left (Yiddish) */
+html[dir="rtl"], html[dir="rtl"] body { overflow-x: clip; }
+html[dir="rtl"] body { font-family: var(--font-yi); }
+html[dir="rtl"] .gal-nav.prev { transform: scaleX(-1); }
+html[dir="rtl"] .gal-nav.next { transform: scaleX(-1); }
+html[dir="rtl"] .fun-go, html[dir="rtl"] .btn span[aria-hidden="true"] { display: inline-block; transform: scaleX(-1); }
+html[dir="rtl"] .addr, html[dir="rtl"] .phones, html[dir="rtl"] .webline, html[dir="rtl"] .dv-where, html[dir="rtl"] .dv-ph, html[dir="rtl"] .zm-list b, html[dir="rtl"] .tl-time, html[dir="rtl"] .hrs { unicode-bidi: plaintext; }
+html[dir="rtl"] .ctitle, html[dir="rtl"] .mini-b b, html[dir="rtl"] .dv-card h3, html[dir="rtl"] .tl-name, html[dir="rtl"] #d-title { unicode-bidi: plaintext; }
 </style>
 
 
@@ -821,8 +961,10 @@ dt small { font-weight: 400; color: var(--muted); }
       <a href="#search" data-view="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search</a>
       <a href="#explore" data-view="explore"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>Explore</a>
       <a href="#map" data-view="map" id="nav-map" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Map</a>
+      <a href="#daven" data-view="daven" id="nav-daven"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 20 16H4z"/><path d="M12 21.2 4 8h16z"/></svg><span class="nl-long">Davening</span><span class="nl-short">Daven</span></a>
       <a href="#trips" data-view="trips"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z" stroke-linejoin="round"/></svg>My Trips <span class="count" id="nav-saved"></span></a>
     </div>
+    <button class="pill langbtn" id="langbtn" type="button" data-noi18n data-setlang="" lang="yi" dir="rtl" aria-label="יידיש / English">יידיש</button>
     <button class="pill fbbtn" id="fbbtn" type="button" hidden aria-controls="fbpanel" data-feedback="" aria-label="Feedback and help"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9.8 9.6a2.3 2.3 0 1 1 3.2 2.1c-.6.3-1 .8-1 1.4v.4"/><circle cx="12" cy="16.4" r="0.6" fill="currentColor"/></svg><span class="lbl">Feedback</span></button>
     <button class="pill ask" id="askbtn" type="button" hidden aria-controls="askpanel" aria-label="Ask AI"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><span class="lbl">Ask AI</span></button>
   </div>
@@ -843,6 +985,7 @@ dt small { font-weight: 400; color: var(--muted); }
           <button class="btn" type="submit">Find an outing <span aria-hidden="true">→</span></button>
         </form>
         <div class="quick" id="heroquick" role="group" aria-label="Quick picks">
+          <button class="chip" type="button" data-q="open">Open today</button>
           <button class="chip" type="button" data-q="rain">Rainy day (indoors)</button>
           <button class="chip" type="button" data-q="little">Good for little kids</button>
           <button class="chip" type="button" data-q="free">Free</button>
@@ -860,6 +1003,7 @@ dt small { font-weight: 400; color: var(--muted); }
     </div>
   </section>
   <div class="wrap view-pad">
+    <div id="rainbox" aria-live="polite"></div>
     <div id="home-notes"></div>
     <section class="band"><div class="bandhead"><div><h2 id="rail1-t">Families' favorites</h2><p id="rail1-s">The places with the most family reviews in the guide.</p></div><a href="#search" data-go="reviews" id="rail1-a">See all</a></div><div class="rail" id="rail-fav"></div></section>
     <section class="band"><div class="bandhead"><div><h2 id="rail2-t">Free and close by</h2><p id="free-sub">Free places, closest first.</p></div><a href="#search" data-go="free" id="rail2-a">See all</a></div><div class="rail" id="rail-free"></div></section>
@@ -880,15 +1024,32 @@ dt small { font-weight: 400; color: var(--muted); }
 
 <div class="view" id="view-map" hidden>
   <div class="wrap mapwrap">
-    <div class="pagehead" style="padding-top:6px"><h1>Map</h1><p id="map-sum">Loading the map…</p></div>
+    <div class="pagehead" style="padding-top:6px"><h1>Map</h1><p id="map-sum">Loading the map…</p>
+      <label class="toggle mapdv" id="map-daven" for="map-daven-on" hidden><input type="checkbox" id="map-daven-on"> Show shuls and men's mikvaos</label></div>
     <div id="map" role="region" aria-label="Map of places"></div>
   </div>
 </div>
 
+<div class="view" id="view-daven" hidden>
+  <div class="wrap view-pad">
+    <div class="pagehead"><h1>Davening &amp; Mikvah <span class="yi" lang="he" dir="rtl">תפילה ומקוה</span></h1><p>Shuls with minyan times, mikvaos and the day's zmanim, near home and where you're traveling.</p></div>
+    <div class="dv-bar">
+      <label>Area <select id="dv-area"></select></label>
+      <label>Day <select id="dv-day"></select></label>
+      <label class="dv-search"><span class="sr-only">Search</span><input id="dv-q" type="search" placeholder="Search by name or street" autocomplete="off"></label>
+      <button class="btn ghost" type="button" id="dv-map">Show on map</button>
+    </div>
+    <div id="dv-zmanim"></div>
+    <div class="tabs dv-tabs" id="dv-tabs" role="group" aria-label="Shuls and mikvaos"></div>
+    <div id="dv-list"></div>
+    <p class="hint dv-foot">Shuls and minyan times come from public directories (mostly GoDaven) and the shuls' own websites; mikvaos from public mikvah directories. Each entry shows its source and the date it was checked. Minyan times change often, especially around Yom Tov and the winter clock change, so always confirm with the shul.</p>
+  </div>
+</div>
 <div class="view" id="view-trips" hidden>
   <div class="wrap view-pad">
     <div class="pagehead"><h1>My Trips</h1><p>The places you saved with the star. They stay saved on this device.</p></div>
-    <div class="results-head"><p id="trips-sum"></p><button class="btn ghost" type="button" id="copylist2">Copy my list</button></div>
+    <div id="planner"></div>
+    <div class="results-head"><p id="trips-sum"></p><div class="listbar" id="sharebar" hidden><button class="btn" type="button" data-share="list">Share my list</button><button class="btn ghost" type="button" data-print="list">Printable page (PDF)</button><button class="btn ghost" type="button" id="copylist2">Copy my list</button></div></div>
     <div class="grid" id="trips-grid"></div>
   </div>
 </div>
@@ -927,6 +1088,13 @@ dt small { font-weight: 400; color: var(--muted); }
       </div>
       <p class="hint" id="etahint">Estimated drive times in normal traffic. Setting a limit hides places without a drive time.</p>
     </div>
+    <div class="group">
+      <h2>Open</h2>
+      <label class="toggle" for="openday"><input type="checkbox" id="openday"> Only places open on</label>
+      <select id="day" aria-label="Day"></select>
+      <label class="toggle" for="openunk"><input type="checkbox" id="openunk"> Also show places whose hours aren't confirmed</label>
+      <p class="hint">Uses the hours on each place's own website. Places we couldn't confirm say "call first".</p>
+    </div>
     <div class="group"><h2>State</h2><div class="chips" id="states"></div></div>
     <div class="group">
       <h2>Extras</h2>
@@ -960,6 +1128,7 @@ dt small { font-weight: 400; color: var(--muted); }
 
   <section aria-label="Places">
     <div class="quick" id="quick" role="group" aria-label="Quick picks">
+      <button class="chip" type="button" data-q="open" aria-pressed="false">Open today</button>
       <button class="chip" type="button" data-q="rain" aria-pressed="false">Rainy day (indoors)</button>
       <button class="chip" type="button" data-q="little" aria-pressed="false">Good for little kids</button>
       <button class="chip" type="button" data-q="free" aria-pressed="false">Free</button>
@@ -990,7 +1159,8 @@ dt small { font-weight: 400; color: var(--muted); }
 <footer class="wrap">
   <p class="tagline">Explore · Discover · Together</p>
   <nav class="seasonswitch foot" id="seasonswitch-foot" aria-label="Season"></nav>
-  <p data-winter hidden>Winter mode uses the same guide listings. Hours and prices are still the guide's Chol Hamoed Sukkos hours, so winter and holiday hours (Dec 25, Jan 1) can be different. Places marked "New for winter" were added by the site, not by the guide, and were checked on each place's own website on Oct 27, 2026; verify before visiting. The winter scenery pictures are illustrations made for this site.</p>
+  <p class="langfoot" data-noi18n><button class="linkbtn" type="button" data-setlang="en">English</button> · <button class="linkbtn" type="button" data-setlang="yi" lang="yi" dir="rtl">יידיש</button></p>
+  <p data-winter hidden>Winter mode uses the same guide listings. The "Winter hours" on each place were read from that place's own website (the page and the date checked are shown); places we couldn't confirm say "Hours not confirmed, call first". Prices are still the guide's, and holiday hours (Dec 25, Jan 1) can change, so call before you go. Places marked "New for winter" were added by the site, not by the guide, and were checked on each place's own website on Oct 27, 2026; verify before visiting. The winter scenery pictures are illustrations made for this site.</p>
   <p class="fbline" id="fbline" hidden><span>Something not working, an idea, or a question about the site?</span> <button class="btn ghost" type="button" data-feedback="">Send feedback</button></p>
   <p>Listings, booklet photos, Yiddish descriptions and family reviews come from the Navigation Sukkos 5787 guide published at yazory.com. Google's own reviews can't be copied in; the "Google reviews" button opens them on Google Maps. Hours and prices were set at print time for Chol Hamoed; where it says "Checked on their website", a helper compared them with the place's own website on that date. Always call before you go.</p>
   <p>More places come from The Monsey View's Excursions trip guide (issue 567, September 23, 2026); those are marked on each place.</p>
@@ -1063,8 +1233,10 @@ dt small { font-weight: 400; color: var(--muted); }
   </form>
 </section>
 
+<div id="printview" aria-hidden="true"></div>
 <script src="config.js" defer></script>
 <script src="app.js" defer></script>
+<script src="features.js" defer></script>
 
 </body>
 </html>

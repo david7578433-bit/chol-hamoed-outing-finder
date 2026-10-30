@@ -17,7 +17,7 @@
         { k: 'chanukah', text: 'Chanukah: first candle Friday, Dec 4 (before Shabbos), through Saturday, Dec 12, 2026.', until: '2026-12-12' }
       ],
       holidayNote: 'Dec 25 and Jan 1: many places close or keep short holiday hours. The guide doesn\u2019t list holiday hours, so call or check the website before you go.',
-      hoursNote: 'Hours and prices come from the Sukkos guide. Winter and holiday hours can be different, so check before you go.',
+      hoursNote: 'Prices come from the Sukkos guide. Winter hours are from each place\u2019s own website where we could confirm them; call before you go.',
       // Chanukah events, when someone sends them in: { name, date, place, address, link, note }
       events: [],
       // Places the guide describes as skating, skiing, snow tubing or snow play (by place number).
@@ -33,7 +33,7 @@
         ['Zoos & Aquariums', 'img/cat/zoos-aquariums.webp', 'Zoos & Aquariums', 'Meet the wild ones'],
         ['Malls', '', 'Malls', 'Rides and play under one roof']
       ],
-      quick: [['snow', '\u2744 Snow & ice'], ['rain', 'Indoors'], ['little', 'Good for little kids'], ['free', 'Free'], ['close', 'Within 30 min']],
+      quick: [['open', 'Open today'], ['snow', '\u2744 Snow & ice'], ['rain', 'Indoors'], ['little', 'Good for little kids'], ['free', 'Free'], ['close', 'Within 30 min']],
       copyTitle: 'My winter vacation list'
     },
     {
