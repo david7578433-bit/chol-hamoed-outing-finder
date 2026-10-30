@@ -111,14 +111,17 @@ def judge(batch):
     body = {'contents': [{'role': 'user', 'parts': [{'text': PROMPT + json.dumps(items, ensure_ascii=False)}]}],
             'generationConfig': {'temperature': 0.1, 'responseMimeType': 'application/json', 'responseSchema': SCHEMA}}
     for attempt in range(5):
-        r = requests.post(f'https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent',
-                          headers={'x-goog-api-key': GEMINI_KEY, 'Content-Type': 'application/json'}, json=body, timeout=180)
+        try:
+            r = requests.post(f'https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent',
+                              headers={'x-goog-api-key': GEMINI_KEY, 'Content-Type': 'application/json'}, json=body, timeout=150)
+        except requests.RequestException as e:   # a slow or dropped answer: wait and ask again
+            log(f'Gemini did not answer ({type(e).__name__}), trying again'); time.sleep(15 * (attempt + 1)); continue
         if r.status_code == 429 or r.status_code >= 500:
             time.sleep(30 * (attempt + 1)); continue
         r.raise_for_status()
         txt = ''.join(p.get('text', '') for p in r.json()['candidates'][0]['content']['parts'])
         return json.loads(txt)
-    raise RuntimeError('Gemini kept refusing (rate limit)')
+    raise RuntimeError('Gemini kept refusing or timing out')
 
 PATH = os.path.join(ROOT, 'data', 'checks.json')
 
@@ -169,10 +172,11 @@ def main():
     save(rows)
     log(f'{len(todo)} websites have hours or prices to compare; {len(rows)} had nothing usable')
     ok = lambda v: v if v in ('same', 'different', 'not_found') else 'not_found'
-    for i in range(0, len(todo), 20):
+    STEP = 10
+    for i in range(0, len(todo), STEP):
         if time.time() - T0 > TOTAL_BUDGET:
             log(f'time budget used; {len(todo) - i} places wait for the next run'); break
-        batch = todo[i:i + 20]
+        batch = todo[i:i + STEP]
         try:
             res = {int(x['id']): x for x in judge(batch)}
         except Exception as e:
@@ -185,7 +189,7 @@ def main():
                          'site_price': str(x.get('sitePrice', ''))[:160], 'hours': ok(x.get('hours')), 'price': ok(x.get('price')),
                          'note': str(x.get('note', ''))[:100]})
         save(part); rows += part
-        log(f'compared {min(i + 20, len(todo))} of {len(todo)}')
+        log(f'compared {min(i + STEP, len(todo))} of {len(todo)}')
         time.sleep(7)   # stay inside the free tier's requests-per-minute limit
     from collections import Counter
     log(f'saved {len(rows)} places. hours:', Counter(x['hours'] for x in rows), 'prices:', Counter(x['price'] for x in rows))
