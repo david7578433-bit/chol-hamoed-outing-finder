@@ -1,8 +1,8 @@
-// "Add your place", "Advertise" and the admin page read these.
-// Empty = forms show "Coming soon". Fill in after setup (see backend/README.md).
+// "Add your place", "Advertise", Rentals and the admin page read these.
+// Backend: the separate free Supabase project "outing-finder" (see backend/README.md).
 // The anon/publishable key is safe to publish; NEVER put the secret/service key here.
 window.WORLD_CONFIG = {
-  supabaseUrl: '',      // e.g. 'https://abcd1234.supabase.co'
-  supabaseAnonKey: '',  // the project's anon / publishable key
-  adminEmail: ''        // the one email allowed into admin.html
+  supabaseUrl: 'https://akzspnwzpeekkaormvrf.supabase.co',
+  supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrenNwbnd6cGVla2thb3JtdnJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM2NTc1MDUsImV4cCI6MjEwOTIzMzUwNX0.ECNAMpHakjSyVRudQyUROyLMEAmC_OTN7wbkKreI3J0',
+  adminEmail: 'david7578433@gmail.com'
 };
