@@ -236,6 +236,18 @@
   const navTarget = p => p.ll ? p.ll[0] + ',' + p.ll[1] : ((p.locs && p.locs[0]) || p.a || p.n);
   const wazeUrl = p => p.ll ? `https://waze.com/ul?ll=${p.ll[0]},${p.ll[1]}&navigate=yes` : `https://waze.com/ul?q=${encodeURIComponent(navTarget(p))}&navigate=yes`;
   const appleUrl = p => `https://maps.apple.com/?daddr=${encodeURIComponent(navTarget(p))}`;
+  // Plan my trip (trip.js, trip.html): a stop SmartRoute reads as "Name · street address @lat,lon" (exact spot, readable name)
+  const SMARTROUTE = 'https://david7578433-bit.github.io/smartroute/';
+  const tripStop = p => {
+    const ad = String((p.locs && p.locs[0]) || p.a || '').replace(/[|@]/g, ' ').replace(/ · /g, ', ').trim();
+    const nm = String(p.n || '').replace(/[|@]/g, ' ').replace(/ · /g, ' - ').trim();
+    if (p.ll && p.ll.length === 2) return nm + (ad ? ' · ' + ad : '') + ' @' + p.ll[0] + ',' + p.ll[1];
+    return ad ? nm + ', ' + ad : '';
+  };
+  const inTrip = k => { try { return (JSON.parse(localStorage.getItem('of-trip') || '[]') || []).some(x => x && x.k === k); } catch (e) { return false; } };
+  const tripBtn = (p, cls) => { const on = inTrip(p.key); return `<button class="tripadd${cls ? ' ' + cls : ''}" type="button" data-trip="${esc(p.key)}" aria-pressed="${on}">${esc(T(on ? '✓ In my trip' : '+ Add to my trip'))}</button>`; };
+  const srDir = p => SMARTROUTE + '?to=' + encodeURIComponent(tripStop(p));
+  const tripRow = p => tripStop(p) ? `<div class="tripact">${tripBtn(p)}<a class="tripdir" href="${esc(srDir(p))}" target="_blank" rel="noopener">${esc(T('Directions'))}</a></div>` : '';
   const tel = ph => ph.replace(/[^\d+]/g, '').replace(/^1?(\d{10}).*$/, '$1');
   const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }); } catch (e) { return ''; } };
   function checkLine(p) {
@@ -283,6 +295,7 @@
         ${winterTag(p)}
         ${state.open || p.winterHours ? hoursLine(p, null, true) : ''}
       </button>
+      ${tripRow(p)}
       <a class="cg" href="${mapsUrl(p)}" target="_blank" rel="noopener">⭐ ${esc(T('Reviews & photos on Google'))}</a>
     </article>`;
   }
@@ -463,7 +476,9 @@
           ${p.w ? `<a class="btn" href="${esc(p.w)}" target="_blank" rel="noopener">Website</a>` : `<span class="noweb">No website found · <a href="${searchUrl(p)}" target="_blank" rel="noopener">search</a></span>`}
           <a class="btn ghost" href="${mapsUrl(p)}" target="_blank" rel="noopener">⭐ ${esc(T('Reviews & photos on Google'))}</a>
         </div>
+        ${tripStop(p) ? `<div class="tripdetail">${tripBtn(p, 'btn')}<a class="btn ghost" href="trip.html">${esc(T('Plan my trip'))}</a></div>` : ''}
         <div class="navapps"><span>Directions:</span>
+          ${tripStop(p) ? `<a class="btn ghost" href="${esc(srDir(p))}" target="_blank" rel="noopener">SmartRoute</a>` : ''}
           <a class="btn ghost" href="${wazeUrl(p)}" target="_blank" rel="noopener">Waze</a>
           <a class="btn ghost" href="${dirUrl(p)}" target="_blank" rel="noopener">Google Maps</a>
           <a class="btn ghost" href="${appleUrl(p)}" target="_blank" rel="noopener">Apple Maps</a>
@@ -735,7 +750,7 @@
   }
   if (window.renderSeasonSwitch) window.renderSeasonSwitch();
   // what the extra features (features.js: day planner, sharing, rainy day, davening) need from here
-  window.OF = { P, DATA, ORIG, ORIG_NAME, SEASON, WINTER, state, saved, tm, fmt, esc, T, YI, host, tel, secColor, hoursOn, hoursLine, dayISO, dayName, dayChoices, TODAY, isoOf, dateOf,
+  window.OF = { tripStop, P, DATA, ORIG, ORIG_NAME, SEASON, WINTER, state, saved, tm, fmt, esc, T, YI, host, tel, secColor, hoursOn, hoursLine, dayISO, dayName, dayChoices, TODAY, isoOf, dateOf,
     render, openPlace, go, showView, savePrefs, persist, mini, card, handleCommon, onCat, applyQuick, rangeTxt, get curView() { return curView; } };
   document.dispatchEvent(new CustomEvent('of:ready'));
   showView(location.hash.slice(1) || 'home');

@@ -80,3 +80,12 @@ The site appears at `https://david7578433-bit.github.io/chol-hamoed-outing-finde
 Gemini's free tier allows a limited number of questions per minute and per day. If many people ask at once,
 the site says "The free AI is busy right now". On the free tier Google may use the questions to improve its products,
 so don't type private information.
+
+## Plan my trip (`trip.html`)
+Tap "+ Add to my trip" on any outing card (or in its details) to keep a small trip list on this device (`localStorage` "of-trip", up to 10
+places); a floating "My trip (N)" pill opens `trip.html`. There you pick the start (your location, or a typed address) and round trip
+yes/no, and "Plan best route" opens SmartRoute (https://david7578433-bit.github.io/smartroute/) embedded full screen with the stops in the
+fastest order; "Full screen ↗" opens it in its own tab, and from there one tap goes to Google Maps or Waze. Each card also has a
+"Directions" link (SmartRoute `?to=`). Stops are sent as `Name · street address @lat,lon` from `data/core.json`, so SmartRoute uses the
+exact spot and still shows the name. Code: `trip.js` (list + pill + buttons), `trip-page.js`, `trip.css`; words in `yi.js`.
+Davening & mikvah entries have no trip buttons.

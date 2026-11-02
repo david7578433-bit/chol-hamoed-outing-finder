@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Pick the outings you want and get the fastest order to visit them all, with SmartRoute.">
+<link rel="canonical" href="https://david7578433-bit.github.io/chol-hamoed-outing-finder/trip.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chol Hamoed Outing Finder">
+<meta property="og:title" content="Plan my trip · Outing Finder">
+<meta property="og:description" content="Pick the outings you want and get the fastest order to visit them all.">
+<meta property="og:url" content="https://david7578433-bit.github.io/chol-hamoed-outing-finder/trip.html">
+<meta property="og:image" content="https://david7578433-bit.github.io/chol-hamoed-outing-finder/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Plan my trip · Outing Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="list.css">
+<link rel="stylesheet" href="rentals.css">
+<link rel="stylesheet" href="trip.css">
+<script src="i18n.js"></script>
+</head>
+<body data-nopill>
+<header class="top">
+  <a class="brand" href="index.html">Outing Finder</a>
+  <nav aria-label="Main">
+    <a href="index.html">Outings</a>
+    <a href="world.html">World trips</a>
+    <a href="rentals.html">Rentals</a>
+    <a href="trip.html" aria-current="page">Plan my trip</a>
+    <a href="list.html">Add your place</a>
+    <button class="langbtn" id="langbtn" type="button" data-noi18n data-setlang="" lang="yi" dir="rtl" aria-label="יידיש / English">יידיש</button>
+  </nav>
+</header>
+
+<main class="trip-main">
+  <h1>Plan my trip</h1>
+  <p class="lead">Pick your outings, and we put them in the fastest order to visit them all.</p>
+
+  <section class="card" aria-labelledby="h-stops">
+    <h2 id="h-stops">My places <span class="small" id="t-count"></span></h2>
+    <ol class="tlist" id="t-list"></ol>
+    <div class="empty" id="t-empty" hidden>
+      <p>Your trip is empty. On any outing, tap “+ Add to my trip”. Two or more places work best.</p>
+      <a class="btn" href="index.html#search">Find outings</a>
+    </div>
+    <div class="trip-actions" id="t-more" hidden>
+      <a class="btn ghost" href="index.html#search">+ Add more places</a>
+      <button class="linkbtn" type="button" id="t-clear">Clear my trip</button>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-plan" id="t-plan">
+    <h2 id="h-plan">Your route</h2>
+    <fieldset>
+      <legend>Start from</legend>
+      <label class="opt"><input type="radio" name="start" value="gps" checked> <span>📍 My location</span></label>
+      <label class="opt"><input type="radio" name="start" value="addr"> <span>An address</span></label>
+      <input id="t-addr" type="text" autocomplete="street-address" placeholder="Like: 51 Forest Rd, Monroe, NY 10950" aria-label="Start address" hidden>
+    </fieldset>
+    <fieldset>
+      <legend>Round trip?</legend>
+      <label class="opt"><input type="radio" name="end" value="round" checked> <span>Yes, come back to the start</span></label>
+      <label class="opt"><input type="radio" name="end" value="open"> <span>No, end at the last place</span></label>
+    </fieldset>
+    <button class="btn big" type="button" id="t-go">Plan best route</button>
+    <p id="t-status" role="status"></p>
+    <p class="small">Opens SmartRoute, our free route planner. Drive times are without live traffic. From there, one tap opens the route in Google Maps or Waze.</p>
+  </section>
+</main>
+
+<div class="srwrap" id="sr" hidden>
+  <div class="srbar">
+    <button class="btn ghost" type="button" id="sr-back">‹ My trip</button>
+    <span class="ttl">Best route</span>
+    <a class="btn ghost" id="sr-full" href="#" target="_blank" rel="noopener">Full screen ↗</a>
+  </div>
+  <iframe id="sr-frame" title="SmartRoute: best route for my trip" allow="geolocation"></iframe>
+</div>
+
+<footer>
+  <p>Your trip list is saved on this phone or computer only.</p>
+</footer>
+<script src="trip.js"></script>
+<script src="trip-page.js"></script>
+<!-- Visit counter: GoatCounter (no cookies, no personal data). Stats: https://cholhamoedfinder.goatcounter.com -->
+<script data-goatcounter="https://cholhamoedfinder.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
