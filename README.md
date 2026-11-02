@@ -50,6 +50,14 @@ OpenStreetMap road data (OSRM) for normal traffic, plus 5 minutes.
 Optional: put a Google Maps Embed API key in `config.js` (`MAPS_EMBED_KEY`) to show a small map in each place's details;
 empty means only the "Reviews & photos on Google" button.
 
+## Rentals / Dira (`rentals.html`)
+Pesach / Yom Tov rentals, summer bungalows, Chol Hamoed getaways, and apartments and houses for rent or sale in Monroe / KJ,
+Williamsburg, Monsey, Boro Park, Lakewood and the Catskills. Filters: town, type, bedrooms, price range, dates, and a "near shul"
+keyword. Landlords and brokers post through the form; every post waits for admin approval (`admin.html` → Rentals), and the admin can
+mark a rental Featured (shows first with a badge). It uses the same Supabase backend and `world-config.js` as "Add your place"; until
+that is set up the page shows the empty state and "Coming soon" on the form. Setup: `backend/README.md` (run `backend/rentals.sql`
+after `schema.sql`). English and Yiddish (words in `yi.js`). No listings are seeded.
+
 ## One-time setup
 
 ### 1. GitHub Pages

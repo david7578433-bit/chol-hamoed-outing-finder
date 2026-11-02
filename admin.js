@@ -259,6 +259,80 @@
     } catch (err) { st.textContent = err.message; }
   });
 
+  /* ---------- rentals (backend/rentals.sql) ---------- */
+  var RTOWN = { monroe_kj: 'Monroe / KJ', williamsburg: 'Williamsburg', monsey: 'Monsey', boro_park: 'Boro Park', lakewood: 'Lakewood', catskills: 'Catskills / Mountains', other: 'Other area' };
+  var RKIND = { yomtov: 'Yom Tov / seasonal', bungalow: 'Bungalow', apt_rent: 'Apartment for rent', house_sale: 'House for sale' };
+  var rentPending = [], rentLive = [];
+  function rentDetails(r) {
+    var price = r.price == null ? '' : '$' + Number(r.price).toLocaleString('en-US') + (r.price_per && r.price_per !== 'total' ? ' / ' + (r.price_per === 'yomtov' ? 'Yom Tov' : r.price_per) : '');
+    var rows = [['Town', RTOWN[r.town] || r.town], ['Type', RKIND[r.kind] || r.kind], ['Bedrooms', r.beds], ['Price', price],
+      ['Dates', (r.date_from || r.date_to) ? (r.date_from || '…') + ' → ' + (r.date_to || '…') : ''], ['Near shul', r.near_shul],
+      ['Contact', r.contact_name], ['Phone', r.contact_phone], ['Email', r.contact_email], ['Photo', r.photo_url], ['About', r.description]];
+    return '<dl class="kv">' + rows.filter(function (x) { return x[1] !== null && x[1] !== undefined && x[1] !== ''; }).map(function (x) {
+      return '<dt>' + x[0] + '</dt><dd>' + (x[0] === 'Photo' ? safeLink(x[1]) : esc(x[1])) + '</dd>';
+    }).join('') + '</dl>';
+  }
+  async function loadRentals() {
+    var ep = $('#rent-pending'), el = $('#rent-live');
+    try {
+      rentPending = await rest('rentals_pending?status=eq.pending&order=created_at.desc&limit=200&select=*');
+      $('#n-rent').textContent = rentPending.length ? '(' + rentPending.length + ')' : '';
+      ep.innerHTML = rentPending.length ? rentPending.map(function (r) {
+        return '<div class="row" data-id="' + esc(r.id) + '"><h3>' + esc(r.title) + '</h3>' +
+          '<div class="meta">' + esc(RKIND[r.kind] || r.kind) + ' · ' + esc(RTOWN[r.town] || r.town) + ' · ' + esc(fmtDate(r.created_at)) + '</div>' +
+          (r.wants_featured ? '<div class="chips"><span class="chip ok">★ Wants a featured spot</span></div>' : '') + rentDetails(r) +
+          '<div class="actions"><button class="btn small" data-act="approve">Approve</button><button class="btn ghost small" data-act="approve-feat">Approve + Feature</button>' +
+          '<button class="btn bad small" data-act="reject">Reject</button></div></div>';
+      }).join('') : '<p class="small">Nothing waiting.</p>';
+    } catch (e) { ep.innerHTML = '<div class="note bad">' + esc(e.message) + ' (has backend/rentals.sql been run?)</div>'; }
+    try {
+      rentLive = await rest('rentals_live?order=featured.desc,created_at.desc&limit=500&select=*');
+      el.innerHTML = rentLive.length ? rentLive.map(function (r) {
+        var feat = r.featured ? '<span class="chip ok">★ Featured' + (r.featured_until ? ' until ' + esc(r.featured_until) : '') + '</span>' : '<span class="chip">Not featured</span>';
+        return '<div class="row" data-id="' + esc(r.id) + '"><h3>' + esc(r.title) + '</h3>' +
+          '<div class="meta">' + esc(RKIND[r.kind] || r.kind) + ' · ' + esc(RTOWN[r.town] || r.town) + ' · ' + feat + '</div>' + rentDetails(r) +
+          '<div class="actions"><button class="btn small" data-act="feature">' + (r.featured ? 'Remove featured' : 'Make featured') + '</button>' +
+          '<label class="small" style="display:flex;gap:6px;align-items:center;font-weight:500">Featured until <input type="date" data-until value="' + esc(r.featured_until || '') + '" style="width:auto;min-height:34px;margin:0;padding:4px 8px"></label>' +
+          '<button class="btn bad small" data-act="remove">Remove</button></div></div>';
+      }).join('') : '<p class="small">No live rentals yet.</p>';
+    } catch (e) { el.innerHTML = '<div class="note bad">' + esc(e.message) + '</div>'; }
+  }
+  $('#rent-pending').addEventListener('click', async function (e) {
+    var b = e.target.closest('[data-act]'); if (!b) return;
+    var id = b.closest('[data-id]').getAttribute('data-id'), r = rentPending.find(function (x) { return x.id === id; }), act = b.getAttribute('data-act');
+    try {
+      if (act === 'approve' || act === 'approve-feat') {
+        b.disabled = true;
+        await rest('rpc/publish_rental', { method: 'POST', body: { p_id: id, p_featured: act === 'approve-feat' } });
+        msg('Approved' + (act === 'approve-feat' ? ' and featured' : '') + ': ' + r.title, ''); await loadRentals();
+      } else if (act === 'reject') {
+        if (!confirm('Reject "' + r.title + '"?')) return;
+        await rest('rentals_pending?id=eq.' + id, { method: 'PATCH', body: { status: 'rejected', decided_at: new Date().toISOString() }, prefer: 'return=minimal' });
+        await loadRentals();
+      }
+    } catch (err) { msg(err.message, 'bad'); b.disabled = false; }
+  });
+  $('#rent-live').addEventListener('click', async function (e) {
+    var b = e.target.closest('[data-act]'); if (!b) return;
+    var row = b.closest('[data-id]'), id = row.getAttribute('data-id'), r = rentLive.find(function (x) { return x.id === id; }), act = b.getAttribute('data-act');
+    try {
+      if (act === 'feature') {
+        b.disabled = true;
+        await rest('rentals_live?id=eq.' + id, { method: 'PATCH', body: { featured: !r.featured, featured_until: r.featured ? null : ($('[data-until]', row).value || null) }, prefer: 'return=minimal' });
+        await loadRentals();
+      } else if (act === 'remove') {
+        if (!confirm('Remove this rental from the site?')) return;
+        await rest('rentals_live?id=eq.' + id, { method: 'DELETE', prefer: 'return=minimal' }); await loadRentals();
+      }
+    } catch (err) { msg(err.message, 'bad'); b.disabled = false; }
+  });
+  $('#rent-live').addEventListener('change', async function (e) {
+    var inp = e.target.closest('[data-until]'); if (!inp) return;
+    var id = inp.closest('[data-id]').getAttribute('data-id');
+    try { await rest('rentals_live?id=eq.' + id, { method: 'PATCH', body: { featured_until: inp.value || null }, prefer: 'return=minimal' }); msg('Saved the featured end date.', ''); await loadRentals(); }
+    catch (err) { msg(err.message, 'bad'); }
+  });
+
   /* ---------- start ---------- */
   async function start() {
     if (!session) { $('#login').hidden = false; return; }
@@ -267,7 +341,7 @@
       if (!email || email.toLowerCase() !== ADMIN) { save(null); msg('This account is not the admin.', 'bad'); $('#login').hidden = false; return; }
       $('#login').hidden = true; $('#app').hidden = false; $('#who').textContent = 'Signed in as ' + email;
       await citiesReady;
-      await Promise.all([loadPending(), loadLive(), loadSponsors()]);
+      await Promise.all([loadPending(), loadLive(), loadSponsors(), loadRentals()]);
     } catch (e) { save(null); $('#login').hidden = false; }
   }
   start();

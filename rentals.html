@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Pesach rentals, summer bungalows, Chol Hamoed getaways, and apartments and houses for rent or sale in Monroe / KJ, Williamsburg, Monsey, Boro Park and Lakewood.">
+<link rel="canonical" href="https://david7578433-bit.github.io/chol-hamoed-outing-finder/rentals.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chol Hamoed Outing Finder">
+<meta property="og:title" content="Rentals / Dira · Outing Finder">
+<meta property="og:description" content="Pesach rentals, summer bungalows, Chol Hamoed getaways, and apartments and houses for rent or sale in Monroe / KJ, Williamsburg, Monsey, Boro Park and Lakewood.">
+<meta property="og:url" content="https://david7578433-bit.github.io/chol-hamoed-outing-finder/rentals.html">
+<meta property="og:image" content="https://david7578433-bit.github.io/chol-hamoed-outing-finder/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Chol Hamoed Outing Finder: family outings for Chanukah and Yom Tov, with a menorah">
+<meta name="twitter:card" content="summary_large_image">
+
+<title>Rentals / Dira · Outing Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="list.css">
+<link rel="stylesheet" href="rentals.css">
+<script src="world-config.js"></script>
+<script src="i18n.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">Outing Finder</a>
+  <nav aria-label="Main">
+    <a href="index.html">Outings</a>
+    <a href="world.html">World trips</a>
+    <a href="rentals.html" aria-current="page">Rentals</a>
+    <a href="list.html">Add your place</a>
+    <button class="langbtn" id="langbtn" type="button" data-noi18n data-setlang="" lang="yi" dir="rtl" aria-label="יידיש / English">יידיש</button>
+  </nav>
+</header>
+
+<main>
+  <h1>Rentals <span class="yi-sub" data-noi18n>· <span lang="yi" dir="rtl">דירה</span></span></h1>
+  <p class="lead">Pesach and Yom Tov rentals, summer bungalows, Chol Hamoed getaways, and apartments and houses for rent or sale.</p>
+
+  <div id="banner" class="note warn" hidden role="status"></div>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" id="t-find" aria-selected="true" aria-controls="p-find">Find a rental</button>
+    <button role="tab" id="t-post" aria-selected="false" aria-controls="p-post">Post a listing</button>
+  </div>
+
+  <!-- FIND -->
+  <section id="p-find" role="tabpanel" aria-labelledby="t-find">
+    <details class="card filters" id="filters" open>
+      <summary><span>Filters</span> <span class="small" id="f-active"></span></summary>
+      <form id="f-filter" class="grid two" role="search" aria-label="Filter rentals">
+        <label>Town
+          <select name="town" data-towns data-any></select>
+        </label>
+        <label>Type
+          <select name="kind" data-kinds data-any></select>
+        </label>
+        <label>Bedrooms
+          <select name="beds">
+            <option value="">Any</option>
+            <option value="1">1+</option><option value="2">2+</option><option value="3">3+</option>
+            <option value="4">4+</option><option value="5">5+</option><option value="6">6+</option>
+          </select>
+        </label>
+        <div class="pair">
+          <label>Price from ($)
+            <input name="pmin" type="number" inputmode="numeric" min="0" step="50" placeholder="0">
+          </label>
+          <label>Price to ($)
+            <input name="pmax" type="number" inputmode="numeric" min="0" step="50" placeholder="Any">
+          </label>
+        </div>
+        <div class="pair">
+          <label>From
+            <input name="dfrom" type="date">
+          </label>
+          <label>To
+            <input name="dto" type="date">
+          </label>
+        </div>
+        <label>Near shul / keyword
+          <input name="q" type="search" maxlength="80" placeholder="Shul name or street">
+        </label>
+        <div class="actions span2" style="margin-top:2px">
+          <button class="btn ghost small" type="reset">Clear filters</button>
+        </div>
+      </form>
+    </details>
+
+    <div class="feat-note" id="feat-note">
+      <span class="star" aria-hidden="true">★</span>
+      <span>Featured listings available — <a href="list.html#advertise">contact us</a></span>
+    </div>
+
+    <p class="small" id="count" role="status" aria-live="polite"></p>
+    <div id="results" class="results"></div>
+  </section>
+
+  <!-- POST -->
+  <section id="p-post" role="tabpanel" aria-labelledby="t-post" class="card" hidden>
+    <h2>Post a listing</h2>
+    <p class="small" style="margin-top:0">For landlords and brokers. Every listing is checked by us before it shows on the site.</p>
+    <form id="f-post" novalidate>
+      <div class="grid two">
+        <label class="span2">Title <span class="req">*</span>
+          <span class="hint">e.g. "3-bedroom apartment for Pesach, walking distance to shul"</span>
+          <input name="title" required maxlength="120">
+        </label>
+        <label>Town <span class="req">*</span>
+          <select name="town" required data-towns></select>
+        </label>
+        <label>Type <span class="req">*</span>
+          <select name="kind" required data-kinds></select>
+        </label>
+        <label>Bedrooms
+          <input name="beds" type="number" inputmode="numeric" min="0" max="20" step="1">
+        </label>
+        <div class="pair">
+          <label>Price ($)
+            <input name="price" type="number" inputmode="numeric" min="0" step="1">
+          </label>
+          <label>Per
+            <select name="price_per">
+              <option value="">—</option>
+              <option value="night">Night</option>
+              <option value="week">Week</option>
+              <option value="month">Month</option>
+              <option value="season">Season</option>
+              <option value="yomtov">Yom Tov</option>
+              <option value="total">Total / sale price</option>
+            </select>
+          </label>
+        </div>
+        <label>Available from
+          <input name="date_from" type="date">
+        </label>
+        <label>Available to
+          <input name="date_to" type="date">
+        </label>
+        <label class="span2">Near shul
+          <span class="hint">Which shuls are close, and how far</span>
+          <input name="near_shul" maxlength="160">
+        </label>
+        <label class="span2">Description <span class="counter" data-count>0/1200</span>
+          <textarea name="description" maxlength="1200" placeholder="Floor, kosher kitchen, Pesach kitchen, sukkah, crib, parking…"></textarea>
+        </label>
+        <label>Contact name
+          <input name="contact_name" maxlength="80" autocomplete="name">
+        </label>
+        <label>Contact phone <span class="req">*</span>
+          <span class="hint">Phone or email is needed</span>
+          <input name="contact_phone" maxlength="40" type="tel" autocomplete="tel">
+        </label>
+        <label class="span2">Contact email
+          <input name="contact_email" maxlength="200" type="email" autocomplete="email">
+        </label>
+        <label class="span2">Photo link (optional)
+          <span class="hint">An https:// link to your own photo of the home. No people in photos.</span>
+          <input name="photo_url" maxlength="400" type="url" inputmode="url" placeholder="https://">
+        </label>
+        <label class="check span2"><input name="wants_featured" type="checkbox"> I'm interested in a featured spot (shows first, with a badge). We'll be in touch.</label>
+        <label class="check span2"><input name="ok" type="checkbox" required> I own this home or may rent/sell it, and the photo is my own. <span class="req">*</span></label>
+        <label class="hp" aria-hidden="true">Leave empty <input name="hp" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <div class="actions">
+        <button class="btn" type="submit" data-submit>Send for review</button>
+        <span class="small" data-status role="status"></span>
+      </div>
+      <div data-result></div>
+    </form>
+  </section>
+</main>
+<footer>
+  <p>Listings are posted by landlords and brokers and checked by us before they show. Always see the home and agree on terms directly with the owner.</p>
+</footer>
+<script src="rentals.js"></script>
+<!-- Visit counter: GoatCounter (no cookies, no personal data). Stats: https://cholhamoedfinder.goatcounter.com -->
+<script data-goatcounter="https://cholhamoedfinder.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

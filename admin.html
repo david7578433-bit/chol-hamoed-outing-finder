@@ -16,6 +16,7 @@
   <a class="brand" href="index.html">Outing Finder</a>
   <nav aria-label="Main">
     <a href="list.html">Add your place</a>
+    <a href="rentals.html">Rentals</a>
     <a href="admin.html" aria-current="page">Admin</a>
   </nav>
 </header>
@@ -43,6 +44,7 @@
         <button role="tab" id="t-pending" aria-selected="true" aria-controls="p-pending">Pending <span id="n-pending"></span></button>
         <button role="tab" id="t-live" aria-selected="false" aria-controls="p-live">Live</button>
         <button role="tab" id="t-spons" aria-selected="false" aria-controls="p-spons">Sponsors</button>
+        <button role="tab" id="t-rent" aria-selected="false" aria-controls="p-rent">Rentals <span id="n-rent"></span></button>
       </div>
       <button class="btn ghost small" id="logout" type="button">Sign out</button>
     </div>
@@ -73,6 +75,13 @@
         </form>
       </section>
       <div id="sp-list"></div>
+    </div>
+    <div id="p-rent" role="tabpanel" hidden>
+      <h2 style="margin:4px 0 8px">Rentals waiting for approval</h2>
+      <div id="rent-pending"></div>
+      <h2 style="margin:18px 0 8px">Live rentals</h2>
+      <p class="small" style="margin-top:0">Featured rentals show first on the Rentals page, with a ★ Featured badge.</p>
+      <div id="rent-live"></div>
     </div>
   </section>
 </main>

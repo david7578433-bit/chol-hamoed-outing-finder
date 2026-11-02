@@ -10,6 +10,10 @@ SQL Editor → paste `backend/schema.sql` → Run. Then add the admin:
 
     insert into public.admins(email) values ('admin@example.com');   -- lower-case
 
+Rentals / Dira (`rentals.html`): in the same SQL Editor, paste `backend/rentals.sql` → Run (after `schema.sql`; it uses the same
+`admins` table). It adds two tables, `rentals_pending` (submissions, private) and `rentals_live` (approved rentals, public), and one
+function, `publish_rental`. Rentals need only steps 1, 2, 3 and 6 below; the email/function steps (4–5) are only for "Add your place".
+
 ## 3. Admin login
 Authentication → Users → **Add user** with the admin email (set a password, or use the email link).
 Authentication → URL Configuration → add `https://david7578433-bit.github.io/chol-hamoed-outing-finder/admin.html` to **Redirect URLs**.
@@ -43,3 +47,12 @@ Never put the secret / service_role key in the site.
 - **Auto**: website loads (HTTP 200) and shows the same name + phone, AND the contact email is on that website's domain AND its owner clicks the emailed link (48 h, one use).
 - **Auto (shuls)**: same name + city already in the site's GoDaven-sourced data.
 - **Admin**: everything else, plus every women's mikvah (no street address is ever stored) and every "Advertise" request. Admin page: `admin.html`.
+
+## How a rental goes live
+Every rental posted on `rentals.html` waits for the admin; nothing goes live by itself. In `admin.html` → **Rentals**:
+- **Approve** publishes it. **Approve + Feature** publishes it as featured. **Reject** drops it.
+- Under **Live rentals**: **Make featured / Remove featured**, an optional **Featured until** date (after that date it shows as a normal
+  listing again), and **Remove** (takes it off the site).
+- Featured rentals show first on the Rentals page with a ★ Featured badge. Posters can tick "I'm interested in a featured spot";
+  those show a "Wants a featured spot" chip in the queue. The page says "Featured listings available — contact us" (no prices),
+  which opens the existing "Advertise with us" form.

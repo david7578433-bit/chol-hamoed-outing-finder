@@ -1,0 +1,46 @@
+/* Rentals / Dira page (rentals.html). Builds on list.css. */
+.top nav{align-items:center}
+.langbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 13.5px var(--font);padding:5px 12px;border-radius:999px;cursor:pointer;min-height:32px}
+.yi-sub{color:var(--muted);font-weight:700}
+.lang-yi .yi-sub{display:none}
+.filters{padding:0}
+.filters summary{list-style:none;cursor:pointer;padding:14px 18px;font-weight:700;display:flex;align-items:center;gap:8px}
+.filters summary::-webkit-details-marker{display:none}
+.filters summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+html[dir=rtl] .filters summary::after{margin-left:0;margin-right:auto}
+.filters[open] summary::after{transform:rotate(-135deg)}
+.filters form{padding:0 18px 16px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input[type=date]{-webkit-appearance:none;appearance:none}
+.feat-note{display:flex;gap:10px;align-items:center;border:1px dashed #d9b45a;background:#fdf7e6;color:#5c4813;border-radius:12px;padding:10px 14px;font-size:14px;margin:0 0 14px}
+.feat-note a{color:#7a5b0e;font-weight:700}
+.star{color:#c99a2e;font-size:18px;line-height:1}
+@media (prefers-color-scheme:dark){.feat-note{background:#2c2410;border-color:#6b5520;color:#f0dfb0}.feat-note a{color:#f3cf72}}
+.results{display:grid;gap:14px}
+@media (min-width:700px){.results{grid-template-columns:1fr 1fr}}
+.rent{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.rent.featured{border:2px solid #d9b45a}
+.rent .ph{aspect-ratio:16/10;background:var(--surface-2);overflow:hidden}
+.rent .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.rent .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.rent h3{margin:0;font-size:17px;line-height:1.3;unicode-bidi:plaintext}
+.badge{display:inline-flex;align-items:center;gap:4px;align-self:flex-start;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;background:#fdf1cc;color:#6b4f0a;letter-spacing:.02em}
+@media (prefers-color-scheme:dark){.badge{background:#3a2f10;color:#f3cf72}}
+.rent .price{font-weight:800;font-size:17px;color:var(--accent)}
+.rent .line{font-size:14px;color:var(--muted)}
+.rent .desc{font-size:14px;margin:2px 0 0;white-space:pre-line;unicode-bidi:plaintext}
+.rent .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.rent .acts .btn{flex:1 1 auto}
+.rent .posted{font-size:12px;color:var(--muted)}
+.empty{text-align:center;padding:34px 18px}
+.empty .ico{width:56px;height:56px;margin:0 auto 10px;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent)}
+.empty h2{margin:0 0 6px}
+.empty p{color:var(--muted);margin:0 0 14px}
+label.check{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:14px}
+label.check input{width:22px;height:22px;min-height:0;margin:1px 0 0;flex:none;accent-color:var(--accent)}
+footer p{margin:0}
+html[dir=rtl] .top nav{margin-left:0;margin-right:auto}
+html[dir=rtl] .counter{float:left}
+html[dir=rtl] body{font-family:"Noto Sans Hebrew","Arial Hebrew",var(--font)}
+.hp{left:0!important;top:0;opacity:0;pointer-events:none;clip-path:inset(50%)}
+html[dir=rtl],html[dir=rtl] body{overflow-x:clip}
