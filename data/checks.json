@@ -77,7 +77,7 @@
 "url": "https://www.urbanair.com/new-jersey-avenel/"
 },
 "104": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "social media page",
 "price": "not_found",
@@ -308,9 +308,9 @@
 "url": "https://harnessmuseum.com/"
 },
 "123": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
-"note": "website could not be loaded (HTTP 0)",
+"note": "website could not be loaded (HTTP 400)",
 "price": "not_found",
 "priceChanged": false,
 "siteHours": "",
@@ -319,7 +319,7 @@
 "url": "https://forestparkcarousel.com/"
 },
 "124": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -361,7 +361,7 @@
 "url": "https://fantasyislandlbi.com/"
 },
 "129": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -623,7 +623,7 @@
 "url": "https://abctoysusa.com/"
 },
 "150": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "social media page",
 "price": "not_found",
@@ -679,7 +679,7 @@
 },
 "155": {
 "checkedAt": "2026-11-15T16:43:47+00:00",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
@@ -790,7 +790,7 @@
 },
 "164": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -932,7 +932,7 @@
 "url": "https://www.capemaycountyzoo.org"
 },
 "176": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -943,7 +943,7 @@
 "url": "https://www.co.bergen.nj.us/bergen-county-zoo"
 },
 "177": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -996,7 +996,7 @@
 "url": "https://www.brandywinezoo.org"
 },
 "181": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -1039,7 +1039,7 @@
 },
 "185": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Guide hours/price fit Trailside Zoo",
 "price": "",
@@ -1158,7 +1158,7 @@
 "url": "https://plumptonparkzoo.org"
 },
 "195": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -1209,12 +1209,12 @@
 "url": "https://www.statenislandzoo.org"
 },
 "2": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
-"hours": "different",
-"note": "",
+"checkedAt": "2026-11-17T18:53:19+00:00",
+"hours": "not_found",
+"note": "Opening hours snippet incomplete",
 "price": "not_found",
 "priceChanged": false,
-"siteHours": "Sunday 11:00-20:00, Monday 10:00-21:00, Tuesday 16:00-21:00",
+"siteHours": "Sunday: 11:00-20:00, Monday: 10:00-21:00, Tuesday: 16:00-21:00",
 "sitePrice": "",
 "siteUp": true,
 "url": "https://jumpaltitude.com/woodbridge/"
@@ -1306,7 +1306,7 @@
 "url": "https://www.zooamerica.com/"
 },
 "207": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -1339,7 +1339,7 @@
 "url": "https://queenszoo.com"
 },
 "21": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -1444,7 +1444,7 @@
 },
 "219": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Seasonal mid-April to October; Thu-Sat vs guide Wed-Fri",
 "price": "",
@@ -1568,7 +1568,7 @@
 },
 "23": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -1691,7 +1691,7 @@
 },
 "241": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Tours at 10, 12, 2",
 "price": "",
@@ -1701,7 +1701,7 @@
 "url": "https://empirestateplaza.ny.gov/tours/new-york-state-capitol"
 },
 "242": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -1741,7 +1741,7 @@
 "url": "https://www.osv.org"
 },
 "246": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -1811,7 +1811,7 @@
 },
 "252": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Hours not on site text",
 "price": "",
@@ -1822,7 +1822,7 @@
 },
 "253": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "No fee info on page",
 "price": "",
@@ -1833,7 +1833,7 @@
 },
 "254": {
 "checkedAt": "2026-10-18T13:41:33+00:00",
-"downAt": "2026-11-11T17:35:38+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Website lists bridge tolls",
 "price": "",
@@ -1871,7 +1871,7 @@
 },
 "258": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -1927,7 +1927,7 @@
 },
 "264": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Park open April-Nov 1",
 "price": "",
@@ -1937,7 +1937,7 @@
 "url": "https://www.orangecountygov.com/1474/Gonzaga-Park"
 },
 "265": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -1966,7 +1966,7 @@
 "url": "https://parks.westchestercountyny.gov/croton-gorge-park"
 },
 "268": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2028,7 +2028,7 @@
 "url": "https://www.keldersfarm.com"
 },
 "273": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2075,7 +2075,7 @@
 "url": "https://www.hurdsfamilyfarm.com/"
 },
 "278": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2097,9 +2097,9 @@
 "url": "https://www.boonton.org/Facilities/Facility/Details/Grace-Lord-Park-3"
 },
 "28": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
-"note": "no hours or prices found in the page text",
+"note": "",
 "price": "not_found",
 "priceChanged": false,
 "siteHours": "",
@@ -2117,7 +2117,7 @@
 "url": "https://lawrencefarmsorchards.com/"
 },
 "281": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2128,7 +2128,7 @@
 "url": "https://www.rocklandcountyny.gov/Home/Components/FacilityDirectory/FacilityDirectory/22/169?widgetId=1264"
 },
 "282": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2139,7 +2139,7 @@
 "url": "https://www.orangecountygov.com/1475/Heritage-Trail"
 },
 "283": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -2179,14 +2179,14 @@
 "url": "https://littleisland.org/"
 },
 "287": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
-"note": "no hours or prices found in the page text",
+"note": "website could not be loaded (HTTP 429)",
 "price": "not_found",
 "priceChanged": false,
 "siteHours": "",
 "sitePrice": "",
-"siteUp": true,
+"siteUp": false,
 "url": "http://leeturkeyfarmnj.blogspot.com/"
 },
 "288": {
@@ -2230,7 +2230,7 @@
 "url": "https://longwoodgardens.org/"
 },
 "291": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -2250,7 +2250,7 @@
 "url": "https://njbg.org/"
 },
 "293": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -2262,7 +2262,7 @@
 },
 "294": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -2284,7 +2284,7 @@
 },
 "296": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Fee is Bear Mountain park vehicle entry",
 "price": "",
@@ -2294,7 +2294,7 @@
 "url": "https://parks.ny.gov/parks/bearmountain/"
 },
 "297": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -2354,7 +2354,7 @@
 "url": "https://www.phipps.conservatory.org/"
 },
 "301": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2383,7 +2383,7 @@
 "url": "https://www.nyc.gov/"
 },
 "304": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2403,7 +2403,7 @@
 "url": "https://www.bergencountynj.gov/"
 },
 "306": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2415,7 +2415,7 @@
 },
 "307": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -2426,7 +2426,7 @@
 },
 "308": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Trailhead not specifically listed",
 "price": "",
@@ -2467,14 +2467,14 @@
 "url": "https://www.villageofmonroe.org/"
 },
 "311": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
-"note": "no hours or prices found in the page text",
+"note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
 "priceChanged": false,
 "siteHours": "",
 "sitePrice": "",
-"siteUp": true,
+"siteUp": false,
 "url": "https://dep.nj.gov/parksandforests/state-park/ringwood-state-park/"
 },
 "312": {
@@ -2496,7 +2496,7 @@
 "url": "https://njbg.org/"
 },
 "314": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2516,7 +2516,7 @@
 "url": "https://www.rocklandbeetours.com/"
 },
 "316": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -2636,7 +2636,7 @@
 "url": "https://www.americandream.com"
 },
 "327": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -2800,7 +2800,7 @@
 },
 "343": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Store-specific hours not on site",
 "price": "",
@@ -2810,7 +2810,7 @@
 "url": "https://www.buildabear.com/"
 },
 "344": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -2831,7 +2831,7 @@
 },
 "346": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Store-specific hours not on site",
 "price": "",
@@ -2868,18 +2868,18 @@
 "url": "https://www.round1usa.com/"
 },
 "35": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "Monday: 10 AM–8 PM, Tuesday: 10 AM–8 PM, Wednesday: 10 AM–8 PM, Thursday: 10 AM–8 PM, Friday: 10 AM–8 PM, Saturday: 10 AM–8 PM, Sunday: 11 AM–6 PM",
+"siteHours": "Monday - Saturday: 10 AM–8 PM, Sunday: 11 AM–6 PM",
 "sitePrice": "One adult per child is FREE with an additional charge of $10 for each extra adult",
 "siteUp": true,
 "url": "https://goplayland.com/go-playland-nanuet/"
 },
 "350": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -2899,7 +2899,7 @@
 "url": "https://www.slimeworld.com/"
 },
 "352": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -2929,7 +2929,7 @@
 },
 "355": {
 "checkedAt": "2026-10-18T13:41:33+00:00",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -2975,13 +2975,13 @@
 "url": "https://www.familyfunfarm.com/"
 },
 "36": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
 "priceChanged": false,
 "siteHours": "Monday-Wednesday Closed, Thursday & Friday 12:00 pm - 5:30 pm, Saturday 10:00 am - 8:30 pm, Sunday 10:00 am - 7:30 pm",
-"sitePrice": "Child Admission (includes ONE adult): $19.95, Additional Adult Admission: $7.95, Non-mobile infant (under 10 months): FREE",
+"sitePrice": "Child Admission (includes ONE adult) $19.95, Additional Adult Admission $7.95, Non-mobile infant (under 10 months) FREE",
 "siteUp": true,
 "url": "https://www.funtimejunction.com/"
 },
@@ -3013,7 +3013,7 @@
 "url": "https://www.jumpcenter.com/"
 },
 "364": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 404)",
 "price": "not_found",
@@ -3044,7 +3044,7 @@
 "url": "https://skiholidaymtn.com/"
 },
 "367": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 404)",
 "price": "not_found",
@@ -3075,7 +3075,7 @@
 "url": "https://www.independenthelicopter.com/"
 },
 "37": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "same",
 "note": "",
 "price": "not_found",
@@ -3086,7 +3086,7 @@
 "url": "https://humdingersnj.com/"
 },
 "370": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -3281,9 +3281,9 @@
 "url": "https://www.whirlpooljet.com"
 },
 "39": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
-"note": "Open to the public for Chol Hamoed, vacation days, and summer months",
+"note": "Open to the public for Chol Hamoed, vacation days, and summer",
 "price": "not_found",
 "priceChanged": false,
 "siteHours": "",
@@ -3310,7 +3310,7 @@
 "url": "https://www.newportmansions.org/mansions-and-gardens/marble-house/"
 },
 "392": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 307)",
 "price": "not_found",
@@ -3351,7 +3351,7 @@
 },
 "396": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Admission not stated; weekends only now",
 "price": "",
@@ -3388,29 +3388,29 @@
 "url": "https://www.vikingtoursnewport.com"
 },
 "4": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
-"hours": "different",
-"note": "",
-"price": "same",
+"checkedAt": "2026-11-17T18:53:19+00:00",
+"hours": "not_found",
+"note": "Text shows hours/prices for multiple different locations",
+"price": "not_found",
 "priceChanged": false,
-"siteHours": "Mon - Thu 11 AM - 9 PM, 10 AM - 10 PM",
-"sitePrice": "$22.95, $18.95, Free, $15.95, 1st $8.95, $10.95, Billy Beez socks required and available for $3.19",
+"siteHours": "",
+"sitePrice": "",
 "siteUp": true,
 "url": "https://billybeezus.com/location/the-mall-at-bay-plaza/"
 },
 "40": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "Sunday 11 am - 5 pm, Monday 11 am - 5 pm, Tuesday-Wednesday CLOSED, Thursday 3 pm - 9 pm, Friday-Saturday 11 am - 5 pm",
-"sitePrice": "$5 admission fee per person includes two hours of crafting, all materials, and tools; projects $33 to $220",
+"siteHours": "Sunday 11 am - 5 pm, Monday 11 am - 5 pm, Tuesday-Wednesday CLOSED, Thursday 3 pm - 9 pm, Friday 11 am - 5 pm, Saturday 11 am - 5 pm",
+"sitePrice": "$5 admission fee per person; project materials range $33 to $220",
 "siteUp": true,
 "url": "https://www.umakeglass.com/"
 },
 "400": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -3585,13 +3585,13 @@
 "url": "https://www.jimthorpetrolley.com/"
 },
 "42": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
-"hours": "different",
-"note": "Hours vary by location",
-"price": "same",
+"checkedAt": "2026-11-17T18:53:19+00:00",
+"hours": "not_found",
+"note": "Text lists multiple locations with conflicting hours and prices",
+"price": "not_found",
 "priceChanged": false,
-"siteHours": "Sunday - Thursday: 12:00 PM - 8:00 PM. Friday: Closed",
-"sitePrice": "$15.99 to $29.99",
+"siteHours": "",
+"sitePrice": "",
 "siteUp": true,
 "url": "https://www.hooplavip.com/"
 },
@@ -3632,7 +3632,7 @@
 "url": "https://www.saugertiesmarina.com"
 },
 "426": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -3653,7 +3653,7 @@
 },
 "429": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -3663,7 +3663,7 @@
 "url": "https://dec.ny.gov/places/kaaterskill-wild-forest"
 },
 "43": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "same",
 "note": "",
 "price": "not_found",
@@ -3721,7 +3721,7 @@
 "url": "https://www.lancastercountyparks.org/"
 },
 "436": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -3752,7 +3752,7 @@
 "url": "https://www.aaabuggyrides.com"
 },
 "439": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -3763,13 +3763,13 @@
 "url": "https://www.crystalcavepa.com"
 },
 "44": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "Monday through Thursday 10:00 am - 8:00 pm, Friday through Sunday 10:00 am - 10:00 pm",
-"sitePrice": "$17.90 to $24.90 (2 free adults per kid), Free for 0-11 months infants accompanying siblings, $5 per additional adult",
+"siteHours": "10:00 am - 8:00 pm Monday through Thursday, 10:00 am - 10:00 pm Friday through Sunday",
+"sitePrice": "General Admission: $17.90 to $24.90 (2 free adults per child), Free for 0-11 months infants with siblings, $5 per additional adult",
 "siteUp": true,
 "url": "https://www.kidsempire.com/"
 },
@@ -3792,7 +3792,7 @@
 "url": "https://www.kreiderfarms.com"
 },
 "442": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -3848,7 +3848,7 @@
 "url": "https://www.amishvillage.com"
 },
 "448": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 404)",
 "price": "not_found",
@@ -3868,18 +3868,18 @@
 "url": "https://www.juliussturgis.com"
 },
 "45": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "MON-THU: 12:00PM - 10:00PM, FRI: 12:00PM - 12:00AM, SAT: 10:00AM - 12:00AM, SUN: 10:00AM - 10:00PM",
-"sitePrice": "Admission is free to spectate; 1-RACE: $24, 2-RACE: $42, 3-RACE: $58, SPEEDPASS: $60; Annual License: $8.50",
+"siteHours": "Mon-Thu 12:00PM - 10:00PM, Fri 12:00PM - 12:00AM, Sat 10:00AM - 12:00AM, Sun 10:00AM - 10:00PM",
+"sitePrice": "Admission is free if spectate; 1-RACE: $24, 2-RACE: $42, 3-RACE: $58, SPEEDPASS: $60; Annual License: $8.50",
 "siteUp": true,
 "url": "https://www.k1speed.com/mount-kisco-location.html"
 },
 "450": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -3899,7 +3899,7 @@
 "url": "https://www.spymuseum.org"
 },
 "452": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -3940,7 +3940,7 @@
 },
 "456": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Gardens closed Oct 8-10",
 "price": "",
@@ -4084,13 +4084,13 @@
 "url": "https://www.bigbearsnowplay.com"
 },
 "47": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
-"hours": "not_found",
+"checkedAt": "2026-11-17T18:53:19+00:00",
+"hours": "different",
 "note": "",
 "price": "not_found",
 "priceChanged": false,
-"siteHours": "",
-"sitePrice": "",
+"siteHours": "Sunday 10:00-18:00, Monday 10:30-13:00, Tuesday 14:00-21:00",
+"sitePrice": "Friends and family can come watch for free",
 "siteUp": true,
 "url": "https://www.iflyworld.com/queens/"
 },
@@ -4142,7 +4142,7 @@
 "url": "https://www.palmspringsairmuseum.org"
 },
 "475": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -4191,7 +4191,7 @@
 "url": "https://www.kidsempire.com/"
 },
 "480": {
-"checkedAt": "2026-11-01T16:31:50+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -4213,7 +4213,7 @@
 "url": "https://pstramway.com"
 },
 "482": {
-"checkedAt": "2026-11-13T17:26:52+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -4224,7 +4224,7 @@
 "url": "https://www.fs.usda.gov/coronado"
 },
 "483": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -4272,7 +4272,7 @@
 },
 "488": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -4396,24 +4396,24 @@
 "url": "https://www.caywoodfarms.com/"
 },
 "5": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "different",
 "note": "",
 "price": "not_found",
 "priceChanged": false,
-"siteHours": "Monday-Tuesday: Closed, Wednesday-Friday: 5pm – 11pm, Saturday: 11am-11pm, Sunday: 11am-8pm",
+"siteHours": "Mon-Tue: Closed, Wed-Fri: 5pm-11pm, Sat: 11am-11pm, Sun: 11am-8pm",
 "sitePrice": "",
 "siteUp": true,
 "url": "https://area53nyc.com/williamsburg/"
 },
 "50": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
-"hours": "not_found",
+"checkedAt": "2026-11-17T18:53:19+00:00",
+"hours": "different",
 "note": "",
 "price": "not_found",
 "priceChanged": false,
-"siteHours": "",
-"sitePrice": "",
+"siteHours": "Sunday 10:00-18:00, Tuesday 14:00-22:00, Wednesday 12:00-20:00",
+"sitePrice": "Friends and family can come watch for free",
 "siteUp": true,
 "url": "https://www.iflyworld.com/westchester/"
 },
@@ -4463,7 +4463,7 @@
 },
 "504": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "",
 "price": "",
@@ -4500,7 +4500,7 @@
 "url": "https://www.visitsealife.com/arizona/"
 },
 "508": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -4512,7 +4512,7 @@
 },
 "509": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Tour prices not shown",
 "price": "",
@@ -4575,7 +4575,7 @@
 "url": "https://www.skywheelmb.com"
 },
 "515": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -4604,7 +4604,7 @@
 "url": "https://www.ripleys.com/myrtlebeach/"
 },
 "518": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -4731,12 +4731,12 @@
 "url": "https://aquariusboattours.com/"
 },
 "53": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
-"hours": "not_found",
-"note": "no hours or prices found in the page text",
+"checkedAt": "2026-11-17T18:53:19+00:00",
+"hours": "different",
+"note": "",
 "price": "not_found",
 "priceChanged": false,
-"siteHours": "",
+"siteHours": "Monday 9:30 AM - 3:30 PM; Tuesday 9:30 AM - 3:30 PM, 7:00 PM - 9:30 PM; Wednesday 9:30 AM - 3:30 PM; Thursday 7:00 PM - 9:30 PM; Friday 3:00 PM - 5:00 PM; Sat.-",
 "sitePrice": "",
 "siteUp": true,
 "url": "https://jillsceramics.com"
@@ -4769,7 +4769,7 @@
 "url": "https://monkeyjungle.com"
 },
 "533": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -4780,7 +4780,7 @@
 "url": "https://www.miamiseaquarium.com"
 },
 "534": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -4827,13 +4827,13 @@
 "url": "https://www.zoomiami.org"
 },
 "54": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
-"hours": "not_found",
+"checkedAt": "2026-11-17T18:53:19+00:00",
+"hours": "different",
 "note": "",
 "price": "not_found",
 "priceChanged": false,
-"siteHours": "",
-"sitePrice": "",
+"siteHours": "Sunday 10:00-19:00, Tuesday 14:00-21:00, Wednesday 11:00-21:00",
+"sitePrice": "Spectators attending birthday parties can watch for free",
 "siteUp": true,
 "url": "https://www.iflyworld.com/paramus/"
 },
@@ -4887,7 +4887,7 @@
 "url": "https://www.k1speed.com/"
 },
 "545": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 400)",
 "price": "not_found",
@@ -4980,13 +4980,13 @@
 "url": "https://www.stuartsfarm.com/"
 },
 "56": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "Mon 3:00PM-8:30PM; Fri 3:00PM-10:00PM; Sat 10:00AM-8:30PM; Sun 9PM-11PM",
-"sitePrice": "One Hour Action Pass $25; Parent Pass $10; Launch grip socks $4",
+"siteHours": "MONDAY 3:00PM-8:30PM, FRIDAY 3:00PM- 10:00PM, SATURDAY 10:00AM-8:30PM, SUNDAY 9PM - 11PM",
+"sitePrice": "One Hour Action Pass $25, Parent Pass $10, Launch grip socks $4",
 "siteUp": true,
 "url": "https://launchfamilyentertainment.com/queens/"
 },
@@ -5002,7 +5002,7 @@
 "url": "https://www.ramapoparks.org/page/town-parks-2.html"
 },
 "563": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5024,7 +5024,7 @@
 "url": "http://www.ramapoparks.org/index.php?s=2"
 },
 "567": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -5035,7 +5035,7 @@
 "url": "http://www.nycgovparks.org/parks/fmcp"
 },
 "569": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -5046,13 +5046,13 @@
 "url": "http://parks.westchestergov.com/kingsland-point-park"
 },
 "57": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
-"hours": "not_found",
-"note": "no hours or prices found in the page text",
-"price": "not_found",
+"checkedAt": "2026-11-17T18:53:19+00:00",
+"hours": "same",
+"note": "",
+"price": "same",
 "priceChanged": false,
-"siteHours": "",
-"sitePrice": "",
+"siteHours": "Monday-Friday 12:00 pm - 8:00 pm, Saturday-Sunday 10:00 am - 8:00 pm",
+"sitePrice": "Mon-Fri: $15 per Child & 2 Adults/Each Add Adult $5; Sat-Sun/Holidays: $15 per Child & 1 Adult/Each Add Adult $5",
 "siteUp": true,
 "url": "https://www.land-o-fun.com/"
 },
@@ -5079,7 +5079,7 @@
 "url": "https://www.kidsnshape.com/"
 },
 "581": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 404)",
 "price": "not_found",
@@ -5090,7 +5090,7 @@
 "url": "http://njpalisades.org/stateline.html"
 },
 "584": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5101,7 +5101,7 @@
 "url": "https://parks.ny.gov/parks/watkinsglen"
 },
 "587": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5112,7 +5112,7 @@
 "url": "https://www.villageofossiningny.gov/recreation-and-parks-department"
 },
 "59": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "",
 "price": "same",
@@ -5123,7 +5123,7 @@
 "url": "https://littleexplorersplayhouse.com"
 },
 "592": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 404)",
 "price": "not_found",
@@ -5178,7 +5178,7 @@
 "url": "http://www.escaperoomnj.com/"
 },
 "6": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "",
 "price": "not_found",
@@ -5255,7 +5255,7 @@
 "url": "http://timeinstudio.com/"
 },
 "629": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 404)",
 "price": "not_found",
@@ -5266,13 +5266,13 @@
 "url": "https://www.wildchildplayspace.com/"
 },
 "63": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
-"note": "Hours vary by date",
+"note": "",
 "price": "same",
 "priceChanged": false,
 "siteHours": "",
-"sitePrice": "Tickets from $24.99; Admission: $24.99, $27.99; Annual Pass: $69",
+"sitePrice": "Tickets from $24.99; ADMISSION: $24.99, $27.99; Annual Pass: $69",
 "siteUp": true,
 "url": "https://www.legolanddiscoverycenter.com/westchester/"
 },
@@ -5310,7 +5310,7 @@
 "url": "http://www.lucytheelephant.org/"
 },
 "641": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5321,7 +5321,7 @@
 "url": "https://www.tenement.org/"
 },
 "645": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5343,7 +5343,7 @@
 "url": "http://www.waterfrontmuseum.org/"
 },
 "649": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -5354,7 +5354,7 @@
 "url": "http://nps.gov/vama"
 },
 "65": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "social media page",
 "price": "not_found",
@@ -5365,7 +5365,7 @@
 "url": "https://www.facebook.com/kidspoint772/"
 },
 "651": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -5387,7 +5387,7 @@
 "url": "http://www.nywaterway.com/HobokenNJTransitTerminalTerminal.aspx"
 },
 "657": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5398,7 +5398,7 @@
 "url": "http://www.nyharborparks.org/visit/jari.html"
 },
 "658": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -5442,7 +5442,7 @@
 "url": "https://airboundaviation.com/"
 },
 "665": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 429)",
 "price": "not_found",
@@ -5453,7 +5453,7 @@
 "url": "https://www.centralparkpedicabs.com/"
 },
 "668": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5464,7 +5464,7 @@
 "url": "https://www.rocklandcountyny.gov/Home/Components/FacilityDirectory/FacilityDirectory/14/169"
 },
 "669": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -5475,18 +5475,18 @@
 "url": "https://www.nycgovparks.org/parks/gravesend-park"
 },
 "67": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "Sunday- Thursday 10:00 AM - 6:00 PM, Friday - Saturday 10:00 AM - 7:00 PM",
-"sitePrice": "$20 for one hour including one kid and one adult. $25 for two hours including one kid and one adult. Additional adult is $10",
+"siteHours": "Sunday-Thursday 10:00 AM - 6:00 PM, Friday-Saturday 10:00 AM - 7:00 PM",
+"sitePrice": "$20 for one hour including one kid and one adult; $25 for two hours; Additional adult $10",
 "siteUp": true,
 "url": "https://www.peekabooonyc.com/"
 },
 "671": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -5497,7 +5497,7 @@
 "url": "https://www.nycgovparks.org/parks/mckinley-park"
 },
 "672": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -5508,7 +5508,7 @@
 "url": "https://www.nycgovparks.org/parks/owls-head-park"
 },
 "673": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -5519,7 +5519,7 @@
 "url": "https://www.nycgovparks.org/parks/sunset-park"
 },
 "674": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5530,7 +5530,7 @@
 "url": "https://parks.ny.gov/visit/state-parks/rockland-lake-state-park"
 },
 "676": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5541,7 +5541,7 @@
 "url": "https://parks.ny.gov/visit/state-parks/tallman-mountain-state-park"
 },
 "677": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5552,7 +5552,7 @@
 "url": "https://dec.ny.gov/places/slide-mountain-wilderness"
 },
 "678": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5563,18 +5563,18 @@
 "url": "https://parks.ny.gov/visit/state-parks/harriman-state-park"
 },
 "68": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "Monday - Thursday 10am - 8pm, Fridays & Saturdays 10am - 10pm, Sunday 10am - 7pm",
+"siteHours": "Monday – Thursday 10am – 8pm, Fridays & Saturdays 10am – 10pm, Sunday 10am – 7pm",
 "sitePrice": "Adult Admission, ages 13 & over: $22; Child Admission, ages 3-12 years old: $8; Children 2 years & under, with a paid adult: $0",
 "siteUp": true,
 "url": "https://autoshowny.com/"
 },
 "682": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5585,7 +5585,7 @@
 "url": "https://feroxathletics.com/"
 },
 "683": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5596,18 +5596,18 @@
 "url": "https://feroxathletics.com/ninja-park-lic/"
 },
 "69": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "Monday–Thursday: 9AM – 12AM; Friday–Saturday: 9AM – 1AM; Sunday: 9AM – 12AM",
+"siteHours": "Sun-Thu 9AM–12AM, Fri-Sat 9AM–1AM",
 "sitePrice": "Mon-Fri 9am-5pm $60/hr; Sat-Sun 9am-5pm $65/hr; Sun-Thu 5pm-Closing $65/hr; Fri-Sat 5pm-Closing $70/hr",
 "siteUp": true,
 "url": "https://melodylanesny.com"
 },
 "691": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -5618,7 +5618,7 @@
 "url": "https://www.nycgovparks.org/parks/fdr-boardwalk-and-beach"
 },
 "692": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5629,7 +5629,7 @@
 "url": "https://parks.ny.gov/parks/jonesbeach/"
 },
 "693": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "no hours or prices found in the page text",
 "price": "not_found",
@@ -5640,7 +5640,7 @@
 "url": "https://ellenvilleflightpark.com/"
 },
 "694": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 405)",
 "price": "not_found",
@@ -5651,7 +5651,7 @@
 "url": "https://www.nycgovparks.org/parks/planeview-park"
 },
 "699": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 403)",
 "price": "not_found",
@@ -5706,7 +5706,7 @@
 "url": "https://www.pumpitupparty.com/roselle-park-nj/"
 },
 "72": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "social media page",
 "price": "not_found",
@@ -5728,13 +5728,13 @@
 "url": "https://monsterminigolf.com/locations/us/nj/paramus/"
 },
 "74": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "different",
 "note": "",
 "price": "same",
 "priceChanged": false,
 "siteHours": "Sun-Thu 10AM to 12AM (Midnight), Fri- Sat 10AM to 1AM",
-"sitePrice": "Shoes $5.25; Bowling: Mon-Thu $8.75-$39.50, Fri $9.25-$45.00, Sun/Holiday $10.25-$43.00; Billiards & Ping Pong $11.00-$19.00",
+"sitePrice": "Shoes rental $5.25 per person; Bowling Mon-Thu Open-4pm $8.75-$34.25, 4pm-Close $9.75-$39.50; Fri $9.25-$45.00; Sun/Hol $10.25-$43.00; Billiards/Ping Pong $11.0",
 "siteUp": true,
 "url": "https://www.round1usa.com/locations/016bwm"
 },
@@ -5761,7 +5761,7 @@
 "url": "https://www.peddlersandparchments.com/escape-room-brooklyn"
 },
 "77": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "website could not be loaded (HTTP 0)",
 "price": "not_found",
@@ -5772,13 +5772,13 @@
 "url": "https://montvalelanes.com"
 },
 "78": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "same",
 "note": "",
 "price": "same",
 "priceChanged": false,
-"siteHours": "8am - 7pm, 365 days a year",
-"sitePrice": "Grip socks: $1 (required for play equipment)",
+"siteHours": "8am - 7pm, 365 days a year!",
+"sitePrice": "grip socks are required for anyone using the play equipment and are available for $1",
 "siteUp": true,
 "url": "https://spaceclub.com/"
 },
@@ -5816,12 +5816,12 @@
 "url": "https://www.skyzone.com/spring-valley-ny/"
 },
 "81": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "same",
 "note": "",
 "price": "not_found",
 "priceChanged": false,
-"siteHours": "Monday - Thursday: 12 PM - 10 PM, Friday: 12 PM - 11 PM, Saturday: 10 AM - 11 PM, Sunday: 10 AM - 10 PM",
+"siteHours": "Monday - Thursday: 12 PM - 10 PM, Friday: 12 PM-11 PM, Saturday: 10 AM-11 PM, Sunday: 10 AM-10 PM",
 "sitePrice": "",
 "siteUp": true,
 "url": "https://www.rpmraceway.com/locations/long-island-ny"
@@ -5838,7 +5838,7 @@
 "url": "https://spaceclub.com/"
 },
 "83": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "",
 "price": "not_found",
@@ -5872,7 +5872,7 @@
 },
 "86": {
 "checkedAt": "2026-10-02T10:17:18Z",
-"downAt": "2026-11-16T19:57:42+00:00",
+"downAt": "2026-11-17T18:53:19+00:00",
 "hours": "",
 "note": "Admission prices not found",
 "price": "",
@@ -5904,7 +5904,7 @@
 "url": "https://www.skyzone.com/springfield-nj/"
 },
 "89": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "social media page",
 "price": "not_found",
@@ -5915,7 +5915,7 @@
 "url": "https://www.facebook.com/RunningKidsInc/"
 },
 "9": {
-"checkedAt": "2026-11-15T16:43:47+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "",
 "price": "same",
@@ -6012,7 +6012,7 @@
 "url": "https://www.superchargednj.com/"
 },
 "98": {
-"checkedAt": "2026-11-16T19:57:42+00:00",
+"checkedAt": "2026-11-17T18:53:19+00:00",
 "hours": "not_found",
 "note": "social media page",
 "price": "not_found",
